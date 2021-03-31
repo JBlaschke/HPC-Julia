@@ -1,0 +1,3 @@
+[submodule "MPIArrays.jl"]
+	path = MPIArrays.jl
+	url = https://github.com/barche/MPIArrays.jl.git

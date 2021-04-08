@@ -1,3 +1,6 @@
 [submodule "MPIArrays.jl"]
 	path = MPIArrays.jl
 	url = https://github.com/barche/MPIArrays.jl.git
+[submodule "presentation/julia for python/05_mpi/MPIArrays.jl"]
+	path = docs/julia for python users/05_mpi/MPIArrays.jl
+	url = https://github.com/barche/MPIArrays.jl.git

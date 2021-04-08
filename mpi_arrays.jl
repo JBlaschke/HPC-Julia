@@ -9,7 +9,7 @@ comm = MPI.COMM_WORLD
 rank = MPI.Comm_rank(comm)
 size = MPI.Comm_size(comm)
 
-println("Hello world, I am $(rank) of $(size)")
+println("Hello world, I am rank $(rank) of $(size) on $(gethostname())")
 
 MPI.Barrier(comm)
 

@@ -5,5 +5,5 @@ examples [here](https://github.com/JBlaschke/HPC-Julia).
 
 ## Presentations
 
-[Julia for Python Users](julia%20for%20python%20users)
-[Julia for Data Science](julia%20for%20data%20science)
+1. [Julia for Python Users](julia%20for%20python%20users)
+2. [Julia for Data Science](julia%20for%20data%20science)

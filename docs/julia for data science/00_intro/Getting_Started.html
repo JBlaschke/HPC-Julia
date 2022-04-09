@@ -14641,14 +14641,26 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Getting-Started-With-Julia">Getting Started With Julia<a class="anchor-link" href="#Getting-Started-With-Julia">&#182;</a></h1><p>Get Julia:</p>
+<h1 id="Getting-Started-With-Julia">Getting Started With Julia<a class="anchor-link" href="#Getting-Started-With-Julia">&#182;</a></h1><p>(<a href="../index.html#/0/2">Back to Overview</a>)</p>
+<p>Get Julia:</p>
 <ol>
 <li>Debian/Ubuntu: <code>apt-get install julia</code></li>
 <li>macOS: <code>brew install --cask julia</code></li>
+<li>Juliaup: <a href="https://github.com/JuliaLang/juliaup">https://github.com/JuliaLang/juliaup</a></li>
 <li>Manual install: <a href="https://julialang.org/downloads/">https://julialang.org/downloads/</a></li>
 </ol>
+
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Interact with Julia using:</p>
-<p>(<a href="../index.html#/0/2">Back to Overview</a>)</p>
 
 </div>
 </div>
@@ -14695,6 +14707,7 @@ julia hello.jl
 <span class="n">installkernel</span><span class="p">(</span><span class="s">&quot;Julia&quot;</span><span class="p">)</span>
 </pre></div>
 <p>... then start your favorite Jupyter instance</p>
+<p><strong>We'll be using Jupyter for the rest of this tutorial</strong></p>
 
 </div>
 </div>
@@ -14706,7 +14719,11 @@ julia hello.jl
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Option-4:-The-Juno-IDE:-https://junolab.org/">Option 4: The Juno IDE: <a href="https://junolab.org/">https://junolab.org/</a><a class="anchor-link" href="#Option-4:-The-Juno-IDE:-https://junolab.org/">&#182;</a></h3><p><img src="ide.png" alt="ide"></p>
+<h3 id="Option-4:-Dedicated-IDE">Option 4: Dedicated IDE<a class="anchor-link" href="#Option-4:-Dedicated-IDE">&#182;</a></h3><ul>
+<li>Juno <a href="https://junolab.org/">https://junolab.org/</a></li>
+<li>VScode <a href="https://code.visualstudio.com/docs/languages/julia">https://code.visualstudio.com/docs/languages/julia</a></li>
+</ul>
+<p><img src="ide.png" alt="ide"></p>
 
 </div>
 </div>
@@ -14718,11 +14735,73 @@ julia hello.jl
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="First-Steps">First Steps<a class="anchor-link" href="#First-Steps">&#182;</a></h2>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Let's start with Hello World</p>
+
+</div>
+</div>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Hello World&quot;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Hello World
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div></div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Package-Management">Package Management<a class="anchor-link" href="#Package-Management">&#182;</a></h2>
 </div>
 </div>
 </div>
-</div>
+</div><div class="fragment">
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -14738,7 +14817,7 @@ julia hello.jl
 </div>
 </div>
 </div>
-</div></section><section>
+</div></div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -14827,6 +14906,334 @@ julia hello.jl
 </div>
 </div>
 </div></div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Environments">Environments<a class="anchor-link" href="#Environments">&#182;</a></h2>
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Environments are a good way of managing dependencies</p>
+
+</div>
+</div>
+</div>
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">cd</span><span class="p">(</span><span class="n">mktempdir</span><span class="p">())</span>
+<span class="n">pwd</span><span class="p">()</span> <span class="c"># print current directory</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>&#34;/private/var/folders/gy/fk8y1bkd5b78l0n687jwhzkc0029yh/T/jl_6mEUMv&#34;</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div></div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>This creates an empty temporary folder</p>
+
+</div>
+</div>
+</div>
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">readdir</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>String[]</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Let's use this directory as a Julia environment</p>
+
+</div>
+</div>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="k">import</span> <span class="n">Pkg</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">Pkg</span><span class="o">.</span><span class="n">activate</span><span class="p">(</span><span class="s">&quot;.&quot;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre><span class="ansi-green-intense-fg ansi-bold">  Activating</span> new project at `/private/var/folders/gy/fk8y1bkd5b78l0n687jwhzkc0029yh/T/jl_6mEUMv`
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">Pkg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&quot;CSV&quot;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre><span class="ansi-green-intense-fg ansi-bold">   Resolving</span> package versions...
+<span class="ansi-green-intense-fg ansi-bold">    Updating</span> `/private/var/folders/gy/fk8y1bkd5b78l0n687jwhzkc0029yh/T/jl_6mEUMv/Project.toml`
+ <span class="ansi-black-intense-fg"> [336ed68f] </span><span class="ansi-green-intense-fg">+ CSV v0.10.4</span>
+<span class="ansi-green-intense-fg ansi-bold">    Updating</span> `/private/var/folders/gy/fk8y1bkd5b78l0n687jwhzkc0029yh/T/jl_6mEUMv/Manifest.toml`
+ <span class="ansi-black-intense-fg"> [336ed68f] </span><span class="ansi-green-intense-fg">+ CSV v0.10.4</span>
+ <span class="ansi-black-intense-fg"> [944b1d66] </span><span class="ansi-green-intense-fg">+ CodecZlib v0.7.0</span>
+ <span class="ansi-black-intense-fg"> [34da2185] </span><span class="ansi-green-intense-fg">+ Compat v3.42.0</span>
+ <span class="ansi-black-intense-fg"> [9a962f9c] </span><span class="ansi-green-intense-fg">+ DataAPI v1.9.0</span>
+ <span class="ansi-black-intense-fg"> [e2d170a0] </span><span class="ansi-green-intense-fg">+ DataValueInterfaces v1.0.0</span>
+ <span class="ansi-black-intense-fg"> [48062228] </span><span class="ansi-green-intense-fg">+ FilePathsBase v0.9.18</span>
+ <span class="ansi-black-intense-fg"> [842dd82b] </span><span class="ansi-green-intense-fg">+ InlineStrings v1.1.2</span>
+ <span class="ansi-black-intense-fg"> [82899510] </span><span class="ansi-green-intense-fg">+ IteratorInterfaceExtensions v1.0.0</span>
+ <span class="ansi-black-intense-fg"> [bac558e1] </span><span class="ansi-green-intense-fg">+ OrderedCollections v1.4.1</span>
+ <span class="ansi-black-intense-fg"> [69de0a69] </span><span class="ansi-green-intense-fg">+ Parsers v2.2.4</span>
+ <span class="ansi-black-intense-fg"> [2dfb63ee] </span><span class="ansi-green-intense-fg">+ PooledArrays v1.4.1</span>
+ <span class="ansi-black-intense-fg"> [91c51154] </span><span class="ansi-green-intense-fg">+ SentinelArrays v1.3.12</span>
+ <span class="ansi-black-intense-fg"> [3783bdb8] </span><span class="ansi-green-intense-fg">+ TableTraits v1.0.1</span>
+ <span class="ansi-black-intense-fg"> [bd369af6] </span><span class="ansi-green-intense-fg">+ Tables v1.7.0</span>
+ <span class="ansi-black-intense-fg"> [3bb67fe8] </span><span class="ansi-green-intense-fg">+ TranscodingStreams v0.9.6</span>
+ <span class="ansi-black-intense-fg"> [ea10d353] </span><span class="ansi-green-intense-fg">+ WeakRefStrings v1.4.2</span>
+ <span class="ansi-black-intense-fg"> [0dad84c5] </span><span class="ansi-green-intense-fg">+ ArgTools</span>
+ <span class="ansi-black-intense-fg"> [56f22d72] </span><span class="ansi-green-intense-fg">+ Artifacts</span>
+ <span class="ansi-black-intense-fg"> [2a0f44e3] </span><span class="ansi-green-intense-fg">+ Base64</span>
+ <span class="ansi-black-intense-fg"> [ade2ca70] </span><span class="ansi-green-intense-fg">+ Dates</span>
+ <span class="ansi-black-intense-fg"> [8bb1440f] </span><span class="ansi-green-intense-fg">+ DelimitedFiles</span>
+ <span class="ansi-black-intense-fg"> [8ba89e20] </span><span class="ansi-green-intense-fg">+ Distributed</span>
+ <span class="ansi-black-intense-fg"> [f43a241f] </span><span class="ansi-green-intense-fg">+ Downloads</span>
+ <span class="ansi-black-intense-fg"> [9fa8497b] </span><span class="ansi-green-intense-fg">+ Future</span>
+ <span class="ansi-black-intense-fg"> [b77e0a4c] </span><span class="ansi-green-intense-fg">+ InteractiveUtils</span>
+ <span class="ansi-black-intense-fg"> [b27032c2] </span><span class="ansi-green-intense-fg">+ LibCURL</span>
+ <span class="ansi-black-intense-fg"> [76f85450] </span><span class="ansi-green-intense-fg">+ LibGit2</span>
+ <span class="ansi-black-intense-fg"> [8f399da3] </span><span class="ansi-green-intense-fg">+ Libdl</span>
+ <span class="ansi-black-intense-fg"> [37e2e46d] </span><span class="ansi-green-intense-fg">+ LinearAlgebra</span>
+ <span class="ansi-black-intense-fg"> [56ddb016] </span><span class="ansi-green-intense-fg">+ Logging</span>
+ <span class="ansi-black-intense-fg"> [d6f4376e] </span><span class="ansi-green-intense-fg">+ Markdown</span>
+ <span class="ansi-black-intense-fg"> [a63ad114] </span><span class="ansi-green-intense-fg">+ Mmap</span>
+ <span class="ansi-black-intense-fg"> [ca575930] </span><span class="ansi-green-intense-fg">+ NetworkOptions</span>
+ <span class="ansi-black-intense-fg"> [44cfe95a] </span><span class="ansi-green-intense-fg">+ Pkg</span>
+ <span class="ansi-black-intense-fg"> [de0858da] </span><span class="ansi-green-intense-fg">+ Printf</span>
+ <span class="ansi-black-intense-fg"> [3fa0cd96] </span><span class="ansi-green-intense-fg">+ REPL</span>
+ <span class="ansi-black-intense-fg"> [9a3f8284] </span><span class="ansi-green-intense-fg">+ Random</span>
+ <span class="ansi-black-intense-fg"> [ea8e919c] </span><span class="ansi-green-intense-fg">+ SHA</span>
+ <span class="ansi-black-intense-fg"> [9e88b42a] </span><span class="ansi-green-intense-fg">+ Serialization</span>
+ <span class="ansi-black-intense-fg"> [1a1011a3] </span><span class="ansi-green-intense-fg">+ SharedArrays</span>
+ <span class="ansi-black-intense-fg"> [6462fe0b] </span><span class="ansi-green-intense-fg">+ Sockets</span>
+ <span class="ansi-black-intense-fg"> [2f01184e] </span><span class="ansi-green-intense-fg">+ SparseArrays</span>
+ <span class="ansi-black-intense-fg"> [10745b16] </span><span class="ansi-green-intense-fg">+ Statistics</span>
+ <span class="ansi-black-intense-fg"> [fa267f1f] </span><span class="ansi-green-intense-fg">+ TOML</span>
+ <span class="ansi-black-intense-fg"> [a4e569a6] </span><span class="ansi-green-intense-fg">+ Tar</span>
+ <span class="ansi-black-intense-fg"> [8dfed614] </span><span class="ansi-green-intense-fg">+ Test</span>
+ <span class="ansi-black-intense-fg"> [cf7118a7] </span><span class="ansi-green-intense-fg">+ UUIDs</span>
+ <span class="ansi-black-intense-fg"> [4ec0a83e] </span><span class="ansi-green-intense-fg">+ Unicode</span>
+ <span class="ansi-black-intense-fg"> [e66e0078] </span><span class="ansi-green-intense-fg">+ CompilerSupportLibraries_jll</span>
+ <span class="ansi-black-intense-fg"> [deac9b47] </span><span class="ansi-green-intense-fg">+ LibCURL_jll</span>
+ <span class="ansi-black-intense-fg"> [29816b5a] </span><span class="ansi-green-intense-fg">+ LibSSH2_jll</span>
+ <span class="ansi-black-intense-fg"> [c8ffd9c3] </span><span class="ansi-green-intense-fg">+ MbedTLS_jll</span>
+ <span class="ansi-black-intense-fg"> [14a3606d] </span><span class="ansi-green-intense-fg">+ MozillaCACerts_jll</span>
+ <span class="ansi-black-intense-fg"> [4536629a] </span><span class="ansi-green-intense-fg">+ OpenBLAS_jll</span>
+ <span class="ansi-black-intense-fg"> [83775a58] </span><span class="ansi-green-intense-fg">+ Zlib_jll</span>
+ <span class="ansi-black-intense-fg"> [8e850b90] </span><span class="ansi-green-intense-fg">+ libblastrampoline_jll</span>
+ <span class="ansi-black-intense-fg"> [8e850ede] </span><span class="ansi-green-intense-fg">+ nghttp2_jll</span>
+ <span class="ansi-black-intense-fg"> [3f19e933] </span><span class="ansi-green-intense-fg">+ p7zip_jll</span>
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div></div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">readdir</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[19]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>2-element Vector{String}:
+ &#34;Manifest.toml&#34;
+ &#34;Project.toml&#34;</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">

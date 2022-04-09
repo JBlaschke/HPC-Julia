@@ -14648,6 +14648,7 @@ div.jp-OutputPrompt {
 <li>Manual install: <a href="https://julialang.org/downloads/">https://julialang.org/downloads/</a></li>
 </ol>
 <p>Interact with Julia using:</p>
+<p>(<a href="../index.html#/0/2">Back to Overview</a>)</p>
 
 </div>
 </div>
@@ -14659,10 +14660,7 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<ol>
-<li>The REPL: <code>julia</code></li>
-</ol>
-<p><img src="repl.png" alt="repl"></p>
+<h3 id="Option-1:-The-REPL:-julia">Option 1: The REPL: <code>julia</code><a class="anchor-link" href="#Option-1:-The-REPL:-julia">&#182;</a></h3><p><img src="repl.png" alt="repl"></p>
 
 </div>
 </div>
@@ -14674,10 +14672,7 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<ol>
-<li>Your favorite editor/CLI</li>
-</ol>
-<div class="highlight"><pre><span></span>vim hello.jl
+<h3 id="Option-2:-Your-favorite-editor/CLI">Option 2: Your favorite editor/CLI<a class="anchor-link" href="#Option-2:-Your-favorite-editor/CLI">&#182;</a></h3><div class="highlight"><pre><span></span>vim hello.jl
 julia hello.jl
 </pre></div>
 
@@ -14691,10 +14686,7 @@ julia hello.jl
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<ol>
-<li><code>IJulia</code> + Jupyter:</li>
-</ol>
-<div class="highlight"><pre><span></span><span class="c"># Install IJulia</span>
+<h3 id="Option-3:-IJulia-+-Jupyter:">Option 3: <code>IJulia</code> + Jupyter:<a class="anchor-link" href="#Option-3:-IJulia-+-Jupyter:">&#182;</a></h3><div class="highlight"><pre><span></span><span class="c"># Install IJulia</span>
 <span class="k">import</span> <span class="n">Pkg</span>
 <span class="n">Pkg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&quot;IJulia&quot;</span><span class="p">)</span>
 
@@ -14714,10 +14706,7 @@ julia hello.jl
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<ol>
-<li>The Juno IDE: <a href="https://junolab.org/">https://junolab.org/</a></li>
-</ol>
-<p><img src="ide.png" alt="ide"></p>
+<h3 id="Option-4:-The-Juno-IDE:-https://junolab.org/">Option 4: The Juno IDE: <a href="https://junolab.org/">https://junolab.org/</a><a class="anchor-link" href="#Option-4:-The-Juno-IDE:-https://junolab.org/">&#182;</a></h3><p><img src="ide.png" alt="ide"></p>
 
 </div>
 </div>
@@ -14733,6 +14722,97 @@ julia hello.jl
 </div>
 </div>
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Two ways to manage packages:</p>
+<ol>
+<li>You can use the <code>Pkg</code> module from within Julia.</li>
+<li>From the Julia REPL you can type <code>]</code> to enter the Package Manager's CLI</li>
+</ol>
+
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Eg. to add the <code>CSV</code> package using the <code>Pkg</code> module run:</p>
+<div class="highlight"><pre><span></span><span class="k">import</span> <span class="n">Pkg</span>
+<span class="n">Pkg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&quot;CSV&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="k">import</span> <span class="n">Pkg</span>
+<span class="n">Pkg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&quot;CSV&quot;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre><span class="ansi-green-intense-fg ansi-bold">   Resolving</span> package versions...
+<span class="ansi-green-intense-fg ansi-bold">    Updating</span> `~/.julia/environments/v1.7/Project.toml`
+ <span class="ansi-black-intense-fg"> [336ed68f] </span><span class="ansi-green-intense-fg">+ CSV v0.10.2</span>
+<span class="ansi-green-intense-fg ansi-bold">    Updating</span> `~/.julia/environments/v1.7/Manifest.toml`
+ <span class="ansi-black-intense-fg"> [336ed68f] </span><span class="ansi-green-intense-fg">+ CSV v0.10.2</span>
+ <span class="ansi-black-intense-fg"> [944b1d66] </span><span class="ansi-green-intense-fg">+ CodecZlib v0.7.0</span>
+ <span class="ansi-black-intense-fg"> [91c51154] </span><span class="ansi-green-intense-fg">+ SentinelArrays v1.3.12</span>
+ <span class="ansi-black-intense-fg"> [3bb67fe8] </span><span class="ansi-green-intense-fg">+ TranscodingStreams v0.9.6</span>
+ <span class="ansi-black-intense-fg"> [ea10d353] </span><span class="ansi-green-intense-fg">+ WeakRefStrings v1.4.2</span>
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>When you're in the REPL you can type <code>]</code> to enter the Package Manager's CLI (note that the promt turns blue and has the format <code>(environment name) pkg&gt;</code>). Eg. to add the <code>CSV</code> package using the Package Manager's CLI in the REPL, type: <code>add CSV</code> in the Package manager</p>
+
+</div>
+</div>
+</div>
 </div><div class="fragment">
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -14740,10 +14820,8 @@ julia hello.jl
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<ul>
-<li>You can use the <code>Pkg</code> module from within Julia</li>
-<li>In the REPL, type <code>]</code> to enter the Package Manager</li>
-</ul>
+<p><img src="pkg.png" alt="repl"></p>
+<p>(hit ESC to go back to normal mode)</p>
 
 </div>
 </div>

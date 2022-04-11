@@ -1,6 +1,6 @@
 NBCONVERT := jupyter nbconvert --to slides --stdout
 
-all: Arrays.html
+all: Arrays.html File_IO.html Database_IO.html
 
 %.html: %.ipynb
 	$(NBCONVERT) $^ > $@

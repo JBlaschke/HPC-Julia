@@ -1,6 +1,6 @@
 TOPTARGETS := all clean
 NBCONVERT  := jupyter nbconvert --to slides --stdout
-SUBDIRS    := 00_intro 01_data 03_ml
+SUBDIRS    := 00_intro 01_data 02_stats 03_ml
 
 
 all: index.html

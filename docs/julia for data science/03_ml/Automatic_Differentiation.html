@@ -14635,14 +14635,21 @@ div.jp-OutputPrompt {
 
 <div class="reveal">
 <div class="slides"><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Julia's-Data-Type-Magic:-Autodifferentiation-in-4-lines">Julia's Data-Type Magic: Autodifferentiation in 4 lines<a class="anchor-link" href="#Julia's-Data-Type-Magic:-Autodifferentiation-in-4-lines">&#182;</a></h2>
 </div>
 </div>
+</div>
 </div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Take as an example the babylonian algorithm to calculate $\sqrt{x}$</p>
@@ -14650,6 +14657,7 @@ div.jp-OutputPrompt {
 </blockquote>
 <p>For illustration we will use 10 iterations</p>
 
+</div>
 </div>
 </div>
 </div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -14700,11 +14708,15 @@ div.jp-OutputPrompt {
 </div>
 
 </div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Check: <code>sqrt(100) == 10</code></p>
 
+</div>
 </div>
 </div>
 </div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -14790,11 +14802,15 @@ div.jp-OutputPrompt {
 </div>
 
 </div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Let's look at the convergence behaviour</p>
 
+</div>
 </div>
 </div>
 </div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -15043,18 +15059,26 @@ M1931.08 406.258 L2278.07 406.258 L2278.07 95.2176 L1931.08 95.2176  Z
 </div>
 
 </div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="...-and-now-the-derivative-almost-by-magic">... and now the derivative almost by magic<a class="anchor-link" href="#...-and-now-the-derivative-almost-by-magic">&#182;</a></h3>
 </div>
 </div>
+</div>
 </div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Define a dual type -- a mathematical object that's a function-derivative pair</p>
 
+</div>
 </div>
 </div>
 </div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -15076,7 +15100,10 @@ M1931.08 406.258 L2278.07 406.258 L2278.07 95.2176 L1931.08 95.2176  Z
 </div>
 
 </div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>The first element follows the normal rules of arithmetic. But the second element implements:</p>
@@ -15085,6 +15112,7 @@ M1931.08 406.258 L2278.07 406.258 L2278.07 95.2176 L1931.08 95.2176  Z
 <li>Quotient Rule: $(\frac{x}{y})' = \frac{yx'-xy'}{y^2}$</li>
 </ul>
 
+</div>
 </div>
 </div>
 </div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -15135,7 +15163,10 @@ M1931.08 406.258 L2278.07 406.258 L2278.07 95.2176 L1931.08 95.2176  Z
 </div>
 
 </div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Let's compute the derivative of $\sqrt{x}$ at $x=25$</p>
@@ -15143,11 +15174,16 @@ M1931.08 406.258 L2278.07 406.258 L2278.07 95.2176 L1931.08 95.2176  Z
 </div>
 </div>
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>We start withe the dual of <code>(25, 1)</code></p>
 
+</div>
 </div>
 </div>
 </div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -15193,11 +15229,15 @@ M1931.08 406.258 L2278.07 406.258 L2278.07 95.2176 L1931.08 95.2176  Z
 </div>
 
 </div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>We know (because we're smart!) that the derivative of $\sqrt{x}$ is $\frac{1}{2\sqrt{x}}$ =&gt; therefore the result that we expect is:</p>
 
+</div>
 </div>
 </div>
 </div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -15242,11 +15282,15 @@ M1931.08 406.258 L2278.07 406.258 L2278.07 95.2176 L1931.08 95.2176  Z
 </div>
 
 </div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Now let's pass the dual to the babylonian algorithm:</p>
 
+</div>
 </div>
 </div>
 </div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -15291,7 +15335,10 @@ M1931.08 406.258 L2278.07 406.258 L2278.07 95.2176 L1931.08 95.2176  Z
 </div>
 
 </div></div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Because Julia's addition, subtraction, multiplication, and division operators "know" what to do with the <code>D</code> data type, we automatically "propagate" the derivative as we perform the regular arithmatic.</p>
@@ -15299,10 +15346,15 @@ M1931.08 406.258 L2278.07 406.258 L2278.07 95.2176 L1931.08 95.2176  Z
 </div>
 </div>
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 
+</div>
 </div>
 </div>
 </div></div></section></section>

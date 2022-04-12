@@ -14646,6 +14646,259 @@ div.jp-OutputPrompt {
 </div>
 </div>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">MySQL</span>
+<span class="k">using</span> <span class="n">DataFrames</span>
+<span class="k">using</span> <span class="n">Dates</span>
+<span class="k">using</span> <span class="n">TimeZones</span>
+<span class="k">using</span> <span class="n">Plots</span>
+<span class="k">using</span> <span class="n">Plots</span><span class="o">.</span><span class="n">PlotMeasures</span>
+<span class="k">using</span> <span class="n">StatsBase</span><span class="p">,</span> <span class="n">LinearAlgebra</span>
+<span class="k">using</span> <span class="n">LaTeXStrings</span>
+<span class="k">using</span> <span class="n">JSON</span>
+<span class="k">import</span> <span class="n">Base</span><span class="o">:</span> <span class="nd">@kwdef</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">data_directory</span> <span class="o">=</span> <span class="n">joinpath</span><span class="p">(</span><span class="nd">@__DIR__</span><span class="p">,</span> <span class="s">&quot;..&quot;</span><span class="p">,</span> <span class="s">&quot;..&quot;</span><span class="p">,</span> <span class="s">&quot;..&quot;</span><span class="p">,</span> <span class="s">&quot;exercises&quot;</span><span class="p">,</span> <span class="s">&quot;fridge&quot;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[1]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>&#34;/Users/blaschke/Developer/hpc-julia/docs/julia for data science/01_data/../../../exercises/fridge&#34;</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">Dates</span>
+<span class="k">using</span> <span class="n">TimeZones</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">timestamp</span><span class="p">(</span><span class="n">t</span><span class="p">;</span> <span class="n">target_tz</span><span class="o">::</span><span class="kt">VariableTimeZone</span><span class="o">=</span><span class="sa">tz</span><span class="s">&quot;America/Los_Angeles&quot;</span><span class="p">)</span> <span class="o">=</span> <span class="n">astimezone</span><span class="p">(</span>
+    <span class="n">ZonedDateTime</span><span class="p">(</span><span class="n">Dates</span><span class="o">.</span><span class="n">unix2datetime</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="sa">tz</span><span class="s">&quot;GMT&quot;</span><span class="p">),</span> <span class="n">target_tz</span>
+<span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>timestamp (generic function with 1 method)</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">MySQL</span>
+<span class="k">using</span> <span class="n">DataFrames</span>
+<span class="k">function</span> <span class="n">get_emeter_data</span><span class="p">(</span><span class="n">conn</span><span class="o">::</span><span class="kt">MySQL</span><span class="o">.</span><span class="n">Connection</span><span class="p">,</span> <span class="n">name</span><span class="o">::</span><span class="kt">String</span><span class="p">,</span> <span class="n">idx</span><span class="o">::</span><span class="kt">Int64</span><span class="p">)</span>
+    <span class="n">DBInterface</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+        <span class="n">DBInterface</span><span class="o">.</span><span class="n">prepare</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span>
+            <span class="s">&quot;SET @v1 := (SELECT emeter_start FROM </span><span class="si">$</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="s"> WHERE idx = </span><span class="si">$</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span><span class="s">)&quot;</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">DBInterface</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+        <span class="n">DBInterface</span><span class="o">.</span><span class="n">prepare</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span>
+            <span class="s">&quot;SET @v2 := (SELECT emeter_end FROM </span><span class="si">$</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="s"> WHERE idx = </span><span class="si">$</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span><span class="s">)&quot;</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">events</span> <span class="o">=</span> <span class="n">DBInterface</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+        <span class="n">DBInterface</span><span class="o">.</span><span class="n">prepare</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span>
+            <span class="s">&quot;SELECT * FROM </span><span class="si">$</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="s">_emeter WHERE idx BETWEEN @v1 and @v2&quot;</span>
+        <span class="p">)</span>
+    <span class="p">)</span> <span class="o">|&gt;</span> <span class="n">DataFrame</span>
+    <span class="n">events</span> <span class="o">=</span> <span class="n">transform</span><span class="p">(</span>
+        <span class="n">events</span><span class="p">,</span>
+        <span class="ss">:t</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">timestamp</span><span class="o">.</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">=&gt;</span> <span class="ss">:timestamp</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">events</span>
+<span class="k">end</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>get_emeter_data (generic function with 1 method)</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="k">import</span> <span class="n">Base</span><span class="o">:</span> <span class="nd">@kwdef</span>
+<span class="nd">@kwdef</span> <span class="k">mutable struct</span> <span class="kt">DBCredentials</span>
+    <span class="n">host</span><span class="o">::</span><span class="kt">String</span>
+    <span class="n">name</span><span class="o">::</span><span class="kt">String</span>
+    <span class="n">username</span><span class="o">::</span><span class="kt">String</span>
+    <span class="n">password</span><span class="o">::</span><span class="kt">String</span>
+<span class="k">end</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>DBCredentials</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">JSON</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
 </div></section></section>
 </div>
 </div>

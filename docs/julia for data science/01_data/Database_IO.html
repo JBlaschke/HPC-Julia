@@ -14841,7 +14841,7 @@ div.jp-OutputPrompt {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">import</span> <span class="n">Base</span><span class="o">:</span> <span class="nd">@kwdef</span>
@@ -14868,7 +14868,7 @@ div.jp-OutputPrompt {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
 
 
 
@@ -14888,10 +14888,739 @@ div.jp-OutputPrompt {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">JSON</span>
+<span class="n">db_credenitals</span> <span class="o">=</span> <span class="n">DBCredentials</span><span class="p">(</span>
+    <span class="p">;</span><span class="n">JSON</span><span class="o">.</span><span class="n">parsefile</span><span class="p">(</span>
+        <span class="n">joinpath</span><span class="p">(</span><span class="n">data_directory</span><span class="p">,</span> <span class="s">&quot;db.json&quot;</span><span class="p">),</span>
+        <span class="n">dicttype</span><span class="o">=</span><span class="kt">Dict</span><span class="p">{</span><span class="kt">Symbol</span><span class="p">,</span><span class="kt">String</span><span class="p">}</span>
+    <span class="p">)</span><span class="o">...</span>
+<span class="p">)</span>
+<span class="c"># db_credenitals.host = &quot;127.0.0.1&quot;;</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">db_conn</span> <span class="o">=</span> <span class="n">DBInterface</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
+    <span class="n">MySQL</span><span class="o">.</span><span class="n">Connection</span><span class="p">,</span> <span class="n">db_credenitals</span><span class="o">.</span><span class="n">host</span><span class="p">,</span>
+    <span class="n">db_credenitals</span><span class="o">.</span><span class="n">username</span><span class="p">,</span> <span class="n">db_credenitals</span><span class="o">.</span><span class="n">password</span><span class="p">,</span>
+    <span class="n">db</span><span class="o">=</span><span class="n">db_credenitals</span><span class="o">.</span><span class="n">name</span>
+<span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>MySQL.Connection(host=&#34;45.33.40.165&#34;, user=&#34;ccs&#34;, port=&#34;3306&#34;, db=&#34;coffee&#34;)</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Arstotzka_Ministry_of_Energy&quot;</span>
+<span class="n">idx_max</span> <span class="o">=</span> <span class="mi">61</span>
+<span class="n">idx_blacklist</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span>  <span class="c"># Debugging</span>
+    <span class="mi">51</span>  <span class="c">#  Battery Charger</span>
+<span class="p">]</span>
+
+<span class="n">all_emeter_data</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">idx</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="n">idx_max</span>
+    <span class="k">if</span> <span class="n">idx</span> <span class="k">in</span> <span class="n">idx_blacklist</span>
+        <span class="k">continue</span>
+    <span class="k">end</span>
+    <span class="n">push!</span><span class="p">(</span><span class="n">all_emeter_data</span><span class="p">,</span> <span class="n">get_emeter_data</span><span class="p">(</span><span class="n">db_conn</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">idx</span><span class="p">))</span>
+<span class="k">end</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">all_emeter_data</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[17]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>51-element Vector{DataFrame}:
+ <span class="ansi-bold">6×7 DataFrame</span>
+<span class="ansi-bold"> Row </span>│<span class="ansi-bold"> idx   </span><span class="ansi-bold"> t         </span><span class="ansi-bold"> ma     </span><span class="ansi-bold"> mv     </span><span class="ansi-bold"> mw     </span><span class="ansi-bold"> wh     </span><span class="ansi-bold"> timestamp            </span> ⋯
+<span class="ansi-bold">     </span>│<span class="ansi-black-intense-fg"> Int32 </span><span class="ansi-black-intense-fg"> Float64?  </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> ZonedDat…            </span> ⋯
+─────┼──────────────────────────────────────────────────────────────────────────
+   1 │    12  1.64349e9      59  121266    7139    7512  2022-01-29T12:19:41.3 ⋯
+   2 │    13  1.64349e9      59  121266    7139    7512  2022-01-29T12:20:45.1
+   3 │    14  1.64349e9      59  121266    7139    7512  2022-01-29T12:20:53.3
+   4 │    15  1.64349e9      59  121266    7139    7512  2022-01-29T12:20:54.6
+   5 │    16  1.64349e9      59  121266    7139    7512  2022-01-29T12:20:55.5 ⋯
+   6 │    17  1.64349e9      59  121266    7139    7512  2022-01-29T12:20:56.5
+<span class="ansi-cyan-fg">                                                                1 column omitted</span>
+ <span class="ansi-bold">1×7 DataFrame</span>
+<span class="ansi-bold"> Row </span>│<span class="ansi-bold"> idx   </span><span class="ansi-bold"> t         </span><span class="ansi-bold"> ma     </span><span class="ansi-bold"> mv     </span><span class="ansi-bold"> mw     </span><span class="ansi-bold"> wh     </span><span class="ansi-bold"> timestamp            </span> ⋯
+<span class="ansi-bold">     </span>│<span class="ansi-black-intense-fg"> Int32 </span><span class="ansi-black-intense-fg"> Float64?  </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> ZonedDat…            </span> ⋯
+─────┼──────────────────────────────────────────────────────────────────────────
+   1 │    18  1.64349e9      59  121266    7139    7512  2022-01-29T12:21:03.5 ⋯
+<span class="ansi-cyan-fg">                                                                1 column omitted</span>
+ <span class="ansi-bold">3×7 DataFrame</span>
+<span class="ansi-bold"> Row </span>│<span class="ansi-bold"> idx   </span><span class="ansi-bold"> t         </span><span class="ansi-bold"> ma     </span><span class="ansi-bold"> mv     </span><span class="ansi-bold"> mw     </span><span class="ansi-bold"> wh     </span><span class="ansi-bold"> timestamp            </span> ⋯
+<span class="ansi-bold">     </span>│<span class="ansi-black-intense-fg"> Int32 </span><span class="ansi-black-intense-fg"> Float64?  </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> ZonedDat…            </span> ⋯
+─────┼──────────────────────────────────────────────────────────────────────────
+   1 │    19  1.64349e9      59  121266    7139    7512  2022-01-29T12:21:16.8 ⋯
+   2 │    20  1.64349e9      59  121266    7139    7512  2022-01-29T12:21:20.2
+   3 │    21  1.64349e9      59  121338    7149    7575  2022-01-29T13:56:10.5
+<span class="ansi-cyan-fg">                                                                1 column omitted</span>
+ <span class="ansi-bold">5×7 DataFrame</span>
+<span class="ansi-bold"> Row </span>│<span class="ansi-bold"> idx   </span><span class="ansi-bold"> t         </span><span class="ansi-bold"> ma     </span><span class="ansi-bold"> mv     </span><span class="ansi-bold"> mw     </span><span class="ansi-bold"> wh     </span><span class="ansi-bold"> timestamp            </span> ⋯
+<span class="ansi-bold">     </span>│<span class="ansi-black-intense-fg"> Int32 </span><span class="ansi-black-intense-fg"> Float64?  </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> ZonedDat…            </span> ⋯
+─────┼──────────────────────────────────────────────────────────────────────────
+   1 │    22  1.64349e9      59  121362    7135    7575  2022-01-29T13:56:16.6 ⋯
+   2 │    23  1.64349e9      59  121287    7134    7575  2022-01-29T13:56:26.5
+   3 │    24  1.64349e9      59  121287    7134    7575  2022-01-29T13:56:27.8
+   4 │    25  1.64349e9      59  121270    7134    7575  2022-01-29T13:56:28.8
+   5 │    26  1.64349e9      59  121564    7164    7602  2022-01-29T14:17:13.6 ⋯
+<span class="ansi-cyan-fg">                                                                1 column omitted</span>
+ <span class="ansi-bold">2×7 DataFrame</span>
+<span class="ansi-bold"> Row </span>│<span class="ansi-bold"> idx   </span><span class="ansi-bold"> t         </span><span class="ansi-bold"> ma     </span><span class="ansi-bold"> mv     </span><span class="ansi-bold"> mw     </span><span class="ansi-bold"> wh     </span><span class="ansi-bold"> timestamp            </span> ⋯
+<span class="ansi-bold">     </span>│<span class="ansi-black-intense-fg"> Int32 </span><span class="ansi-black-intense-fg"> Float64?  </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> ZonedDat…            </span> ⋯
+─────┼──────────────────────────────────────────────────────────────────────────
+   1 │    27  1.64349e9      59  121591    7164    7602  2022-01-29T14:17:14.7 ⋯
+   2 │    28  1.64349e9      59  121533    7167    7602  2022-01-29T14:17:23.2
+<span class="ansi-cyan-fg">                                                                1 column omitted</span>
+ <span class="ansi-bold">1257×7 DataFrame</span>
+<span class="ansi-bold">  Row </span>│<span class="ansi-bold"> idx   </span><span class="ansi-bold"> t         </span><span class="ansi-bold"> ma     </span><span class="ansi-bold"> mv     </span><span class="ansi-bold"> mw     </span><span class="ansi-bold"> wh     </span><span class="ansi-bold"> timestamp           </span> ⋯
+<span class="ansi-bold">      </span>│<span class="ansi-black-intense-fg"> Int32 </span><span class="ansi-black-intense-fg"> Float64?  </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> ZonedDat…           </span> ⋯
+──────┼─────────────────────────────────────────────────────────────────────────
+    1 │    29  1.64349e9      59  121497    7172    7602  2022-01-29T14:17:42. ⋯
+    2 │    30  1.64349e9      59  121497    7172    7602  2022-01-29T14:17:43.
+    3 │    31  1.64349e9      59  121497    7172    7602  2022-01-29T14:17:44.
+    4 │    32  1.64349e9      59  121489    7172    7602  2022-01-29T14:17:45.
+    5 │    33  1.64349e9      59  121489    7172    7602  2022-01-29T14:17:46. ⋯
+    6 │    34  1.64349e9      59  121489    7132    7602  2022-01-29T14:17:47.
+    7 │    35  1.64349e9      59  121489    7132    7602  2022-01-29T14:17:48.
+    8 │    36  1.64349e9      59  121489    7132    7602  2022-01-29T14:17:49.
+    9 │    37  1.64349e9      59  121504    7132    7602  2022-01-29T14:17:50. ⋯
+   10 │    38  1.64349e9      59  121504    7132    7602  2022-01-29T14:17:51.
+   11 │    39  1.64349e9      59  121504    7137    7602  2022-01-29T14:17:52.
+  ⋮   │   ⋮        ⋮        ⋮       ⋮       ⋮       ⋮                   ⋮      ⋱
+ 1248 │  1276  1.64351e9    1599  119560  172205    7940  2022-01-29T18:53:18.
+ 1249 │  1277  1.64351e9    1599  119560  171649    7940  2022-01-29T18:53:19. ⋯
+ 1250 │  1278  1.64351e9    1600  119560  171649    7942  2022-01-29T18:53:20.
+ 1251 │  1279  1.64351e9    1600  119585  171649    7942  2022-01-29T18:53:21.
+ 1252 │  1280  1.64351e9    1600  119585  172027    7942  2022-01-29T18:53:22.
+ 1253 │  1281  1.64351e9    1598  119585  172027    7942  2022-01-29T18:53:23. ⋯
+ 1254 │  1282  1.64351e9    1598  119743  172027    7942  2022-01-29T18:53:24.
+ 1255 │  1283  1.64351e9    1598  119743  171986    7942  2022-01-29T18:53:25.
+ 1256 │  1284  1.64351e9    1599  119743  171986    7942  2022-01-29T18:53:26.
+ 1257 │  1285  1.64351e9    1599  119577  171986    7942  2022-01-29T18:53:27. ⋯
+<span class="ansi-cyan-fg">                                                  1 column and 1236 rows omitted</span>
+ <span class="ansi-bold">1203×7 DataFrame</span>
+<span class="ansi-bold">  Row </span>│<span class="ansi-bold"> idx   </span><span class="ansi-bold"> t         </span><span class="ansi-bold"> ma     </span><span class="ansi-bold"> mv     </span><span class="ansi-bold"> mw     </span><span class="ansi-bold"> wh     </span><span class="ansi-bold"> timestamp           </span> ⋯
+<span class="ansi-bold">      </span>│<span class="ansi-black-intense-fg"> Int32 </span><span class="ansi-black-intense-fg"> Float64?  </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> ZonedDat…           </span> ⋯
+──────┼─────────────────────────────────────────────────────────────────────────
+    1 │  1286  1.64351e9    1572  119479  168488    7950  2022-01-29T18:56:46. ⋯
+    2 │  1287  1.64351e9    1574  119479  168488    7950  2022-01-29T18:56:47.
+    3 │  1288  1.64351e9    1574  119354  168488    7950  2022-01-29T18:56:48.
+    4 │  1289  1.64351e9    1574  119354  168672    7950  2022-01-29T18:56:49.
+    5 │  1290  1.64351e9    1573  119354  168672    7952  2022-01-29T18:56:50. ⋯
+    6 │  1291  1.64351e9    1573  119463  168672    7952  2022-01-29T18:56:51.
+    7 │  1292  1.64351e9    1573  119463  168847    7952  2022-01-29T18:56:52.
+    8 │  1293  1.64351e9    1575  119463  168847    7952  2022-01-29T18:56:53.
+    9 │  1294  1.64351e9    1575  119485  168847    7952  2022-01-29T18:56:54. ⋯
+   10 │  1295  1.64351e9    1575  119485  168836    7952  2022-01-29T18:56:55.
+   11 │  1296  1.64351e9    1572  119485  168836    7952  2022-01-29T18:56:56.
+  ⋮   │   ⋮        ⋮        ⋮       ⋮       ⋮       ⋮                   ⋮      ⋱
+ 1194 │  2479  1.64351e9      59  120547    7039    7962  2022-01-29T19:17:47.
+ 1195 │  2480  1.64351e9      59  120547    7039    7962  2022-01-29T19:17:48. ⋯
+ 1196 │  2481  1.64351e9      59  120547    7037    7962  2022-01-29T19:17:49.
+ 1197 │  2482  1.64351e9      59  120547    7037    7962  2022-01-29T19:17:50.
+ 1198 │  2483  1.64351e9      58  120547    7037    7962  2022-01-29T19:17:51.
+ 1199 │  2484  1.64351e9      58  120612    7037    7962  2022-01-29T19:17:52. ⋯
+ 1200 │  2485  1.64351e9      58  120612    7037    7962  2022-01-29T19:17:53.
+ 1201 │  2486  1.64351e9      58  120612    7029    7962  2022-01-29T19:17:54.
+ 1202 │  2487  1.64351e9      58  120612    7029    7962  2022-01-29T19:17:55.
+ 1203 │  2488  1.64351e9      59  120612    7029    7962  2022-01-29T19:17:56. ⋯
+<span class="ansi-cyan-fg">                                                  1 column and 1182 rows omitted</span>
+ <span class="ansi-bold">20×7 DataFrame</span>
+<span class="ansi-bold"> Row </span>│<span class="ansi-bold"> idx   </span><span class="ansi-bold"> t         </span><span class="ansi-bold"> ma     </span><span class="ansi-bold"> mv     </span><span class="ansi-bold"> mw     </span><span class="ansi-bold"> wh     </span><span class="ansi-bold"> timestamp            </span> ⋯
+<span class="ansi-bold">     </span>│<span class="ansi-black-intense-fg"> Int32 </span><span class="ansi-black-intense-fg"> Float64?  </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> ZonedDat…            </span> ⋯
+─────┼──────────────────────────────────────────────────────────────────────────
+   1 │  2489  1.64351e9    1631  119652  175891    7966  2022-01-29T19:27:04.1 ⋯
+   2 │  2490  1.64351e9    1631  119652  175891    7966  2022-01-29T19:27:05.1
+   3 │  2491  1.64351e9    1630  119652  175891    7966  2022-01-29T19:27:06.1
+   4 │  2492  1.64351e9    1630  119744  175891    7966  2022-01-29T19:27:07.1
+   5 │  2493  1.64351e9    1630  119744  176110    7966  2022-01-29T19:27:08.1 ⋯
+   6 │  2494  1.64351e9    1636  119744  176110    7966  2022-01-29T19:27:09.1
+   7 │  2495  1.64351e9    1636  119835  176110    7966  2022-01-29T19:27:10.1
+   8 │  2496  1.64351e9    1636  119835  177157    7966  2022-01-29T19:27:11.1
+   9 │  2497  1.64351e9    1641  119835  177157    7966  2022-01-29T19:27:12.1 ⋯
+  10 │  2498  1.64351e9    1641  119860  177157    7966  2022-01-29T19:27:13.1
+  11 │  2499  1.64351e9    1641  119860  177421    7966  2022-01-29T19:27:14.1
+  12 │  2500  1.64351e9    1644  119860  177421    7966  2022-01-29T19:27:15.1
+  13 │  2501  1.64351e9    1644  119868  177983    7966  2022-01-29T19:27:16.3 ⋯
+  14 │  2502  1.64351e9    1649  119868  177983    7966  2022-01-29T19:27:17.3
+  15 │  2503  1.64351e9    1649  119771  177983    7966  2022-01-29T19:27:18.3
+  16 │  2504  1.64351e9    1649  119771  178639    7966  2022-01-29T19:27:19.3
+  17 │  2505  1.64351e9    1652  119771  178639    7968  2022-01-29T19:27:20.3 ⋯
+  18 │  2506  1.64351e9    1652  119794  178639    7968  2022-01-29T19:27:21.3
+  19 │  2507  1.64351e9    1652  119794  178410    7968  2022-01-29T19:27:22.3
+  20 │  2508  1.64351e9    1647  119794  178410    7968  2022-01-29T19:27:23.3
+<span class="ansi-cyan-fg">                                                                1 column omitted</span>
+ <span class="ansi-bold">47×7 DataFrame</span>
+<span class="ansi-bold"> Row </span>│<span class="ansi-bold"> idx   </span><span class="ansi-bold"> t         </span><span class="ansi-bold"> ma     </span><span class="ansi-bold"> mv     </span><span class="ansi-bold"> mw     </span><span class="ansi-bold"> wh     </span><span class="ansi-bold"> timestamp            </span> ⋯
+<span class="ansi-bold">     </span>│<span class="ansi-black-intense-fg"> Int32 </span><span class="ansi-black-intense-fg"> Float64?  </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> ZonedDat…            </span> ⋯
+─────┼──────────────────────────────────────────────────────────────────────────
+   1 │  2509  1.64351e9    1603  119795  172680    7978  2022-01-29T19:30:59.1 ⋯
+   2 │  2510  1.64351e9    1603  119795  172680    7978  2022-01-29T19:31:00.1
+   3 │  2511  1.64351e9    1603  119850  172680    7978  2022-01-29T19:31:01.1
+   4 │  2512  1.64351e9    1603  119850  172649    7978  2022-01-29T19:31:02.1
+   5 │  2513  1.64351e9    1603  119850  172649    7978  2022-01-29T19:31:03.1 ⋯
+   6 │  2514  1.64351e9    1603  119704  172649    7978  2022-01-29T19:31:04.1
+   7 │  2515  1.64351e9    1603  119704  172687    7978  2022-01-29T19:31:05.1
+   8 │  2516  1.64351e9    1604  119704  172687    7978  2022-01-29T19:31:06.1
+   9 │  2517  1.64351e9    1604  119716  172687    7978  2022-01-29T19:31:07.1 ⋯
+  10 │  2518  1.64351e9    1604  119716  172321    7978  2022-01-29T19:31:08.1
+  11 │  2519  1.64351e9    1602  119716  172321    7978  2022-01-29T19:31:09.1
+  ⋮  │   ⋮        ⋮        ⋮       ⋮       ⋮       ⋮                   ⋮       ⋱
+  38 │  2546  1.64351e9    1598  119859  172132    7980  2022-01-29T19:31:36.8
+  39 │  2547  1.64351e9    1598  119859  172184    7980  2022-01-29T19:31:37.8 ⋯
+  40 │  2548  1.64351e9    1599  119859  172184    7980  2022-01-29T19:31:38.8
+  41 │  2549  1.64351e9    1599  119782  172184    7980  2022-01-29T19:31:39.8
+  42 │  2550  1.64351e9    1599  119782  171882    7980  2022-01-29T19:31:40.8
+  43 │  2551  1.64351e9    1597  119782  171882    7980  2022-01-29T19:31:41.8 ⋯
+  44 │  2552  1.64351e9    1597  119746  171882    7980  2022-01-29T19:31:42.9
+  45 │  2553  1.64351e9    1597  119746  171591    7980  2022-01-29T19:31:43.9
+  46 │  2554  1.64351e9    1594  119746  171591    7980  2022-01-29T19:31:44.9
+  47 │  2555  1.64351e9    1594  119779  171591    7980  2022-01-29T19:31:45.9 ⋯
+<span class="ansi-cyan-fg">                                                    1 column and 26 rows omitted</span>
+ <span class="ansi-bold">15×7 DataFrame</span>
+<span class="ansi-bold"> Row </span>│<span class="ansi-bold"> idx   </span><span class="ansi-bold"> t         </span><span class="ansi-bold"> ma     </span><span class="ansi-bold"> mv     </span><span class="ansi-bold"> mw     </span><span class="ansi-bold"> wh     </span><span class="ansi-bold"> timestamp            </span> ⋯
+<span class="ansi-bold">     </span>│<span class="ansi-black-intense-fg"> Int32 </span><span class="ansi-black-intense-fg"> Float64?  </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> ZonedDat…            </span> ⋯
+─────┼──────────────────────────────────────────────────────────────────────────
+   1 │  2556  1.64351e9    1596  119807  171632    7981  2022-01-29T19:31:52.0 ⋯
+   2 │  2557  1.64351e9    1596  119807  171708    7981  2022-01-29T19:31:53.0
+   3 │  2558  1.64351e9    1595  119807  171708    7981  2022-01-29T19:31:54.0
+   4 │  2559  1.64351e9    1595  119703  171708    7981  2022-01-29T19:31:55.0
+   5 │  2560  1.64351e9    1595  119703  171530    7981  2022-01-29T19:31:56.0 ⋯
+   6 │  2561  1.64351e9    1593  119703  171530    7981  2022-01-29T19:31:57.0
+   7 │  2562  1.64351e9    1593  119711  171530    7981  2022-01-29T19:31:58.0
+   8 │  2563  1.64351e9    1593  119711  171252    7981  2022-01-29T19:31:59.0
+   9 │  2564  1.64351e9    1593  119711  171252    7981  2022-01-29T19:32:00.0 ⋯
+  10 │  2565  1.64351e9    1593  119733  171252    7981  2022-01-29T19:32:01.0
+  11 │  2566  1.64351e9    1593  119733  171409    7981  2022-01-29T19:32:02.0
+  12 │  2567  1.64351e9    1593  119733  171409    7981  2022-01-29T19:32:03.0
+  13 │  2568  1.64351e9    1593  119715  171409    7981  2022-01-29T19:32:04.0 ⋯
+  14 │  2569  1.64351e9    1593  119715  171218    7981  2022-01-29T19:32:05.0
+  15 │  2570  1.64351e9    1590  119715  171218    7981  2022-01-29T19:32:06.0
+<span class="ansi-cyan-fg">                                                                1 column omitted</span>
+ <span class="ansi-bold">25×7 DataFrame</span>
+<span class="ansi-bold"> Row </span>│<span class="ansi-bold"> idx   </span><span class="ansi-bold"> t         </span><span class="ansi-bold"> ma     </span><span class="ansi-bold"> mv     </span><span class="ansi-bold"> mw     </span><span class="ansi-bold"> wh     </span><span class="ansi-bold"> timestamp            </span> ⋯
+<span class="ansi-bold">     </span>│<span class="ansi-black-intense-fg"> Int32 </span><span class="ansi-black-intense-fg"> Float64?  </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> ZonedDat…            </span> ⋯
+─────┼──────────────────────────────────────────────────────────────────────────
+   1 │  2571  1.64351e9      58  119625    6940    7993  2022-01-29T19:44:50.8 ⋯
+   2 │  2572  1.64351e9      58  119625    6940    7993  2022-01-29T19:44:52.6
+   3 │  2573  1.64351e9      58  119576    6940    7993  2022-01-29T19:44:53.6
+   4 │  2574  1.64351e9      58  119576    6940    7993  2022-01-29T19:44:54.6
+   5 │  2575  1.64351e9      58  119576    6939    7993  2022-01-29T19:44:55.6 ⋯
+   6 │  2576  1.64351e9      58  119576    6939    7993  2022-01-29T19:44:56.6
+   7 │  2577  1.64351e9      58  119576    6939    7993  2022-01-29T19:44:57.6
+   8 │  2578  1.64351e9      58  119677    6939    7993  2022-01-29T19:44:58.6
+   9 │  2579  1.64351e9      58  119677    6939    7993  2022-01-29T19:44:59.6 ⋯
+  10 │  2580  1.64351e9      58  119677    6923    7993  2022-01-29T19:45:00.6
+  11 │  2581  1.64351e9      58  119677    6923    7993  2022-01-29T19:45:01.6
+  ⋮  │   ⋮        ⋮        ⋮       ⋮       ⋮       ⋮                   ⋮       ⋱
+  16 │  2586  1.64351e9      58  119647    6936    7993  2022-01-29T19:45:06.6
+  17 │  2587  1.64351e9      58  119647    6936    7993  2022-01-29T19:45:07.6 ⋯
+  18 │  2588  1.64351e9      58  119686    6936    7993  2022-01-29T19:45:08.6
+  19 │  2589  1.64351e9      58  119686    6936    7993  2022-01-29T19:45:09.6
+  20 │  2590  1.64351e9      58  119686    6927    7993  2022-01-29T19:45:10.6
+  21 │  2591  1.64351e9      58  119686    6927    7993  2022-01-29T19:45:11.8 ⋯
+  22 │  2592  1.64351e9      58  119686    6927    7993  2022-01-29T19:45:12.8
+  23 │  2593  1.64351e9      58  119695    6927    7993  2022-01-29T19:45:13.8
+  24 │  2594  1.64351e9      58  119695    6927    7993  2022-01-29T19:45:14.8
+  25 │  2595  1.64351e9      58  119695    6982    7993  2022-01-29T19:45:15.8 ⋯
+<span class="ansi-cyan-fg">                                                     1 column and 4 rows omitted</span>
+ <span class="ansi-bold">2×7 DataFrame</span>
+<span class="ansi-bold"> Row </span>│<span class="ansi-bold"> idx   </span><span class="ansi-bold"> t         </span><span class="ansi-bold"> ma     </span><span class="ansi-bold"> mv     </span><span class="ansi-bold"> mw     </span><span class="ansi-bold"> wh     </span><span class="ansi-bold"> timestamp            </span> ⋯
+<span class="ansi-bold">     </span>│<span class="ansi-black-intense-fg"> Int32 </span><span class="ansi-black-intense-fg"> Float64?  </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> ZonedDat…            </span> ⋯
+─────┼──────────────────────────────────────────────────────────────────────────
+   1 │  2596  1.64351e9      58  120436    7041    7993  2022-01-29T19:46:25.9 ⋯
+   2 │  2597  1.64351e9      58  120436    7041    7993  2022-01-29T19:46:26.9
+<span class="ansi-cyan-fg">                                                                1 column omitted</span>
+ <span class="ansi-bold">3×7 DataFrame</span>
+<span class="ansi-bold"> Row </span>│<span class="ansi-bold"> idx   </span><span class="ansi-bold"> t         </span><span class="ansi-bold"> ma     </span><span class="ansi-bold"> mv     </span><span class="ansi-bold"> mw     </span><span class="ansi-bold"> wh     </span><span class="ansi-bold"> timestamp            </span> ⋯
+<span class="ansi-bold">     </span>│<span class="ansi-black-intense-fg"> Int32 </span><span class="ansi-black-intense-fg"> Float64?  </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> ZonedDat…            </span> ⋯
+─────┼──────────────────────────────────────────────────────────────────────────
+   1 │  2598  1.64351e9      58  120437    7023    7994  2022-01-29T19:49:19.0 ⋯
+   2 │  2599  1.64351e9      58  120437    7023    7994  2022-01-29T19:49:20.0
+   3 │  2600  1.64351e9      58  120437    7009    7994  2022-01-29T19:49:21.0
+<span class="ansi-cyan-fg">                                                                1 column omitted</span>
+ ⋮
+ <span class="ansi-bold">16×7 DataFrame</span>
+<span class="ansi-bold"> Row </span>│<span class="ansi-bold"> idx   </span><span class="ansi-bold"> t         </span><span class="ansi-bold"> ma     </span><span class="ansi-bold"> mv     </span><span class="ansi-bold"> mw     </span><span class="ansi-bold"> wh     </span><span class="ansi-bold"> timestamp            </span> ⋯
+<span class="ansi-bold">     </span>│<span class="ansi-black-intense-fg"> Int32 </span><span class="ansi-black-intense-fg"> Float64?  </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> ZonedDat…            </span> ⋯
+─────┼──────────────────────────────────────────────────────────────────────────
+   1 │ 63731  1.64361e9    1624  119895  174879    9111  2022-01-30T22:01:50.5 ⋯
+   2 │ 63732  1.64361e9    1624  119895  174818    9111  2022-01-30T22:01:51.5
+   3 │ 63733  1.64361e9    1622  119895  174818    9111  2022-01-30T22:01:52.5
+   4 │ 63734  1.64361e9    1622  119829  174818    9113  2022-01-30T22:01:53.5
+   5 │ 63735  1.64361e9    1622  119829  174962    9113  2022-01-30T22:01:54.5 ⋯
+   6 │ 63736  1.64361e9    1625  119897  174899    9113  2022-01-30T22:02:05.5
+   7 │ 63737  1.64361e9    1625  119897  174899    9113  2022-01-30T22:02:07.0
+   8 │ 63738  1.64361e9    1622  119897  174899    9113  2022-01-30T22:02:08.0
+   9 │ 63739  1.64361e9    1622  119881  174899    9113  2022-01-30T22:02:09.0 ⋯
+  10 │ 63740  1.64361e9    1622  119881  175159    9113  2022-01-30T22:02:10.0
+  11 │ 63741  1.64361e9    1625  119881  175159    9113  2022-01-30T22:02:11.0
+  12 │ 63742  1.64361e9    1625  119828  175159    9113  2022-01-30T22:02:12.0
+  13 │ 63743  1.64361e9    1625  119828  175364    9113  2022-01-30T22:02:13.0 ⋯
+  14 │ 63744  1.64361e9    1627  119828  175364    9113  2022-01-30T22:02:14.0
+  15 │ 63745  1.64361e9    1627  119797  175364    9113  2022-01-30T22:02:15.0
+  16 │ 63746  1.64361e9    1627  119797  175242    9113  2022-01-30T22:02:16.0
+<span class="ansi-cyan-fg">                                                                1 column omitted</span>
+ <span class="ansi-bold">75682×7 DataFrame</span>
+<span class="ansi-bold">   Row </span>│<span class="ansi-bold"> idx    </span><span class="ansi-bold"> t         </span><span class="ansi-bold"> ma     </span><span class="ansi-bold"> mv     </span><span class="ansi-bold"> mw     </span><span class="ansi-bold"> wh     </span><span class="ansi-bold"> timestamp         </span> ⋯
+<span class="ansi-bold">       </span>│<span class="ansi-black-intense-fg"> Int32  </span><span class="ansi-black-intense-fg"> Float64?  </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> ZonedDat…         </span> ⋯
+───────┼────────────────────────────────────────────────────────────────────────
+     1 │  63747  1.64361e9    1614  119859  173849    9116  2022-01-30T22:03:0 ⋯
+     2 │  63748  1.64361e9    1614  119859  173934    9116  2022-01-30T22:03:0
+     3 │  63749  1.64361e9    1614  119859  173934    9116  2022-01-30T22:03:0
+     4 │  63750  1.64361e9    1614  119842  173934    9116  2022-01-30T22:03:0
+     5 │  63751  1.64361e9    1614  119842  173907    9116  2022-01-30T22:03:0 ⋯
+     6 │  63752  1.64361e9    1613  119842  173907    9116  2022-01-30T22:03:0
+     7 │  63753  1.64361e9    1613  119892  173751    9116  2022-01-30T22:03:0
+     8 │  63754  1.64361e9    1613  119892  173751    9116  2022-01-30T22:03:1
+     9 │  63755  1.64361e9    1612  119892  173751    9116  2022-01-30T22:03:1 ⋯
+    10 │  63756  1.64361e9    1612  119877  173751    9116  2022-01-30T22:03:1
+    11 │  63757  1.64361e9    1612  119877  173680    9116  2022-01-30T22:03:1
+   ⋮   │   ⋮         ⋮        ⋮       ⋮       ⋮       ⋮                   ⋮    ⋱
+ 75673 │ 139419  1.64369e9      59  121318    7164   10218  2022-01-31T19:43:3
+ 75674 │ 139420  1.64369e9      59  121461    7164   10218  2022-01-31T19:43:3 ⋯
+ 75675 │ 139421  1.64369e9      59  121461    7164   10218  2022-01-31T19:43:3
+ 75676 │ 139422  1.64369e9      59  121461    7155   10218  2022-01-31T19:43:3
+ 75677 │ 139423  1.64369e9      59  121461    7155   10218  2022-01-31T19:43:3
+ 75678 │ 139424  1.64369e9      59  121461    7155   10218  2022-01-31T19:43:4 ⋯
+ 75679 │ 139425  1.64369e9      59  121363    7155   10218  2022-01-31T19:43:4
+ 75680 │ 139426  1.64369e9      59  121363    7155   10218  2022-01-31T19:43:4
+ 75681 │ 139427  1.64369e9      59  121363    7120   10218  2022-01-31T19:43:4
+ 75682 │ 139428  1.64369e9      59  121363    7120   10218  2022-01-31T19:43:4 ⋯
+<span class="ansi-cyan-fg">                                                 1 column and 75661 rows omitted</span>
+ <span class="ansi-bold">161201×7 DataFrame</span>
+<span class="ansi-bold">    Row </span>│<span class="ansi-bold"> idx    </span><span class="ansi-bold"> t        </span><span class="ansi-bold"> ma     </span><span class="ansi-bold"> mv     </span><span class="ansi-bold"> mw     </span><span class="ansi-bold"> wh     </span><span class="ansi-bold"> timestamp         </span> ⋯
+<span class="ansi-bold">        </span>│<span class="ansi-black-intense-fg"> Int32  </span><span class="ansi-black-intense-fg"> Float64? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> ZonedDat…         </span> ⋯
+────────┼───────────────────────────────────────────────────────────────────────
+      1 │ 147777  1.6437e9       0  120248    7010       0  2022-01-31T22:16:2 ⋯
+      2 │ 147778  1.6437e9      58  120144    7001       0  2022-01-31T22:16:3
+      3 │ 147779  1.6437e9      58  120144    7001       0  2022-01-31T22:16:3
+      4 │ 147780  1.6437e9      58  120220    7001       0  2022-01-31T22:16:3
+      5 │ 147781  1.6437e9      58  120220    7001       0  2022-01-31T22:16:4 ⋯
+      6 │ 147782  1.6437e9      58  120220    6998       0  2022-01-31T22:16:4
+      7 │ 147783  1.6437e9      58  120220    6998       0  2022-01-31T22:16:4
+      8 │ 147784  1.6437e9      58  120220    6998       0  2022-01-31T22:16:4
+      9 │ 147785  1.6437e9      58  120264    6998       0  2022-01-31T22:16:4 ⋯
+     10 │ 147786  1.6437e9      58  120264    6998       0  2022-01-31T22:16:4
+     11 │ 147787  1.6437e9      58  120264    7013       0  2022-01-31T22:16:4
+   ⋮    │   ⋮        ⋮        ⋮       ⋮       ⋮       ⋮                   ⋮    ⋱
+ 161192 │ 308968  1.6439e9      59  121223    7131    2385  2022-02-03T06:28:0
+ 161193 │ 308969  1.6439e9      59  121223    7131    2385  2022-02-03T06:28:0 ⋯
+ 161194 │ 308970  1.6439e9      59  121223    7131    2385  2022-02-03T06:28:0
+ 161195 │ 308971  1.6439e9      59  121240    7131    2385  2022-02-03T06:28:0
+ 161196 │ 308972  1.6439e9      59  121240    7131    2385  2022-02-03T06:28:0
+ 161197 │ 308973  1.6439e9      59  121240    7140    2385  2022-02-03T06:28:1 ⋯
+ 161198 │ 308974  1.6439e9      59  121240    7140    2385  2022-02-03T06:28:1
+ 161199 │ 308975  1.6439e9      59  121240    7140    2385  2022-02-03T06:28:1
+ 161200 │ 308976  1.6439e9      59  121250    7140    2385  2022-02-03T06:28:1
+ 161201 │ 308977  1.6439e9      59  121250    7140    2385  2022-02-03T06:28:1 ⋯
+<span class="ansi-cyan-fg">                                                1 column and 161180 rows omitted</span>
+ <span class="ansi-bold">335889×7 DataFrame</span>
+<span class="ansi-bold">    Row </span>│<span class="ansi-bold"> idx    </span><span class="ansi-bold"> t         </span><span class="ansi-bold"> ma     </span><span class="ansi-bold"> mv     </span><span class="ansi-bold"> mw     </span><span class="ansi-bold"> wh     </span><span class="ansi-bold"> timestamp        </span> ⋯
+<span class="ansi-bold">        </span>│<span class="ansi-black-intense-fg"> Int32  </span><span class="ansi-black-intense-fg"> Float64?  </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> ZonedDat…        </span> ⋯
+────────┼───────────────────────────────────────────────────────────────────────
+      1 │ 308978  1.64391e9      59  121011    7108    2458  2022-02-03T08:24: ⋯
+      2 │ 308979  1.64391e9      59  121011    7138    2458  2022-02-03T08:24:
+      3 │ 308980  1.64391e9      59  121011    7138    2458  2022-02-03T08:24:
+      4 │ 308981  1.64391e9      59  121011    7138    2458  2022-02-03T08:24:
+      5 │ 308982  1.64391e9      59  120961    7138    2458  2022-02-03T08:24: ⋯
+      6 │ 308983  1.64391e9      59  120961    7138    2458  2022-02-03T08:24:
+      7 │ 308984  1.64391e9      59  120961    7113    2458  2022-02-03T08:24:
+      8 │ 308985  1.64391e9      59  120961    7113    2458  2022-02-03T08:24:
+      9 │ 308986  1.64391e9      59  120961    7113    2458  2022-02-03T08:24: ⋯
+     10 │ 308987  1.64391e9      59  121011    7113    2458  2022-02-03T08:24:
+     11 │ 308988  1.64391e9      59  121011    7113    2458  2022-02-03T08:24:
+   ⋮    │   ⋮         ⋮        ⋮       ⋮       ⋮       ⋮                   ⋮   ⋱
+ 335880 │ 644857  1.64431e9      59  121752    7191    7398  2022-02-07T23:56:
+ 335881 │ 644858  1.64431e9      59  121752    7203    7398  2022-02-07T23:56: ⋯
+ 335882 │ 644859  1.64431e9      59  121752    7203    7398  2022-02-07T23:56:
+ 335883 │ 644860  1.64431e9      59  121752    7203    7398  2022-02-07T23:56:
+ 335884 │ 644861  1.64431e9      59  121751    7203    7398  2022-02-07T23:56:
+ 335885 │ 644862  1.64431e9      59  121718    7190    7398  2022-02-07T23:56: ⋯
+ 335886 │ 644863  1.64431e9      59  121718    7177    7398  2022-02-07T23:56:
+ 335887 │ 644864  1.64431e9      59  121718    7177    7398  2022-02-07T23:56:
+ 335888 │ 644865  1.64431e9      59  121718    7177    7398  2022-02-07T23:56:
+ 335889 │ 644866  1.64431e9      59  121700    7177    7398  2022-02-07T23:56: ⋯
+<span class="ansi-cyan-fg">                                                1 column and 335868 rows omitted</span>
+ <span class="ansi-bold">916863×7 DataFrame</span>
+<span class="ansi-bold">    Row </span>│<span class="ansi-bold"> idx     </span><span class="ansi-bold"> t         </span><span class="ansi-bold"> ma     </span><span class="ansi-bold"> mv     </span><span class="ansi-bold"> mw     </span><span class="ansi-bold"> wh     </span><span class="ansi-bold"> timestamp       </span> ⋯
+<span class="ansi-bold">        </span>│<span class="ansi-black-intense-fg"> Int32   </span><span class="ansi-black-intense-fg"> Float64?  </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> ZonedDat…       </span> ⋯
+────────┼───────────────────────────────────────────────────────────────────────
+      1 │  644867  1.64434e9      58  118674    6822    7920  2022-02-08T08:05 ⋯
+      2 │  644868  1.64434e9      58  118674    6858    7920  2022-02-08T08:05
+      3 │  644869  1.64434e9      58  118674    6858    7920  2022-02-08T08:05
+      4 │  644870  1.64434e9      57  118674    6858    7920  2022-02-08T08:05
+      5 │  644871  1.64434e9      57  118699    6858    7920  2022-02-08T08:05 ⋯
+      6 │  644872  1.64434e9      57  118699    6858    7920  2022-02-08T08:05
+      7 │  644873  1.64434e9      57  118699    6844    7920  2022-02-08T08:05
+      8 │  644874  1.64434e9      57  118699    6844    7920  2022-02-08T08:05
+      9 │  644875  1.64434e9      57  118699    6844    7920  2022-02-08T08:05 ⋯
+     10 │  644876  1.64434e9      57  118697    6844    7920  2022-02-08T08:05
+     11 │  644877  1.64434e9      57  118697    6844    7920  2022-02-08T08:05
+   ⋮    │    ⋮         ⋮        ⋮       ⋮       ⋮       ⋮                   ⋮  ⋱
+ 916854 │ 1561720  1.64548e9      59  120728    7096   23348  2022-02-21T13:14
+ 916855 │ 1561721  1.64548e9      59  120728    7107   23348  2022-02-21T13:14 ⋯
+ 916856 │ 1561722  1.64548e9      59  120728    7107   23348  2022-02-21T13:14
+ 916857 │ 1561723  1.64548e9      59  120728    7107   23348  2022-02-21T13:14
+ 916858 │ 1561724  1.64548e9      59  120745    7107   23348  2022-02-21T13:14
+ 916859 │ 1561725  1.64548e9      59  120745    7107   23348  2022-02-21T13:14 ⋯
+ 916860 │ 1561726  1.64548e9      59  120745    7118   23348  2022-02-21T13:14
+ 916861 │ 1561727  1.64548e9      59  120745    7118   23348  2022-02-21T13:14
+ 916862 │ 1561728  1.64548e9      59  120745    7118   23348  2022-02-21T13:14
+ 916863 │ 1561729  1.64548e9      59  120742    7118   23348  2022-02-21T13:14 ⋯
+<span class="ansi-cyan-fg">                                                1 column and 916842 rows omitted</span>
+ <span class="ansi-bold">171043×7 DataFrame</span>
+<span class="ansi-bold">    Row </span>│<span class="ansi-bold"> idx     </span><span class="ansi-bold"> t         </span><span class="ansi-bold"> ma     </span><span class="ansi-bold"> mv     </span><span class="ansi-bold"> mw     </span><span class="ansi-bold"> wh     </span><span class="ansi-bold"> timestamp       </span> ⋯
+<span class="ansi-bold">        </span>│<span class="ansi-black-intense-fg"> Int32   </span><span class="ansi-black-intense-fg"> Float64?  </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> ZonedDat…       </span> ⋯
+────────┼───────────────────────────────────────────────────────────────────────
+      1 │ 1561730  1.64548e9      59  120630    7087   23349  2022-02-21T13:17 ⋯
+      2 │ 1561731  1.64548e9      59  120630    7087   23349  2022-02-21T13:17
+      3 │ 1561732  1.64548e9      59  120630    7087   23349  2022-02-21T13:17
+      4 │ 1561733  1.64548e9      59  120516    7087   23349  2022-02-21T13:17
+      5 │ 1561734  1.64548e9      59  120516    7087   23349  2022-02-21T13:17 ⋯
+      6 │ 1561735  1.64548e9      59  120516    7093   23349  2022-02-21T13:17
+      7 │ 1561736  1.64548e9      59  120516    7093   23349  2022-02-21T13:17
+      8 │ 1561737  1.64548e9      59  120533    7102   23349  2022-02-21T13:17
+      9 │ 1561738  1.64548e9      59  120667    7102   23349  2022-02-21T13:18 ⋯
+     10 │ 1561739  1.64548e9      59  120667    7102   23349  2022-02-21T13:18
+     11 │ 1561740  1.64548e9      59  120667    7114   23349  2022-02-21T13:18
+   ⋮    │    ⋮         ⋮        ⋮       ⋮       ⋮       ⋮                   ⋮  ⋱
+ 171034 │ 1732763  1.64567e9      59  120867    7149   25494  2022-02-23T19:18
+ 171035 │ 1732764  1.64567e9      59  120867    7154   25494  2022-02-23T19:18 ⋯
+ 171036 │ 1732765  1.64567e9      59  120867    7154   25494  2022-02-23T19:18
+ 171037 │ 1732766  1.64567e9      59  120867    7154   25494  2022-02-23T19:18
+ 171038 │ 1732767  1.64567e9      59  120725    7154   25494  2022-02-23T19:18
+ 171039 │ 1732768  1.64567e9      59  120725    7154   25494  2022-02-23T19:18 ⋯
+ 171040 │ 1732769  1.64567e9      59  120725    7088   25494  2022-02-23T19:18
+ 171041 │ 1732770  1.64567e9      59  120725    7088   25494  2022-02-23T19:18
+ 171042 │ 1732771  1.64567e9      59  120725    7088   25494  2022-02-23T19:18
+ 171043 │ 1732772  1.64567e9      59  120672    7088   25494  2022-02-23T19:18 ⋯
+<span class="ansi-cyan-fg">                                                1 column and 171022 rows omitted</span>
+ <span class="ansi-bold">943176×7 DataFrame</span>
+<span class="ansi-bold">    Row </span>│<span class="ansi-bold"> idx     </span><span class="ansi-bold"> t         </span><span class="ansi-bold"> ma     </span><span class="ansi-bold"> mv     </span><span class="ansi-bold"> mw     </span><span class="ansi-bold"> wh     </span><span class="ansi-bold"> timestamp       </span> ⋯
+<span class="ansi-bold">        </span>│<span class="ansi-black-intense-fg"> Int32   </span><span class="ansi-black-intense-fg"> Float64?  </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> ZonedDat…       </span> ⋯
+────────┼───────────────────────────────────────────────────────────────────────
+      1 │ 1732773  1.64567e9      59  121659    7232   25494  2022-02-23T19:21 ⋯
+      2 │ 1732774  1.64567e9      59  121659    7232   25494  2022-02-23T19:21
+      3 │ 1732775  1.64567e9      59  121659    7245   25494  2022-02-23T19:21
+      4 │ 1732776  1.64567e9      59  121659    7245   25494  2022-02-23T19:21
+      5 │ 1732777  1.64567e9      59  121659    7245   25494  2022-02-23T19:21 ⋯
+      6 │ 1732778  1.64567e9      59  121628    7245   25494  2022-02-23T19:21
+      7 │ 1732779  1.64567e9      59  121628    7245   25494  2022-02-23T19:21
+      8 │ 1732780  1.64567e9      59  121628    7208   25494  2022-02-23T19:21
+      9 │ 1732781  1.64567e9      59  121628    7208   25494  2022-02-23T19:21 ⋯
+     10 │ 1732782  1.64567e9      59  121628    7208   25494  2022-02-23T19:21
+     11 │ 1732783  1.64567e9      59  121703    7208   25494  2022-02-23T19:21
+   ⋮    │    ⋮         ⋮        ⋮       ⋮       ⋮       ⋮                   ⋮  ⋱
+ 943167 │ 2675939  1.64671e9      59  120485    7119   37943  2022-03-07T19:38
+ 943168 │ 2675940  1.64671e9      59  120485    7119   37943  2022-03-07T19:38 ⋯
+ 943169 │ 2675941  1.64671e9      59  120485    7156   37943  2022-03-07T19:38
+ 943170 │ 2675942  1.64671e9      59  120485    7156   37943  2022-03-07T19:38
+ 943171 │ 2675943  1.64671e9      59  120485    7156   37943  2022-03-07T19:38
+ 943172 │ 2675944  1.64671e9      59  120431    7094   37943  2022-03-07T19:38 ⋯
+ 943173 │ 2675945  1.64671e9      59  120431    7094   37943  2022-03-07T19:38
+ 943174 │ 2675946  1.64671e9      59  120431    7116   37943  2022-03-07T19:38
+ 943175 │ 2675947  1.64671e9      59  120431    7116   37943  2022-03-07T19:38
+ 943176 │ 2675948  1.64671e9      59  120431    7116   37943  2022-03-07T19:38 ⋯
+<span class="ansi-cyan-fg">                                                1 column and 943155 rows omitted</span>
+ <span class="ansi-bold">864437×7 DataFrame</span>
+<span class="ansi-bold">    Row </span>│<span class="ansi-bold"> idx     </span><span class="ansi-bold"> t         </span><span class="ansi-bold"> ma     </span><span class="ansi-bold"> mv     </span><span class="ansi-bold"> mw     </span><span class="ansi-bold"> wh     </span><span class="ansi-bold"> timestamp       </span> ⋯
+<span class="ansi-bold">        </span>│<span class="ansi-black-intense-fg"> Int32   </span><span class="ansi-black-intense-fg"> Float64?  </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> ZonedDat…       </span> ⋯
+────────┼───────────────────────────────────────────────────────────────────────
+      1 │ 2675949  1.64672e9      58  119707    7012       0  2022-03-07T22:27 ⋯
+      2 │ 2675950  1.64672e9      58  119707    7012       0  2022-03-07T22:27
+      3 │ 2675951  1.64672e9      59  119707    7012       0  2022-03-07T22:27
+      4 │ 2675952  1.64672e9      59  119794    7012       0  2022-03-07T22:27
+      5 │ 2675953  1.64672e9      59  119794    7012       0  2022-03-07T22:27 ⋯
+      6 │ 2675954  1.64672e9      59  119794    7043       0  2022-03-07T22:27
+      7 │ 2675955  1.64672e9      59  119794    7043       0  2022-03-07T22:27
+      8 │ 2675956  1.64672e9      59  119794    7043       0  2022-03-07T22:27
+      9 │ 2675957  1.64672e9      59  119780    7043       0  2022-03-07T22:27 ⋯
+     10 │ 2675958  1.64672e9      59  119780    7043       0  2022-03-07T22:27
+     11 │ 2675959  1.64672e9      59  119780    7073       0  2022-03-07T22:27
+   ⋮    │    ⋮         ⋮        ⋮       ⋮       ⋮       ⋮                   ⋮  ⋱
+ 864428 │ 3540376  1.64765e9    1597  121294  173556   11484  2022-03-18T17:21
+ 864429 │ 3540377  1.64765e9    1597  121254  173556   11484  2022-03-18T17:21 ⋯
+ 864430 │ 3540378  1.64765e9    1597  121254  173522   11484  2022-03-18T17:21
+ 864431 │ 3540379  1.64765e9    1596  121254  173522   11484  2022-03-18T17:21
+ 864432 │ 3540380  1.64765e9    1596  121157  173522   11485  2022-03-18T17:21
+ 864433 │ 3540381  1.64765e9    1596  121157  173440   11485  2022-03-18T17:21 ⋯
+ 864434 │ 3540382  1.64765e9    1595  121157  173440   11485  2022-03-18T17:21
+ 864435 │ 3540383  1.64765e9    1595  121306  173031   11485  2022-03-18T17:21
+ 864436 │ 3540384  1.64765e9    1595  121306  173031   11485  2022-03-18T17:21
+ 864437 │ 3540385  1.64765e9    1595  121306  173481   11485  2022-03-18T17:21 ⋯
+<span class="ansi-cyan-fg">                                                1 column and 864416 rows omitted</span>
+ <span class="ansi-bold">307791×7 DataFrame</span>
+<span class="ansi-bold">    Row </span>│<span class="ansi-bold"> idx     </span><span class="ansi-bold"> t         </span><span class="ansi-bold"> ma     </span><span class="ansi-bold"> mv     </span><span class="ansi-bold"> mw     </span><span class="ansi-bold"> wh     </span><span class="ansi-bold"> timestamp       </span> ⋯
+<span class="ansi-bold">        </span>│<span class="ansi-black-intense-fg"> Int32   </span><span class="ansi-black-intense-fg"> Float64?  </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> ZonedDat…       </span> ⋯
+────────┼───────────────────────────────────────────────────────────────────────
+      1 │ 3540386  1.64766e9      59  122118    7353       0  2022-03-18T19:46 ⋯
+      2 │ 3540387  1.64766e9      60  122041    7322       0  2022-03-18T19:46
+      3 │ 3540388  1.64766e9      60  122041    7322       0  2022-03-18T19:47
+      4 │ 3540389  1.64766e9      60  122041    7322       0  2022-03-18T19:47
+      5 │ 3540390  1.64766e9      60  122018    7322       0  2022-03-18T19:47 ⋯
+      6 │ 3540391  1.64766e9      60  122018    7322       0  2022-03-18T19:47
+      7 │ 3540392  1.64766e9      60  122018    7319       0  2022-03-18T19:47
+      8 │ 3540393  1.64766e9      60  122018    7319       0  2022-03-18T19:47
+      9 │ 3540394  1.64766e9      60  122018    7319       0  2022-03-18T19:47 ⋯
+     10 │ 3540395  1.64766e9      60  122023    7319       0  2022-03-18T19:47
+     11 │ 3540396  1.64766e9      60  122023    7319       0  2022-03-18T19:47
+   ⋮    │    ⋮         ⋮        ⋮       ⋮       ⋮       ⋮                   ⋮  ⋱
+ 307782 │ 3848167  1.64799e9    1672  121306  182891    4242  2022-03-22T17:22
+ 307783 │ 3848168  1.64799e9    1672  121306  183089    4242  2022-03-22T17:22 ⋯
+ 307784 │ 3848169  1.64799e9    1670  121219  182696    4244  2022-03-22T17:22
+ 307785 │ 3848170  1.64799e9    1670  121219  182769    4244  2022-03-22T17:23
+ 307786 │ 3848171  1.64799e9    1669  121266  182769    4244  2022-03-22T17:23
+ 307787 │ 3848172  1.64799e9    1669  121266  182687    4244  2022-03-22T17:23 ⋯
+ 307788 │ 3848173  1.64799e9    1667  121148  182414    4244  2022-03-22T17:23
+ 307789 │ 3848174  1.64799e9    1667  121148  182120    4244  2022-03-22T17:23
+ 307790 │ 3848175  1.64799e9    1667  121148  182120    4244  2022-03-22T17:23
+ 307791 │ 3848176  1.648e9      1664  121182  181831    4247  2022-03-22T17:23 ⋯
+<span class="ansi-cyan-fg">                                                1 column and 307770 rows omitted</span>
+ <span class="ansi-bold">3×7 DataFrame</span>
+<span class="ansi-bold"> Row </span>│<span class="ansi-bold"> idx     </span><span class="ansi-bold"> t         </span><span class="ansi-bold"> ma     </span><span class="ansi-bold"> mv     </span><span class="ansi-bold"> mw     </span><span class="ansi-bold"> wh     </span><span class="ansi-bold"> timestamp          </span> ⋯
+<span class="ansi-bold">     </span>│<span class="ansi-black-intense-fg"> Int32   </span><span class="ansi-black-intense-fg"> Float64?  </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> ZonedDat…          </span> ⋯
+─────┼──────────────────────────────────────────────────────────────────────────
+   1 │ 3848177  1.64802e9    1638  121217  179032    4708  2022-03-23T00:28:33 ⋯
+   2 │ 3848178  1.64802e9    1638  121274  179032    4708  2022-03-23T00:28:34
+   3 │ 3848179  1.64802e9    1637  121274  178691    4708  2022-03-23T00:28:35
+<span class="ansi-cyan-fg">                                                                1 column omitted</span>
+ <span class="ansi-bold">1968×7 DataFrame</span>
+<span class="ansi-bold">  Row </span>│<span class="ansi-bold"> idx     </span><span class="ansi-bold"> t         </span><span class="ansi-bold"> ma     </span><span class="ansi-bold"> mv     </span><span class="ansi-bold"> mw     </span><span class="ansi-bold"> wh     </span><span class="ansi-bold"> timestamp         </span> ⋯
+<span class="ansi-bold">      </span>│<span class="ansi-black-intense-fg"> Int32   </span><span class="ansi-black-intense-fg"> Float64?  </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> ZonedDat…         </span> ⋯
+──────┼─────────────────────────────────────────────────────────────────────────
+    1 │ 3848180  1.64802e9    1632  121296  178116    4708  2022-03-23T00:28:4 ⋯
+    2 │ 3848181  1.64802e9    1632  121248  178116    4708  2022-03-23T00:28:4
+    3 │ 3848182  1.64802e9    1632  121248  178184    4708  2022-03-23T00:28:4
+    4 │ 3848183  1.64802e9    1634  121248  178184    4708  2022-03-23T00:28:4
+    5 │ 3848184  1.64802e9    1634  121268  178184    4708  2022-03-23T00:28:4 ⋯
+    6 │ 3848185  1.64802e9    1634  121268  178339    4708  2022-03-23T00:28:5
+    7 │ 3848186  1.64802e9    1634  121268  178339    4708  2022-03-23T00:28:5
+    8 │ 3848187  1.64802e9    1634  121257  178066    4709  2022-03-23T00:28:5
+    9 │ 3848188  1.64802e9    1631  121257  178066    4709  2022-03-23T00:28:5 ⋯
+   10 │ 3848189  1.64802e9    1631  121279  178066    4709  2022-03-23T00:28:5
+   11 │ 3848190  1.64802e9    1631  121279  178066    4709  2022-03-23T00:28:5
+  ⋮   │    ⋮         ⋮        ⋮       ⋮       ⋮       ⋮                   ⋮    ⋱
+ 1959 │ 3850138  1.64802e9      60  121164    7237    4730  2022-03-23T01:04:4
+ 1960 │ 3850139  1.64802e9      60  121164    7245    4730  2022-03-23T01:04:4 ⋯
+ 1961 │ 3850140  1.64802e9      60  121164    7245    4730  2022-03-23T01:04:4
+ 1962 │ 3850141  1.64802e9      60  121164    7245    4730  2022-03-23T01:04:4
+ 1963 │ 3850142  1.64802e9      60  121202    7245    4730  2022-03-23T01:04:4
+ 1964 │ 3850143  1.64802e9      60  121202    7259    4730  2022-03-23T01:04:4 ⋯
+ 1965 │ 3850144  1.64802e9      60  121202    7259    4730  2022-03-23T01:04:4
+ 1966 │ 3850145  1.64802e9      60  121202    7259    4730  2022-03-23T01:04:4
+ 1967 │ 3850146  1.64802e9      60  121202    7259    4730  2022-03-23T01:04:4
+ 1968 │ 3850147  1.64802e9      60  121202    7259    4730  2022-03-23T01:04:4 ⋯
+<span class="ansi-cyan-fg">                                                  1 column and 1947 rows omitted</span>
+ <span class="ansi-bold">1108562×7 DataFrame</span>
+<span class="ansi-bold">     Row </span>│<span class="ansi-bold"> idx     </span><span class="ansi-bold"> t         </span><span class="ansi-bold"> ma     </span><span class="ansi-bold"> mv     </span><span class="ansi-bold"> mw     </span><span class="ansi-bold"> wh     </span><span class="ansi-bold"> timestamp      </span> ⋯
+<span class="ansi-bold">         </span>│<span class="ansi-black-intense-fg"> Int32   </span><span class="ansi-black-intense-fg"> Float64?  </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> Int32? </span><span class="ansi-black-intense-fg"> ZonedDat…      </span> ⋯
+─────────┼──────────────────────────────────────────────────────────────────────
+       1 │ 3850148  1.64805e9    1634  120895  177976    5070  2022-03-23T08:1 ⋯
+       2 │ 3850149  1.64805e9    1634  120953  177976    5070  2022-03-23T08:1
+       3 │ 3850150  1.64805e9    1634  120953  178025    5070  2022-03-23T08:1
+       4 │ 3850151  1.64805e9    1636  120953  178025    5070  2022-03-23T08:1
+       5 │ 3850152  1.64805e9    1636  120931  178025    5070  2022-03-23T08:1 ⋯
+       6 │ 3850153  1.64805e9    1636  120931  178046    5070  2022-03-23T08:1
+       7 │ 3850154  1.64805e9    1636  120931  178046    5070  2022-03-23T08:1
+       8 │ 3850155  1.64805e9    1636  122122  178857    5070  2022-03-23T08:1
+       9 │ 3850156  1.64805e9    1636  122122  178857    5070  2022-03-23T08:1 ⋯
+      10 │ 3850157  1.64805e9    1631  122166  178952    5071  2022-03-23T08:1
+      11 │ 3850158  1.64805e9    1632  122166  178952    5071  2022-03-23T08:1
+    ⋮    │    ⋮         ⋮        ⋮       ⋮       ⋮       ⋮                   ⋮ ⋱
+ 1108553 │ 4958700  1.64955e9      59  119847    7075   25200  2022-04-09T17:2
+ 1108554 │ 4958701  1.64955e9      59  119847    7115   25200  2022-04-09T17:2 ⋯
+ 1108555 │ 4958702  1.64955e9      59  119847    7115   25200  2022-04-09T17:2
+ 1108556 │ 4958703  1.64955e9      59  119847    7115   25200  2022-04-09T17:2
+ 1108557 │ 4958704  1.64955e9      59  120218    7115   25200  2022-04-09T17:2
+ 1108558 │ 4958705  1.64955e9      59  120218    7115   25200  2022-04-09T17:2 ⋯
+ 1108559 │ 4958706  1.64955e9      59  120218    7106   25200  2022-04-09T17:2
+ 1108560 │ 4958707  1.64955e9      59  120218    7106   25200  2022-04-09T17:2
+ 1108561 │ 4958708  1.64955e9      59  120218    7106   25200  2022-04-09T17:2
+ 1108562 │ 4958709  1.64955e9      59  120037    7106   25200  2022-04-09T17:2 ⋯
+<span class="ansi-cyan-fg">                                               1 column and 1108541 rows omitted</span></pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">all_emeter_data</span> <span class="o">=</span> <span class="n">vcat</span><span class="p">(</span><span class="n">all_emeter_data</span><span class="o">...</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div class="data-frame"><p>4,950,350 rows × 7 columns</p><table class="data-frame"><thead><tr><th></th><th>idx</th><th>t</th><th>ma</th><th>mv</th><th>mw</th><th>wh</th><th>timestamp</th></tr><tr><th></th><th title="Int32">Int32</th><th title="Union{Missing, Float64}">Float64?</th><th title="Union{Missing, Int32}">Int32?</th><th title="Union{Missing, Int32}">Int32?</th><th title="Union{Missing, Int32}">Int32?</th><th title="Union{Missing, Int32}">Int32?</th><th title="ZonedDateTime">ZonedDat…</th></tr></thead><tbody><tr><th>1</th><td>12</td><td>1.64349e9</td><td>59</td><td>121266</td><td>7139</td><td>7512</td><td>2022-01-29T12:19:41.336-08:00</td></tr><tr><th>2</th><td>13</td><td>1.64349e9</td><td>59</td><td>121266</td><td>7139</td><td>7512</td><td>2022-01-29T12:20:45.166-08:00</td></tr><tr><th>3</th><td>14</td><td>1.64349e9</td><td>59</td><td>121266</td><td>7139</td><td>7512</td><td>2022-01-29T12:20:53.324-08:00</td></tr><tr><th>4</th><td>15</td><td>1.64349e9</td><td>59</td><td>121266</td><td>7139</td><td>7512</td><td>2022-01-29T12:20:54.646-08:00</td></tr><tr><th>5</th><td>16</td><td>1.64349e9</td><td>59</td><td>121266</td><td>7139</td><td>7512</td><td>2022-01-29T12:20:55.542-08:00</td></tr><tr><th>6</th><td>17</td><td>1.64349e9</td><td>59</td><td>121266</td><td>7139</td><td>7512</td><td>2022-01-29T12:20:56.556-08:00</td></tr><tr><th>7</th><td>18</td><td>1.64349e9</td><td>59</td><td>121266</td><td>7139</td><td>7512</td><td>2022-01-29T12:21:03.581-08:00</td></tr><tr><th>8</th><td>19</td><td>1.64349e9</td><td>59</td><td>121266</td><td>7139</td><td>7512</td><td>2022-01-29T12:21:16.887-08:00</td></tr><tr><th>9</th><td>20</td><td>1.64349e9</td><td>59</td><td>121266</td><td>7139</td><td>7512</td><td>2022-01-29T12:21:20.293-08:00</td></tr><tr><th>10</th><td>21</td><td>1.64349e9</td><td>59</td><td>121338</td><td>7149</td><td>7575</td><td>2022-01-29T13:56:10.577-08:00</td></tr><tr><th>11</th><td>22</td><td>1.64349e9</td><td>59</td><td>121362</td><td>7135</td><td>7575</td><td>2022-01-29T13:56:16.623-08:00</td></tr><tr><th>12</th><td>23</td><td>1.64349e9</td><td>59</td><td>121287</td><td>7134</td><td>7575</td><td>2022-01-29T13:56:26.517-08:00</td></tr><tr><th>13</th><td>24</td><td>1.64349e9</td><td>59</td><td>121287</td><td>7134</td><td>7575</td><td>2022-01-29T13:56:27.810-08:00</td></tr><tr><th>14</th><td>25</td><td>1.64349e9</td><td>59</td><td>121270</td><td>7134</td><td>7575</td><td>2022-01-29T13:56:28.839-08:00</td></tr><tr><th>15</th><td>26</td><td>1.64349e9</td><td>59</td><td>121564</td><td>7164</td><td>7602</td><td>2022-01-29T14:17:13.671-08:00</td></tr><tr><th>16</th><td>27</td><td>1.64349e9</td><td>59</td><td>121591</td><td>7164</td><td>7602</td><td>2022-01-29T14:17:14.780-08:00</td></tr><tr><th>17</th><td>28</td><td>1.64349e9</td><td>59</td><td>121533</td><td>7167</td><td>7602</td><td>2022-01-29T14:17:23.204-08:00</td></tr><tr><th>18</th><td>29</td><td>1.64349e9</td><td>59</td><td>121497</td><td>7172</td><td>7602</td><td>2022-01-29T14:17:42.136-08:00</td></tr><tr><th>19</th><td>30</td><td>1.64349e9</td><td>59</td><td>121497</td><td>7172</td><td>7602</td><td>2022-01-29T14:17:43.138-08:00</td></tr><tr><th>20</th><td>31</td><td>1.64349e9</td><td>59</td><td>121497</td><td>7172</td><td>7602</td><td>2022-01-29T14:17:44.140-08:00</td></tr><tr><th>21</th><td>32</td><td>1.64349e9</td><td>59</td><td>121489</td><td>7172</td><td>7602</td><td>2022-01-29T14:17:45.142-08:00</td></tr><tr><th>22</th><td>33</td><td>1.64349e9</td><td>59</td><td>121489</td><td>7172</td><td>7602</td><td>2022-01-29T14:17:46.144-08:00</td></tr><tr><th>23</th><td>34</td><td>1.64349e9</td><td>59</td><td>121489</td><td>7132</td><td>7602</td><td>2022-01-29T14:17:47.146-08:00</td></tr><tr><th>24</th><td>35</td><td>1.64349e9</td><td>59</td><td>121489</td><td>7132</td><td>7602</td><td>2022-01-29T14:17:48.147-08:00</td></tr><tr><th>25</th><td>36</td><td>1.64349e9</td><td>59</td><td>121489</td><td>7132</td><td>7602</td><td>2022-01-29T14:17:49.149-08:00</td></tr><tr><th>26</th><td>37</td><td>1.64349e9</td><td>59</td><td>121504</td><td>7132</td><td>7602</td><td>2022-01-29T14:17:50.152-08:00</td></tr><tr><th>27</th><td>38</td><td>1.64349e9</td><td>59</td><td>121504</td><td>7132</td><td>7602</td><td>2022-01-29T14:17:51.154-08:00</td></tr><tr><th>28</th><td>39</td><td>1.64349e9</td><td>59</td><td>121504</td><td>7137</td><td>7602</td><td>2022-01-29T14:17:52.155-08:00</td></tr><tr><th>29</th><td>40</td><td>1.64349e9</td><td>59</td><td>121504</td><td>7137</td><td>7602</td><td>2022-01-29T14:17:53.156-08:00</td></tr><tr><th>30</th><td>41</td><td>1.64349e9</td><td>59</td><td>121504</td><td>7137</td><td>7602</td><td>2022-01-29T14:17:54.159-08:00</td></tr><tr><th>&vellip;</th><td>&vellip;</td><td>&vellip;</td><td>&vellip;</td><td>&vellip;</td><td>&vellip;</td><td>&vellip;</td><td>&vellip;</td></tr></tbody></table></div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">describe</span><span class="p">(</span><span class="n">all_emeter_data</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[19]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div class="data-frame"><p>7 rows × 7 columns (omitted printing of 2 columns)</p><table class="data-frame"><thead><tr><th></th><th>variable</th><th>mean</th><th>min</th><th>median</th><th>max</th></tr><tr><th></th><th title="Symbol">Symbol</th><th title="Union{Nothing, Float64}">Union…</th><th title="Any">Any</th><th title="Union{Nothing, Float64}">Union…</th><th title="Any">Any</th></tr></thead><tbody><tr><th>1</th><td>idx</td><td>2.4833e6</td><td>12</td><td>2.48353e6</td><td>4958709</td></tr><tr><th>2</th><td>t</td><td>1.6465e9</td><td>1.64349e9</td><td>1.6465e9</td><td>1.64955e9</td></tr><tr><th>3</th><td>ma</td><td>414.049</td><td>0</td><td>60.0</td><td>9012</td></tr><tr><th>4</th><td>mv</td><td>1.21104e5</td><td>106168</td><td>121184.0</td><td>124168</td></tr><tr><th>5</th><td>mw</td><td>45782.7</td><td>6466</td><td>7246.0</td><td>918210</td></tr><tr><th>6</th><td>wh</td><td>14888.4</td><td>0</td><td>12321.0</td><td>37943</td></tr><tr><th>7</th><td>timestamp</td><td></td><td>2022-01-29T12:19:41.336-08:00</td><td></td><td>2022-04-09T17:29:25.218-07:00</td></tr></tbody></table></div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span>
 </pre></div>
 
      </div>

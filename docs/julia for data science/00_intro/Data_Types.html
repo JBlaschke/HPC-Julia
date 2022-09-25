@@ -50,6 +50,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
 .highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
 .highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
+.highlight .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
 .highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
 .highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
 .highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
@@ -14495,6 +14496,9 @@ a.anchor-link {
 .reveal {
   font-size: 160%;
 }
+.reveal table {
+  font-size: var(--jp-ui-font-size1);
+}
 .reveal pre {
   width: inherit;
   padding: 0.4em;
@@ -14538,6 +14542,23 @@ div.jp-OutputPrompt {
   margin: 5px 5px 0 0;
 }
 
+.reveal div.highlight {
+  margin: 0;
+}
+
+.reveal div.highlight > pre {
+  margin: 0;
+  width: 100%;
+  font-size: var(--jp-code-font-size);
+}
+
+.reveal div.jp-OutputArea-output > pre {
+  margin: 0;
+  width: 90%;
+  font-size: var(--jp-code-font-size);
+  box-shadow: none;
+}
+
 /* Reveal navigation controls */
 
 .reveal .controls .navigate-left,
@@ -14578,17 +14599,14 @@ div.jp-OutputPrompt {
 
 /* Scrollbars */
 
-::-webkit-scrollbar
-{
+::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
-::-webkit-scrollbar *
-{
-  background:transparent;
+::-webkit-scrollbar * {
+  background: transparent;
 }
-::-webkit-scrollbar-thumb
-{
+::-webkit-scrollbar-thumb {
   background: #727272 !important;
 }
 </style>
@@ -14615,12 +14633,12 @@ div.jp-OutputPrompt {
                 },
                 displayAlign: 'center',
                 CommonHTML: {
-                    linebreaks: { 
-                    automatic: true 
+                    linebreaks: {
+                    automatic: true
                     }
                 }
             });
-        
+
             MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         }
     }
@@ -14659,7 +14677,7 @@ div.jp-OutputPrompt {
 <li>Functions can have multiple definitions (each new definition of a function is called a <em>method</em>)</li>
 <li>The Julia compiler chooses which method to apply to a function call based on the type of <em>all</em> input arguments (i.e. Multiple Dispatch)</li>
 </ul>
-<p>This might be a bit strange for python users: classes look "inside-out" with method definitions accompanying data types.</p>
+<p>This might be a bit strange for python users: classes look &quot;inside-out&quot; with method definitions accompanying data types.</p>
 <p>For encapsulation, use Modules!</p>
 
 </div>
@@ -14696,12 +14714,12 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">struct</span> <span class="kt">OrderedPair</span> <span class="o">&lt;:</span> <span class="kt">Number</span>
-    <span class="n">x</span><span class="o">::</span><span class="kt">Real</span>
-    <span class="n">y</span><span class="o">::</span><span class="kt">Real</span>
-    
-    <span class="n">OrderedPair</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="kt">Real</span><span class="p">,</span> <span class="n">y</span><span class="o">::</span><span class="kt">Real</span><span class="p">)</span> <span class="o">=</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span> <span class="o">?</span> <span class="n">error</span><span class="p">(</span><span class="s">&quot;out of order&quot;</span><span class="p">)</span> <span class="o">:</span> <span class="n">new</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
-<span class="k">end</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">struct</span> <span class="kt">OrderedPair</span><span class="w"> </span><span class="o">&lt;:</span><span class="w"> </span><span class="kt">Number</span><span class="w"></span>
+<span class="w">    </span><span class="n">x</span><span class="o">::</span><span class="kt">Real</span><span class="w"></span>
+<span class="w">    </span><span class="n">y</span><span class="o">::</span><span class="kt">Real</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="n">OrderedPair</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="kt">Real</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">::</span><span class="kt">Real</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">error</span><span class="p">(</span><span class="s">"out of order"</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">new</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -14716,14 +14734,14 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>The encapsulated function: <code>OrderedPair(x,y) = x &gt; y ? error("out of order") : new(x,y)</code> defines a constructor that ensure that the ordered pair stays ordered. In Python, this would be handled by  <code>__init__(self, x, y)</code></p>
+<p>The encapsulated function: <code>OrderedPair(x,y) = x &gt; y ? error(&quot;out of order&quot;) : new(x,y)</code> defines a constructor that ensure that the ordered pair stays ordered. In Python, this would be handled by  <code>__init__(self, x, y)</code></p>
 <p>The is a one-line function definition here is equivalent to:</p>
-<div class="highlight"><pre><span></span><span class="k">function</span> <span class="n">OrderedPair</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span>
-        <span class="n">error</span><span class="p">(</span><span class="s">&quot;out of order&quot;</span><span class="p">)</span>
-    <span class="k">end</span>
-    <span class="n">new</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
-<span class="k">end</span>
+<div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">OrderedPair</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">y</span><span class="w"></span>
+<span class="w">        </span><span class="n">error</span><span class="p">(</span><span class="s">&quot;out of order&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="n">new</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 
 </div>
@@ -14754,20 +14772,20 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">import</span> <span class="n">Base</span><span class="o">:</span> <span class="o">+</span><span class="p">,</span> <span class="o">-</span><span class="p">,</span> <span class="n">convert</span><span class="p">,</span> <span class="n">promote_rule</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="n">Base</span><span class="o">:</span><span class="w"> </span><span class="o">+</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="p">,</span><span class="w"> </span><span class="n">convert</span><span class="p">,</span><span class="w"> </span><span class="n">promote_rule</span><span class="w"></span>
 
-<span class="k">function</span> <span class="o">+</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="kt">OrderedPair</span><span class="p">,</span> <span class="n">b</span><span class="o">::</span><span class="kt">OrderedPair</span><span class="p">)</span>
-    <span class="n">x_new</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">b</span><span class="o">.</span><span class="n">x</span>
-    <span class="n">y_new</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">b</span><span class="o">.</span><span class="n">y</span>
-    <span class="n">OrderedPair</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="n">y_new</span><span class="p">)</span>
-<span class="k">end</span>
+<span class="k">function</span><span class="w"> </span><span class="o">+</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="kt">OrderedPair</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="o">::</span><span class="kt">OrderedPair</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">x_new</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="o">.</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="o">.</span><span class="n">x</span><span class="w"></span>
+<span class="w">    </span><span class="n">y_new</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="o">.</span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="o">.</span><span class="n">y</span><span class="w"></span>
+<span class="w">    </span><span class="n">OrderedPair</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span><span class="w"> </span><span class="n">y_new</span><span class="p">)</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 
-<span class="c"># One-liners can seem a bit magical</span>
-<span class="o">-</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="kt">OrderedPair</span><span class="p">,</span> <span class="n">b</span><span class="o">::</span><span class="kt">OrderedPair</span><span class="p">)</span> <span class="o">=</span> <span class="n">OrderedPair</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">b</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">b</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+<span class="c"># One-liners can seem a bit magical</span><span class="w"></span>
+<span class="o">-</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="kt">OrderedPair</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="o">::</span><span class="kt">OrderedPair</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OrderedPair</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="o">.</span><span class="n">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span><span class="o">.</span><span class="n">y</span><span class="p">)</span><span class="w"></span>
 
-<span class="c"># Getting these right might require some experimenting. Note how OrderedPair extends Number.</span>
-<span class="n">convert</span><span class="p">(</span><span class="o">::</span><span class="kt">Type</span><span class="p">{</span><span class="kt">OrderedPair</span><span class="p">},</span> <span class="n">x</span><span class="o">::</span><span class="kt">Real</span><span class="p">)</span> <span class="o">=</span> <span class="n">OrderedPair</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-<span class="n">promote_rule</span><span class="p">(</span><span class="o">::</span><span class="kt">Type</span><span class="p">{</span><span class="kt">OrderedPair</span><span class="p">},</span> <span class="o">::</span><span class="kt">Type</span><span class="p">{</span><span class="o">&lt;:</span><span class="kt">Real</span><span class="p">})</span> <span class="o">=</span> <span class="n">OrderedPair</span>
+<span class="c"># Getting these right might require some experimenting. Note how OrderedPair extends Number.</span><span class="w"></span>
+<span class="n">convert</span><span class="p">(</span><span class="o">::</span><span class="kt">Type</span><span class="p">{</span><span class="kt">OrderedPair</span><span class="p">},</span><span class="w"> </span><span class="n">x</span><span class="o">::</span><span class="kt">Real</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OrderedPair</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"></span>
+<span class="n">promote_rule</span><span class="p">(</span><span class="o">::</span><span class="kt">Type</span><span class="p">{</span><span class="kt">OrderedPair</span><span class="p">},</span><span class="w"> </span><span class="o">::</span><span class="kt">Type</span><span class="p">{</span><span class="o">&lt;:</span><span class="kt">Real</span><span class="p">})</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OrderedPair</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -14781,9 +14799,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
 
@@ -14820,8 +14836,8 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">p1</span> <span class="o">=</span> <span class="n">OrderedPair</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">p2</span> <span class="o">=</span> <span class="n">OrderedPair</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OrderedPair</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="n">p2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OrderedPair</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -14835,9 +14851,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
 
@@ -14862,7 +14876,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">p1</span> <span class="o">+</span> <span class="n">p2</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">p1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">p2</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -14876,9 +14890,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
 
@@ -14915,7 +14927,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">p1</span> <span class="o">-</span> <span class="n">p2</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">p1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">p2</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -14929,9 +14941,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14968,7 +14978,7 @@ Stacktrace:
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">p2</span> <span class="o">-</span> <span class="n">p1</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">p2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">p1</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -14982,9 +14992,7 @@ Stacktrace:
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
 
@@ -15021,7 +15029,7 @@ Stacktrace:
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">convert</span><span class="p">(</span><span class="n">OrderedPair</span><span class="p">,</span> <span class="mf">20.</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">convert</span><span class="p">(</span><span class="n">OrderedPair</span><span class="p">,</span><span class="w"> </span><span class="mf">20.</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15035,9 +15043,7 @@ Stacktrace:
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
 
@@ -15074,7 +15080,7 @@ Stacktrace:
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">p1</span> <span class="o">+</span> <span class="mf">20.</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">p1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">20.</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15088,9 +15094,7 @@ Stacktrace:
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
 
@@ -15138,11 +15142,11 @@ Stacktrace:
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">struct</span> <span class="kt">OrderedPair2</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span> <span class="o">&lt;:</span> <span class="kt">Number</span> <span class="k">where</span> <span class="kt">T</span> <span class="o">&lt;:</span> <span class="kt">Number</span>
-    <span class="n">x</span><span class="o">::</span><span class="kt">T</span>
-    <span class="n">y</span><span class="o">::</span><span class="kt">T</span>
-    <span class="n">OrderedPair2</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="kt">T</span><span class="p">,</span> <span class="n">y</span><span class="o">::</span><span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="o">=</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span> <span class="o">?</span> <span class="n">error</span><span class="p">(</span><span class="s">&quot;out of order&quot;</span><span class="p">)</span> <span class="o">:</span> <span class="kt">new</span><span class="p">{</span><span class="kt">T</span><span class="p">}(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
-<span class="k">end</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">struct</span> <span class="kt">OrderedPair2</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="w"> </span><span class="o">&lt;:</span><span class="w"> </span><span class="kt">Number</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="kt">T</span><span class="w"> </span><span class="o">&lt;:</span><span class="w"> </span><span class="kt">Number</span><span class="w"></span>
+<span class="w">    </span><span class="n">x</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
+<span class="w">    </span><span class="n">y</span><span class="o">::</span><span class="kt">T</span><span class="w"></span>
+<span class="w">    </span><span class="n">OrderedPair2</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="kt">T</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">::</span><span class="kt">T</span><span class="p">)</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="kt">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">error</span><span class="p">(</span><span class="s">"out of order"</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">new</span><span class="p">{</span><span class="kt">T</span><span class="p">}(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15170,7 +15174,7 @@ Stacktrace:
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">OrderedPair2</span><span class="p">(</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OrderedPair2</span><span class="p">(</span><span class="mf">1.</span><span class="p">,</span><span class="w"> </span><span class="mf">2.</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15184,9 +15188,7 @@ Stacktrace:
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
 
@@ -15211,7 +15213,7 @@ Stacktrace:
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">p2</span> <span class="o">=</span> <span class="n">OrderedPair2</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">p2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OrderedPair2</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15225,9 +15227,7 @@ Stacktrace:
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
 

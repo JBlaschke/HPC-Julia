@@ -50,6 +50,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
 .highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
 .highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
+.highlight .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
 .highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
 .highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
 .highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
@@ -14495,6 +14496,9 @@ a.anchor-link {
 .reveal {
   font-size: 160%;
 }
+.reveal table {
+  font-size: var(--jp-ui-font-size1);
+}
 .reveal pre {
   width: inherit;
   padding: 0.4em;
@@ -14538,6 +14542,23 @@ div.jp-OutputPrompt {
   margin: 5px 5px 0 0;
 }
 
+.reveal div.highlight {
+  margin: 0;
+}
+
+.reveal div.highlight > pre {
+  margin: 0;
+  width: 100%;
+  font-size: var(--jp-code-font-size);
+}
+
+.reveal div.jp-OutputArea-output > pre {
+  margin: 0;
+  width: 90%;
+  font-size: var(--jp-code-font-size);
+  box-shadow: none;
+}
+
 /* Reveal navigation controls */
 
 .reveal .controls .navigate-left,
@@ -14578,17 +14599,14 @@ div.jp-OutputPrompt {
 
 /* Scrollbars */
 
-::-webkit-scrollbar
-{
+::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
-::-webkit-scrollbar *
-{
-  background:transparent;
+::-webkit-scrollbar * {
+  background: transparent;
 }
-::-webkit-scrollbar-thumb
-{
+::-webkit-scrollbar-thumb {
   background: #727272 !important;
 }
 </style>
@@ -14615,12 +14633,12 @@ div.jp-OutputPrompt {
                 },
                 displayAlign: 'center',
                 CommonHTML: {
-                    linebreaks: { 
-                    automatic: true 
+                    linebreaks: {
+                    automatic: true
                     }
                 }
             });
-        
+
             MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         }
     }
@@ -14654,7 +14672,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">data_directory</span> <span class="o">=</span> <span class="n">joinpath</span><span class="p">(</span><span class="nd">@__DIR__</span><span class="p">,</span> <span class="s">&quot;..&quot;</span><span class="p">,</span> <span class="s">&quot;..&quot;</span><span class="p">,</span> <span class="s">&quot;..&quot;</span><span class="p">,</span> <span class="s">&quot;exercises&quot;</span><span class="p">,</span> <span class="s">&quot;fridge&quot;</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">data_directory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">joinpath</span><span class="p">(</span><span class="nd">@__DIR__</span><span class="p">,</span><span class="w"> </span><span class="s">".."</span><span class="p">,</span><span class="w"> </span><span class="s">".."</span><span class="p">,</span><span class="w"> </span><span class="s">".."</span><span class="p">,</span><span class="w"> </span><span class="s">"exercises"</span><span class="p">,</span><span class="w"> </span><span class="s">"fridge"</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -14668,9 +14686,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[1]:</div>
 
@@ -14695,8 +14711,8 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">Dates</span>
-<span class="k">using</span> <span class="n">TimeZones</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">Dates</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="n">TimeZones</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -14712,9 +14728,9 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">timestamp</span><span class="p">(</span><span class="n">t</span><span class="p">;</span> <span class="n">target_tz</span><span class="o">::</span><span class="kt">VariableTimeZone</span><span class="o">=</span><span class="sa">tz</span><span class="s">&quot;America/Los_Angeles&quot;</span><span class="p">)</span> <span class="o">=</span> <span class="n">astimezone</span><span class="p">(</span>
-    <span class="n">ZonedDateTime</span><span class="p">(</span><span class="n">Dates</span><span class="o">.</span><span class="n">unix2datetime</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="sa">tz</span><span class="s">&quot;GMT&quot;</span><span class="p">),</span> <span class="n">target_tz</span>
-<span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">timestamp</span><span class="p">(</span><span class="n">t</span><span class="p">;</span><span class="w"> </span><span class="n">target_tz</span><span class="o">::</span><span class="kt">VariableTimeZone</span><span class="o">=</span><span class="sa">tz</span><span class="s">"America/Los_Angeles"</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">astimezone</span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">ZonedDateTime</span><span class="p">(</span><span class="n">Dates</span><span class="o">.</span><span class="n">unix2datetime</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="w"> </span><span class="sa">tz</span><span class="s">"GMT"</span><span class="p">),</span><span class="w"> </span><span class="n">target_tz</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -14728,9 +14744,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
 
@@ -14755,30 +14769,30 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">MySQL</span>
-<span class="k">using</span> <span class="n">DataFrames</span>
-<span class="k">function</span> <span class="n">get_emeter_data</span><span class="p">(</span><span class="n">conn</span><span class="o">::</span><span class="kt">MySQL</span><span class="o">.</span><span class="n">Connection</span><span class="p">,</span> <span class="n">name</span><span class="o">::</span><span class="kt">String</span><span class="p">,</span> <span class="n">idx</span><span class="o">::</span><span class="kt">Int64</span><span class="p">)</span>
-    <span class="n">DBInterface</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
-        <span class="n">DBInterface</span><span class="o">.</span><span class="n">prepare</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span>
-            <span class="s">&quot;SET @v1 := (SELECT emeter_start FROM </span><span class="si">$</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="s"> WHERE idx = </span><span class="si">$</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span><span class="s">)&quot;</span>
-        <span class="p">)</span>
-    <span class="p">)</span>
-    <span class="n">DBInterface</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
-        <span class="n">DBInterface</span><span class="o">.</span><span class="n">prepare</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span>
-            <span class="s">&quot;SET @v2 := (SELECT emeter_end FROM </span><span class="si">$</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="s"> WHERE idx = </span><span class="si">$</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span><span class="s">)&quot;</span>
-        <span class="p">)</span>
-    <span class="p">)</span>
-    <span class="n">events</span> <span class="o">=</span> <span class="n">DBInterface</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
-        <span class="n">DBInterface</span><span class="o">.</span><span class="n">prepare</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span>
-            <span class="s">&quot;SELECT * FROM </span><span class="si">$</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="s">_emeter WHERE idx BETWEEN @v1 and @v2&quot;</span>
-        <span class="p">)</span>
-    <span class="p">)</span> <span class="o">|&gt;</span> <span class="n">DataFrame</span>
-    <span class="n">events</span> <span class="o">=</span> <span class="n">transform</span><span class="p">(</span>
-        <span class="n">events</span><span class="p">,</span>
-        <span class="ss">:t</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">timestamp</span><span class="o">.</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">=&gt;</span> <span class="ss">:timestamp</span>
-    <span class="p">)</span>
-    <span class="k">return</span> <span class="n">events</span>
-<span class="k">end</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">MySQL</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="n">DataFrames</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span><span class="n">get_emeter_data</span><span class="p">(</span><span class="n">conn</span><span class="o">::</span><span class="kt">MySQL</span><span class="o">.</span><span class="n">Connection</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="o">::</span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="n">idx</span><span class="o">::</span><span class="kt">Int64</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">DBInterface</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="n">DBInterface</span><span class="o">.</span><span class="n">prepare</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s">"SET @v1 := (SELECT emeter_start FROM </span><span class="si">$</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="s"> WHERE idx = </span><span class="si">$</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span><span class="s">)"</span><span class="w"></span>
+<span class="w">        </span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">DBInterface</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="n">DBInterface</span><span class="o">.</span><span class="n">prepare</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s">"SET @v2 := (SELECT emeter_end FROM </span><span class="si">$</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="s"> WHERE idx = </span><span class="si">$</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span><span class="s">)"</span><span class="w"></span>
+<span class="w">        </span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">events</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DBInterface</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="n">DBInterface</span><span class="o">.</span><span class="n">prepare</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s">"SELECT * FROM </span><span class="si">$</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="s">_emeter WHERE idx BETWEEN @v1 and @v2"</span><span class="w"></span>
+<span class="w">        </span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">DataFrame</span><span class="w"></span>
+<span class="w">    </span><span class="n">events</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">transform</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="n">events</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="ss">:t</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">timestamp</span><span class="o">.</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="ss">:timestamp</span><span class="w"></span>
+<span class="w">    </span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">events</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -14792,9 +14806,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
 
@@ -14819,13 +14831,13 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">import</span> <span class="n">Base</span><span class="o">:</span> <span class="nd">@kwdef</span>
-<span class="nd">@kwdef</span> <span class="k">mutable struct</span> <span class="kt">DBCredentials</span>
-    <span class="n">host</span><span class="o">::</span><span class="kt">String</span>
-    <span class="n">name</span><span class="o">::</span><span class="kt">String</span>
-    <span class="n">username</span><span class="o">::</span><span class="kt">String</span>
-    <span class="n">password</span><span class="o">::</span><span class="kt">String</span>
-<span class="k">end</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="n">Base</span><span class="o">:</span><span class="w"> </span><span class="nd">@kwdef</span><span class="w"></span>
+<span class="nd">@kwdef</span><span class="w"> </span><span class="k">mutable</span><span class="w"> </span><span class="k">struct</span> <span class="kt">DBCredentials</span><span class="w"></span>
+<span class="w">    </span><span class="n">host</span><span class="o">::</span><span class="kt">String</span><span class="w"></span>
+<span class="w">    </span><span class="n">name</span><span class="o">::</span><span class="kt">String</span><span class="w"></span>
+<span class="w">    </span><span class="n">username</span><span class="o">::</span><span class="kt">String</span><span class="w"></span>
+<span class="w">    </span><span class="n">password</span><span class="o">::</span><span class="kt">String</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -14839,9 +14851,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
 
@@ -14866,14 +14876,14 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">JSON</span>
-<span class="n">db_credenitals</span> <span class="o">=</span> <span class="n">DBCredentials</span><span class="p">(</span>
-    <span class="p">;</span><span class="n">JSON</span><span class="o">.</span><span class="n">parsefile</span><span class="p">(</span>
-        <span class="n">joinpath</span><span class="p">(</span><span class="n">data_directory</span><span class="p">,</span> <span class="s">&quot;db.json&quot;</span><span class="p">),</span>
-        <span class="n">dicttype</span><span class="o">=</span><span class="kt">Dict</span><span class="p">{</span><span class="kt">Symbol</span><span class="p">,</span><span class="kt">String</span><span class="p">}</span>
-    <span class="p">)</span><span class="o">...</span>
-<span class="p">)</span>
-<span class="c"># db_credenitals.host = &quot;127.0.0.1&quot;;</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">JSON</span><span class="w"></span>
+<span class="n">db_credenitals</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DBCredentials</span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="p">;</span><span class="n">JSON</span><span class="o">.</span><span class="n">parsefile</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="n">joinpath</span><span class="p">(</span><span class="n">data_directory</span><span class="p">,</span><span class="w"> </span><span class="s">"db.json"</span><span class="p">),</span><span class="w"></span>
+<span class="w">        </span><span class="n">dicttype</span><span class="o">=</span><span class="kt">Dict</span><span class="p">{</span><span class="kt">Symbol</span><span class="p">,</span><span class="kt">String</span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">)</span><span class="o">...</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+<span class="c"># db_credenitals.host = "127.0.0.1";</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -14889,11 +14899,11 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">db_conn</span> <span class="o">=</span> <span class="n">DBInterface</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
-    <span class="n">MySQL</span><span class="o">.</span><span class="n">Connection</span><span class="p">,</span> <span class="n">db_credenitals</span><span class="o">.</span><span class="n">host</span><span class="p">,</span>
-    <span class="n">db_credenitals</span><span class="o">.</span><span class="n">username</span><span class="p">,</span> <span class="n">db_credenitals</span><span class="o">.</span><span class="n">password</span><span class="p">,</span>
-    <span class="n">db</span><span class="o">=</span><span class="n">db_credenitals</span><span class="o">.</span><span class="n">name</span>
-<span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">db_conn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DBInterface</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">MySQL</span><span class="o">.</span><span class="n">Connection</span><span class="p">,</span><span class="w"> </span><span class="n">db_credenitals</span><span class="o">.</span><span class="n">host</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">db_credenitals</span><span class="o">.</span><span class="n">username</span><span class="p">,</span><span class="w"> </span><span class="n">db_credenitals</span><span class="o">.</span><span class="n">password</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">db</span><span class="o">=</span><span class="n">db_credenitals</span><span class="o">.</span><span class="n">name</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -14907,9 +14917,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
 
@@ -14934,21 +14942,21 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Arstotzka_Ministry_of_Energy&quot;</span>
-<span class="n">idx_max</span> <span class="o">=</span> <span class="mi">61</span>
-<span class="n">idx_blacklist</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span>  <span class="c"># Debugging</span>
-    <span class="mi">51</span>  <span class="c">#  Battery Charger</span>
-<span class="p">]</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Arstotzka_Ministry_of_Energy"</span><span class="w"></span>
+<span class="n">idx_max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">61</span><span class="w"></span>
+<span class="n">idx_blacklist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">    </span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="w">  </span><span class="c"># Debugging</span><span class="w"></span>
+<span class="w">    </span><span class="mi">51</span><span class="w">  </span><span class="c">#  Battery Charger</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
 
-<span class="n">all_emeter_data</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">[]</span>
+<span class="n">all_emeter_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DataFrame</span><span class="p">[]</span><span class="w"></span>
 
-<span class="k">for</span> <span class="n">idx</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="n">idx_max</span>
-    <span class="k">if</span> <span class="n">idx</span> <span class="k">in</span> <span class="n">idx_blacklist</span>
-        <span class="k">continue</span>
-    <span class="k">end</span>
-    <span class="n">push!</span><span class="p">(</span><span class="n">all_emeter_data</span><span class="p">,</span> <span class="n">get_emeter_data</span><span class="p">(</span><span class="n">db_conn</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">idx</span><span class="p">))</span>
-<span class="k">end</span>
+<span class="k">for</span><span class="w"> </span><span class="n">idx</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="n">idx_max</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">idx</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">idx_blacklist</span><span class="w"></span>
+<span class="w">        </span><span class="k">continue</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="n">push!</span><span class="p">(</span><span class="n">all_emeter_data</span><span class="p">,</span><span class="w"> </span><span class="n">get_emeter_data</span><span class="p">(</span><span class="n">db_conn</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">idx</span><span class="p">))</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -14964,7 +14972,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">all_emeter_data</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">all_emeter_data</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -14978,9 +14986,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
 
@@ -15515,7 +15521,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">all_emeter_data</span> <span class="o">=</span> <span class="n">vcat</span><span class="p">(</span><span class="n">all_emeter_data</span><span class="o">...</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">all_emeter_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vcat</span><span class="p">(</span><span class="n">all_emeter_data</span><span class="o">...</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15529,9 +15535,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
 
@@ -15555,7 +15559,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">describe</span><span class="p">(</span><span class="n">all_emeter_data</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">describe</span><span class="p">(</span><span class="n">all_emeter_data</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15569,9 +15573,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
 

@@ -50,6 +50,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
 .highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
 .highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
+.highlight .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
 .highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
 .highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
 .highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
@@ -14495,6 +14496,9 @@ a.anchor-link {
 .reveal {
   font-size: 160%;
 }
+.reveal table {
+  font-size: var(--jp-ui-font-size1);
+}
 .reveal pre {
   width: inherit;
   padding: 0.4em;
@@ -14538,6 +14542,23 @@ div.jp-OutputPrompt {
   margin: 5px 5px 0 0;
 }
 
+.reveal div.highlight {
+  margin: 0;
+}
+
+.reveal div.highlight > pre {
+  margin: 0;
+  width: 100%;
+  font-size: var(--jp-code-font-size);
+}
+
+.reveal div.jp-OutputArea-output > pre {
+  margin: 0;
+  width: 90%;
+  font-size: var(--jp-code-font-size);
+  box-shadow: none;
+}
+
 /* Reveal navigation controls */
 
 .reveal .controls .navigate-left,
@@ -14578,17 +14599,14 @@ div.jp-OutputPrompt {
 
 /* Scrollbars */
 
-::-webkit-scrollbar
-{
+::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
-::-webkit-scrollbar *
-{
-  background:transparent;
+::-webkit-scrollbar * {
+  background: transparent;
 }
-::-webkit-scrollbar-thumb
-{
+::-webkit-scrollbar-thumb {
   background: #727272 !important;
 }
 </style>
@@ -14615,12 +14633,12 @@ div.jp-OutputPrompt {
                 },
                 displayAlign: 'center',
                 CommonHTML: {
-                    linebreaks: { 
-                    automatic: true 
+                    linebreaks: {
+                    automatic: true
                     }
                 }
             });
-        
+
             MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         }
     }
@@ -14677,7 +14695,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="nd">@__DIR__</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="nd">@__DIR__</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -14691,9 +14709,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[1]:</div>
 
@@ -14730,7 +14746,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">data_directory</span> <span class="o">=</span> <span class="n">joinpath</span><span class="p">(</span><span class="nd">@__DIR__</span><span class="p">,</span> <span class="s">&quot;..&quot;</span><span class="p">,</span> <span class="s">&quot;..&quot;</span><span class="p">,</span> <span class="s">&quot;..&quot;</span><span class="p">,</span> <span class="s">&quot;exercises&quot;</span><span class="p">,</span> <span class="s">&quot;covid&quot;</span><span class="p">,</span> <span class="s">&quot;data&quot;</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">data_directory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">joinpath</span><span class="p">(</span><span class="nd">@__DIR__</span><span class="p">,</span><span class="w"> </span><span class="s">".."</span><span class="p">,</span><span class="w"> </span><span class="s">".."</span><span class="p">,</span><span class="w"> </span><span class="s">".."</span><span class="p">,</span><span class="w"> </span><span class="s">"exercises"</span><span class="p">,</span><span class="w"> </span><span class="s">"covid"</span><span class="p">,</span><span class="w"> </span><span class="s">"data"</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -14744,9 +14760,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
 
@@ -14783,7 +14797,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">temp_directory</span> <span class="o">=</span> <span class="n">mktempdir</span><span class="p">()</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">temp_directory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mktempdir</span><span class="p">()</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -14797,9 +14811,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
 
@@ -14859,7 +14871,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">readdir</span><span class="p">(</span><span class="n">temp_directory</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">readdir</span><span class="p">(</span><span class="n">temp_directory</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -14873,9 +14885,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
 
@@ -14912,7 +14922,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">file_path</span> <span class="o">=</span> <span class="n">joinpath</span><span class="p">(</span><span class="n">temp_directory</span><span class="p">,</span> <span class="s">&quot;a.dat&quot;</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">file_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">joinpath</span><span class="p">(</span><span class="n">temp_directory</span><span class="p">,</span><span class="w"> </span><span class="s">"a.dat"</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -14926,9 +14936,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
 
@@ -14953,7 +14961,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -14967,9 +14975,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
 
@@ -14997,7 +15003,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">write</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">write</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15011,9 +15017,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
 
@@ -15050,7 +15054,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[56]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">readdir</span><span class="p">(</span><span class="n">temp_directory</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">readdir</span><span class="p">(</span><span class="n">temp_directory</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15064,9 +15068,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[56]:</div>
 
@@ -15104,7 +15106,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">read</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="kt">Int64</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">read</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span><span class="w"> </span><span class="kt">Int64</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15118,9 +15120,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
 
@@ -15157,7 +15157,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">read</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="kt">String</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">read</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15171,9 +15171,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
 
@@ -15210,11 +15208,11 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">)</span> <span class="k">do</span> <span class="n">io</span>
-    <span class="k">while</span> <span class="o">!</span><span class="n">eof</span><span class="p">(</span><span class="n">io</span><span class="p">)</span>
-        <span class="n">print</span><span class="p">(</span><span class="n">read</span><span class="p">(</span><span class="n">io</span><span class="p">,</span> <span class="kt">Int64</span><span class="p">),</span> <span class="s">&quot;,&quot;</span><span class="p">)</span>
-    <span class="k">end</span>
-<span class="k">end</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span><span class="w"> </span><span class="s">"r"</span><span class="p">)</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="n">io</span><span class="w"></span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="o">!</span><span class="n">eof</span><span class="p">(</span><span class="n">io</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">print</span><span class="p">(</span><span class="n">read</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="w"> </span><span class="kt">Int64</span><span class="p">),</span><span class="w"> </span><span class="s">","</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15228,9 +15226,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15262,7 +15258,7 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>JSON is a really poular format for structured data. It's a bit clunky, but it's human readable, and pretty much every web API uses it, so we'll just have to live with the clunk. Check out the documentation here: <a href="https://github.com/JuliaIO/JSON.jl">https://github.com/JuliaIO/JSON.jl</a></p>
+<p>JSON is a really poular format for structured data. It's a bit clunky, but it's human readable, and pretty much every web API uses it, so we'll just have to live with the clunk. Check out the documentation here: https://github.com/JuliaIO/JSON.jl</p>
 
 </div>
 </div>
@@ -15275,7 +15271,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">JSON</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">JSON</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15303,10 +15299,10 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="kt">Dict</span><span class="p">(</span>
-    <span class="s">&quot;a&quot;</span><span class="o">=&gt;</span><span class="mi">1</span><span class="p">,</span>
-    <span class="s">&quot;b&quot;</span><span class="o">=&gt;</span><span class="s">&quot;hello&quot;</span>
-<span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">Dict</span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="s">"a"</span><span class="o">=&gt;</span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s">"b"</span><span class="o">=&gt;</span><span class="s">"hello"</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15320,9 +15316,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[16]:</div>
 
@@ -15361,7 +15355,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">json</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">json</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15375,9 +15369,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[17]:</div>
 
@@ -15414,8 +15406,8 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">json_file_path</span> <span class="o">=</span> <span class="n">joinpath</span><span class="p">(</span><span class="n">temp_directory</span><span class="p">,</span> <span class="s">&quot;d.json&quot;</span><span class="p">)</span>
-<span class="n">write</span><span class="p">(</span><span class="n">json_file_path</span><span class="p">,</span> <span class="n">json</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">json_file_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">joinpath</span><span class="p">(</span><span class="n">temp_directory</span><span class="p">,</span><span class="w"> </span><span class="s">"d.json"</span><span class="p">)</span><span class="w"></span>
+<span class="n">write</span><span class="p">(</span><span class="n">json_file_path</span><span class="p">,</span><span class="w"> </span><span class="n">json</span><span class="p">(</span><span class="n">d</span><span class="p">))</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15429,9 +15421,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
 
@@ -15468,8 +15458,8 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">d_string</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="n">json_file_path</span><span class="p">,</span> <span class="kt">String</span><span class="p">)</span>
-<span class="n">JSON</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">d_string</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">d_string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">read</span><span class="p">(</span><span class="n">json_file_path</span><span class="p">,</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"></span>
+<span class="n">JSON</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">d_string</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15483,9 +15473,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[19]:</div>
 
@@ -15522,7 +15510,7 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>CSV is another text-based format that is the defacto standard for sharing small to medium amounts of data. Check out the documentation here: <a href="https://csv.juliadata.org/stable/">https://csv.juliadata.org/stable/</a> and <a href="https://dataframes.juliadata.org/stable/">https://dataframes.juliadata.org/stable/</a></p>
+<p>CSV is another text-based format that is the defacto standard for sharing small to medium amounts of data. Check out the documentation here: https://csv.juliadata.org/stable/ and https://dataframes.juliadata.org/stable/</p>
 
 </div>
 </div>
@@ -15535,8 +15523,8 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">DataFrames</span>
-<span class="k">using</span> <span class="n">CSV</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">DataFrames</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="n">CSV</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15564,7 +15552,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="kt">String</span><span class="p">[],</span> <span class="n">age</span><span class="o">=</span><span class="kt">Float64</span><span class="p">[],</span> <span class="n">coffees</span><span class="o">=</span><span class="kt">Int64</span><span class="p">[])</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">df</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DataFrame</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="kt">String</span><span class="p">[],</span><span class="w"> </span><span class="n">age</span><span class="o">=</span><span class="kt">Float64</span><span class="p">[],</span><span class="w"> </span><span class="n">coffees</span><span class="o">=</span><span class="kt">Int64</span><span class="p">[])</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15578,9 +15566,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[23]:</div>
 
@@ -15616,7 +15602,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">push!</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="p">(</span><span class="s">&quot;Johannes&quot;</span><span class="p">,</span> <span class="mf">36.5</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">push!</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="s">"Johannes"</span><span class="p">,</span><span class="w"> </span><span class="mf">36.5</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">))</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15630,9 +15616,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[24]:</div>
 
@@ -15656,7 +15640,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">push!</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="p">(</span><span class="s">&quot;Christin&quot;</span><span class="p">,</span> <span class="mf">34.1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">push!</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="s">"Christin"</span><span class="p">,</span><span class="w"> </span><span class="mf">34.1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">))</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15670,9 +15654,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[25]:</div>
 
@@ -15708,8 +15690,8 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">coffee_file_path</span> <span class="o">=</span> <span class="n">joinpath</span><span class="p">(</span><span class="n">temp_directory</span><span class="p">,</span> <span class="s">&quot;coffee.csv&quot;</span><span class="p">)</span>
-<span class="n">CSV</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">coffee_file_path</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">coffee_file_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">joinpath</span><span class="p">(</span><span class="n">temp_directory</span><span class="p">,</span><span class="w"> </span><span class="s">"coffee.csv"</span><span class="p">)</span><span class="w"></span>
+<span class="n">CSV</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">coffee_file_path</span><span class="p">,</span><span class="w"> </span><span class="n">df</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15723,9 +15705,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[26]:</div>
 
@@ -15750,7 +15730,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">readdir</span><span class="p">(</span><span class="n">temp_directory</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">readdir</span><span class="p">(</span><span class="n">temp_directory</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15764,9 +15744,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[27]:</div>
 
@@ -15806,11 +15784,11 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">open</span><span class="p">(</span><span class="n">joinpath</span><span class="p">(</span><span class="n">temp_directory</span><span class="p">,</span> <span class="s">&quot;coffee.csv&quot;</span><span class="p">))</span> <span class="k">do</span> <span class="n">io</span>
-    <span class="k">for</span> <span class="n">line</span> <span class="k">in</span> <span class="n">readlines</span><span class="p">(</span><span class="n">io</span><span class="p">)</span>
-        <span class="n">println</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
-    <span class="k">end</span>
-<span class="k">end</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">open</span><span class="p">(</span><span class="n">joinpath</span><span class="p">(</span><span class="n">temp_directory</span><span class="p">,</span><span class="w"> </span><span class="s">"coffee.csv"</span><span class="p">))</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="n">io</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">readlines</span><span class="p">(</span><span class="n">io</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="n">line</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15824,9 +15802,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15863,7 +15839,7 @@ Christin,34.1,2
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">CSV</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">coffee_file_path</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">CSV</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">coffee_file_path</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15877,9 +15853,7 @@ Christin,34.1,2
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[28]:</div>
 
@@ -15906,7 +15880,7 @@ Christin,34.1,2
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[31]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">CSV</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">coffee_file_path</span><span class="p">)</span> <span class="o">|&gt;</span> <span class="n">DataFrame</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">CSV</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">coffee_file_path</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">DataFrame</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15920,9 +15894,7 @@ Christin,34.1,2
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[31]:</div>
 
@@ -15969,7 +15941,7 @@ Christin,34.1,2
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[30]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">readdir</span><span class="p">(</span><span class="n">data_directory</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">readdir</span><span class="p">(</span><span class="n">data_directory</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15983,9 +15955,7 @@ Christin,34.1,2
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[30]:</div>
 
@@ -16023,8 +15993,8 @@ Christin,34.1,2
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[34]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">CSV</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">joinpath</span><span class="p">(</span><span class="n">data_directory</span><span class="p">,</span> <span class="s">&quot;total-covid-cases-deaths-per-million.csv&quot;</span><span class="p">))</span> <span class="o">|&gt;</span> <span class="n">DataFrame</span>
-<span class="n">dropmissing!</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="c"># Data is never perfect!</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CSV</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">joinpath</span><span class="p">(</span><span class="n">data_directory</span><span class="p">,</span><span class="w"> </span><span class="s">"total-covid-cases-deaths-per-million.csv"</span><span class="p">))</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">DataFrame</span><span class="w"></span>
+<span class="n">dropmissing!</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="c"># Data is never perfect!</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -16038,9 +16008,7 @@ Christin,34.1,2
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[34]:</div>
 
@@ -16076,7 +16044,7 @@ Christin,34.1,2
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[36]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">describe</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">describe</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -16090,9 +16058,7 @@ Christin,34.1,2
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[36]:</div>
 
@@ -16128,7 +16094,7 @@ Christin,34.1,2
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[35]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="s">&quot;Total confirmed cases of COVID-19 per million people&quot;</span><span class="p">]</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="w"> </span><span class="s">"Total confirmed cases of COVID-19 per million people"</span><span class="p">]</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -16142,9 +16108,7 @@ Christin,34.1,2
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[35]:</div>
 
@@ -16207,7 +16171,7 @@ Christin,34.1,2
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[37]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="s">&quot;Code&quot;</span><span class="p">]</span> <span class="o">.==</span> <span class="s">&quot;USA&quot;</span><span class="p">,</span> <span class="o">:</span><span class="p">]</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="w"> </span><span class="s">"Code"</span><span class="p">]</span><span class="w"> </span><span class="o">.==</span><span class="w"> </span><span class="s">"USA"</span><span class="p">,</span><span class="w"> </span><span class="o">:</span><span class="p">]</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -16221,9 +16185,7 @@ Christin,34.1,2
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[37]:</div>
 

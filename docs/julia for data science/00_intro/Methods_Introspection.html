@@ -50,6 +50,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
 .highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
 .highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
+.highlight .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
 .highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
 .highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
 .highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
@@ -14495,6 +14496,9 @@ a.anchor-link {
 .reveal {
   font-size: 160%;
 }
+.reveal table {
+  font-size: var(--jp-ui-font-size1);
+}
 .reveal pre {
   width: inherit;
   padding: 0.4em;
@@ -14538,6 +14542,23 @@ div.jp-OutputPrompt {
   margin: 5px 5px 0 0;
 }
 
+.reveal div.highlight {
+  margin: 0;
+}
+
+.reveal div.highlight > pre {
+  margin: 0;
+  width: 100%;
+  font-size: var(--jp-code-font-size);
+}
+
+.reveal div.jp-OutputArea-output > pre {
+  margin: 0;
+  width: 90%;
+  font-size: var(--jp-code-font-size);
+  box-shadow: none;
+}
+
 /* Reveal navigation controls */
 
 .reveal .controls .navigate-left,
@@ -14578,17 +14599,14 @@ div.jp-OutputPrompt {
 
 /* Scrollbars */
 
-::-webkit-scrollbar
-{
+::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
-::-webkit-scrollbar *
-{
-  background:transparent;
+::-webkit-scrollbar * {
+  background: transparent;
 }
-::-webkit-scrollbar-thumb
-{
+::-webkit-scrollbar-thumb {
   background: #727272 !important;
 }
 </style>
@@ -14615,12 +14633,12 @@ div.jp-OutputPrompt {
                 },
                 displayAlign: 'center',
                 CommonHTML: {
-                    linebreaks: { 
-                    automatic: true 
+                    linebreaks: {
+                    automatic: true
                     }
                 }
             });
-        
+
             MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         }
     }
@@ -14689,7 +14707,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[62]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">subtypes</span><span class="p">(</span><span class="kt">Number</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">subtypes</span><span class="p">(</span><span class="kt">Number</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -14703,9 +14721,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[62]:</div>
 
@@ -14732,7 +14748,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[63]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">subtypes</span><span class="p">(</span><span class="kt">Real</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">subtypes</span><span class="p">(</span><span class="kt">Real</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -14746,9 +14762,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[63]:</div>
 
@@ -14789,7 +14803,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[55]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">subtypes</span><span class="p">(</span><span class="kt">Int64</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">subtypes</span><span class="p">(</span><span class="kt">Int64</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -14803,9 +14817,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[55]:</div>
 
@@ -14830,7 +14842,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Eg. all numeric data types in Julia form this tree:
-<img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Type-hierarchy-for-julia-numbers.png" alt="Datatype tree for Julia Number abstract type"></p>
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Type-hierarchy-for-julia-numbers.png" alt="Datatype tree for Julia Number abstract type" /></p>
 
 </div>
 </div>
@@ -14871,7 +14883,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[65]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">fib_1</span><span class="p">(</span><span class="s">&quot;32.&quot;</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">fib_1</span><span class="p">(</span><span class="s">"32."</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -14885,9 +14897,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14925,10 +14935,10 @@ Stacktrace:
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[66]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">fib_2</span><span class="p">(</span><span class="n">n</span><span class="o">::</span><span class="kt">Number</span><span class="p">)</span>
-    <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">2</span> <span class="o">&amp;&amp;</span> <span class="k">return</span> <span class="mi">1</span>
-    <span class="n">fib_2</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib_2</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
-<span class="k">end</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">fib_2</span><span class="p">(</span><span class="n">n</span><span class="o">::</span><span class="kt">Number</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">    </span><span class="n">fib_2</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">fib_2</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -14942,9 +14952,7 @@ Stacktrace:
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[66]:</div>
 
@@ -14981,7 +14989,7 @@ Stacktrace:
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[67]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">fib_2</span><span class="p">(</span><span class="s">&quot;32.&quot;</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">fib_2</span><span class="p">(</span><span class="s">"32."</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -14995,9 +15003,7 @@ Stacktrace:
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15052,7 +15058,7 @@ Stacktrace:
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Eg: "something that doubles just the part of the number in front of the decimal point". So <code>double_int(10)=20</code>, and <code>double_int(10.1) = 20.1</code>. We can implement this in several ways, eg:</p>
+<p>Eg: &quot;something that doubles just the part of the number in front of the decimal point&quot;. So <code>double_int(10)=20</code>, and <code>double_int(10.1) = 20.1</code>. We can implement this in several ways, eg:</p>
 <ol>
 <li>If the input is an integer, double it,</li>
 <li>If the input is a floating-point value, then compute the decimal part, double it, and add the original remainder:</li>
@@ -15069,15 +15075,15 @@ Stacktrace:
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[40]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">double_int</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="kt">Int</span><span class="p">)</span>
-    <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span>
-<span class="k">end</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">double_int</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="kt">Int</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 
-<span class="k">function</span> <span class="n">double_int</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="kt">AbstractFloat</span><span class="p">)</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">floor</span><span class="p">(</span><span class="kt">Int</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-    <span class="n">r</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span>
-    <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="n">y</span> <span class="o">+</span> <span class="n">r</span>
-<span class="k">end</span>
+<span class="k">function</span><span class="w"> </span><span class="n">double_int</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="kt">AbstractFloat</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">floor</span><span class="p">(</span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">y</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15091,9 +15097,7 @@ Stacktrace:
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[40]:</div>
 
@@ -15118,7 +15122,7 @@ Stacktrace:
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[30]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">double_int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">double_int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15132,9 +15136,7 @@ Stacktrace:
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[30]:</div>
 
@@ -15159,7 +15161,7 @@ Stacktrace:
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[31]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">double_int</span><span class="p">(</span><span class="mf">10.1</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">double_int</span><span class="p">(</span><span class="mf">10.1</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15173,9 +15175,7 @@ Stacktrace:
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[31]:</div>
 
@@ -15212,7 +15212,7 @@ Stacktrace:
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[32]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">methods</span><span class="p">(</span><span class="n">double_int</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">methods</span><span class="p">(</span><span class="n">double_int</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15226,9 +15226,7 @@ Stacktrace:
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[32]:</div>
 
@@ -15262,7 +15260,7 @@ Stacktrace:
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>We may also inspect the details the code using code introspection: <a href="https://docs.julialang.org/en/v1/devdocs/reflection/#Reflection-and-introspection">https://docs.julialang.org/en/v1/devdocs/reflection/#Reflection-and-introspection</a></p>
+<p>We may also inspect the details the code using code introspection: https://docs.julialang.org/en/v1/devdocs/reflection/#Reflection-and-introspection</p>
 
 </div>
 </div>
@@ -15287,7 +15285,7 @@ Stacktrace:
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[33]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="nd">@code_lowered</span> <span class="n">double_int</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="nd">@code_lowered</span><span class="w"> </span><span class="n">double_int</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15301,9 +15299,7 @@ Stacktrace:
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[33]:</div>
 
@@ -15343,7 +15339,7 @@ Stacktrace:
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[34]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="nd">@code_lowered</span> <span class="n">double_int</span><span class="p">(</span><span class="mf">2.1</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="nd">@code_lowered</span><span class="w"> </span><span class="n">double_int</span><span class="p">(</span><span class="mf">2.1</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15357,9 +15353,7 @@ Stacktrace:
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[34]:</div>
 
@@ -15402,7 +15396,7 @@ Stacktrace:
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[41]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="nd">@code_llvm</span> <span class="n">double_int</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="nd">@code_llvm</span><span class="w"> </span><span class="n">double_int</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15416,9 +15410,7 @@ Stacktrace:
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15461,7 +15453,7 @@ Stacktrace:
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[42]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="nd">@code_llvm</span> <span class="n">double_int</span><span class="p">(</span><span class="mf">2.1</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="nd">@code_llvm</span><span class="w"> </span><span class="n">double_int</span><span class="p">(</span><span class="mf">2.1</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15475,9 +15467,7 @@ Stacktrace:
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15595,7 +15585,7 @@ Stacktrace:
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Julia does compile different machine code for different input types. For more information go to:
-<a href="https://docs.julialang.org/en/v1/manual/integers-and-floating-point-numbers/#Integers-and-Floating-Point-Numbers">https://docs.julialang.org/en/v1/manual/integers-and-floating-point-numbers/#Integers-and-Floating-Point-Numbers</a> and <a href="https://docs.julialang.org/en/v1/manual/types/">https://docs.julialang.org/en/v1/manual/types/</a></p>
+https://docs.julialang.org/en/v1/manual/integers-and-floating-point-numbers/#Integers-and-Floating-Point-Numbers and https://docs.julialang.org/en/v1/manual/types/</p>
 
 </div>
 </div>
@@ -15618,7 +15608,7 @@ Stacktrace:
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Here is the reason why it's always good to specity data types: whenever a data type "morphs" into another (for example integer division), you have to do a lot of work, in order to accommodate type instability. It boils down to having to treat otherwise simple variables as more complex objects.</p>
+<p>Here is the reason why it's always good to specity data types: whenever a data type &quot;morphs&quot; into another (for example integer division), you have to do a lot of work, in order to accommodate type instability. It boils down to having to treat otherwise simple variables as more complex objects.</p>
 
 </div>
 </div>
@@ -15643,13 +15633,13 @@ Stacktrace:
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[44]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">t1</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-    <span class="n">s</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">n</span>
-        <span class="n">s</span> <span class="o">/=</span> <span class="n">rand</span><span class="p">()</span>  <span class="c">## WARNING: unstable type!</span>
-    <span class="k">end</span>
-    <span class="n">s</span>
-<span class="k">end</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">t1</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="n">n</span><span class="w"></span>
+<span class="w">        </span><span class="n">s</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w">  </span><span class="c">## WARNING: unstable type!</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="n">s</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15663,9 +15653,7 @@ Stacktrace:
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[44]:</div>
 
@@ -15690,13 +15678,13 @@ Stacktrace:
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[45]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">t2</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-    <span class="n">s</span> <span class="o">=</span> <span class="mf">1.</span>      <span class="c">## Stable type</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">n</span>
-        <span class="n">s</span> <span class="o">/=</span> <span class="n">rand</span><span class="p">()</span>
-    <span class="k">end</span>
-    <span class="n">s</span>
-<span class="k">end</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">t2</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.</span><span class="w">      </span><span class="c">## Stable type</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="n">n</span><span class="w"></span>
+<span class="w">        </span><span class="n">s</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="n">s</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15710,9 +15698,7 @@ Stacktrace:
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[45]:</div>
 
@@ -15761,7 +15747,7 @@ Stacktrace:
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[46]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">BenchmarkTools</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">BenchmarkTools</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15777,7 +15763,7 @@ Stacktrace:
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[47]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="nd">@benchmark</span> <span class="n">t1</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="nd">@benchmark</span><span class="w"> </span><span class="n">t1</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15791,9 +15777,7 @@ Stacktrace:
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[47]:</div>
 
@@ -15827,7 +15811,7 @@ Stacktrace:
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[48]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="nd">@benchmark</span> <span class="n">t2</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="nd">@benchmark</span><span class="w"> </span><span class="n">t2</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15841,9 +15825,7 @@ Stacktrace:
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[48]:</div>
 
@@ -15889,7 +15871,7 @@ Stacktrace:
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="nd">@code_warntype</span> <span class="n">t1</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="nd">@code_warntype</span><span class="w"> </span><span class="n">t1</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15903,9 +15885,7 @@ Stacktrace:
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15968,7 +15948,7 @@ Body<span class="ansi-red-intense-fg ansi-bold">::Union{Float64, Int64}</span>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="nd">@code_warntype</span> <span class="n">t2</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="nd">@code_warntype</span><span class="w"> </span><span class="n">t2</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15982,9 +15962,7 @@ Body<span class="ansi-red-intense-fg ansi-bold">::Union{Float64, Int64}</span>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 

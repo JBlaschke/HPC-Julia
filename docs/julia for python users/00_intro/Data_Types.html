@@ -14659,18 +14659,19 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="The-Magic-of-Julia-Data-Types">The Magic of Julia Data Types<a class="anchor-link" href="#The-Magic-of-Julia-Data-Types">&#182;</a></h1>
+<h1 id="The-Magic-of-Julia-Data-Types">The Magic of Julia Data Types<a class="anchor-link" href="#The-Magic-of-Julia-Data-Types">&#182;</a></h1><p>(<a href="../index.html#/0/2">Back to Overview</a>)</p>
+
 </div>
 </div>
 </div>
-</div><div class="fragment">
+</div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Unlike python, where classes <em>own</em> methods, in Julia there are no <em>classes</em> in the python sense:</p>
+<p>Unlike object-oriented languaes (eg. C++ and Python), where classes <em>own</em> methods, in Julia there are no <em>classes</em> in the onject-oriented sense:</p>
 <ul>
 <li>Data types define structured data <em>and nothing else</em> (mostly)</li>
 <li>Functions can have multiple definitions (each new definition of a function is called a <em>method</em>)</li>
@@ -14682,7 +14683,7 @@ div.jp-OutputPrompt {
 </div>
 </div>
 </div>
-</div></div></section></section><section><section>
+</div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -14733,7 +14734,8 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>The encapsulated function: <code>OrderedPair(x,y) = x &gt; y ? error(&quot;out of order&quot;) : new(x,y)</code> defines a constructor <code>__init__(self, x, y)</code> that ensure that the ordered pair stays ordered. This is a one-line function definition that is equivalent to:</p>
+<p>The encapsulated function: <code>OrderedPair(x,y) = x &gt; y ? error(&quot;out of order&quot;) : new(x,y)</code> defines a constructor that ensure that the ordered pair stays ordered. In Python, this would be handled by  <code>__init__(self, x, y)</code></p>
+<p>The is a one-line function definition here is equivalent to:</p>
 <div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">OrderedPair</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">y</span><span class="w"></span>
 <span class="w">        </span><span class="n">error</span><span class="p">(</span><span class="s">&quot;out of order&quot;</span><span class="p">)</span><span class="w"></span>
@@ -14752,7 +14754,12 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Let's define some math: addition and subtraction: In python we would define <code>__add__</code> and <code>__sub__</code>. In julia we define new <em>methods</em> for <code>Base.+</code> and <code>Base.-</code> as well a conversion and promotion rules for our custom data type. This way our <code>OrderedPair</code> is a first-class citizen ... just like <code>Float64</code> :)</p>
+<p>Let's define some math: addition and subtraction:</p>
+<ul>
+<li>In Python we would define <code>__add__</code> and <code>__sub__</code></li>
+<li>In Julia we define new <em>methods</em> for <code>Base.+</code> and <code>Base.-</code></li>
+</ul>
+<p>We also need conversion and promotion rules for our custom data type. This way our <code>OrderedPair</code> is a first-class citizen ... just like <code>Float64</code> :)</p>
 
 </div>
 </div>
@@ -14809,7 +14816,19 @@ div.jp-OutputPrompt {
 
 </div>
 
-</div></div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>We can now use our order pairs in addition and subtraction:</p>
+
+</div>
+</div>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -14849,7 +14868,7 @@ div.jp-OutputPrompt {
 
 </div>
 
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -14888,7 +14907,19 @@ div.jp-OutputPrompt {
 
 </div>
 
-</div></div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Our constructor ensures that the ordered pair type remains consistent (ie. ordered)</p>
+
+</div>
+</div>
+</div>
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -14939,7 +14970,7 @@ Stacktrace:
 
 </div>
 
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -14978,6 +15009,69 @@ Stacktrace:
 
 </div>
 
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>What are conversion and promotion used for? Let's say we want to convert the number <code>20</code> to an ordered pair -- that's where conversion is used:</p>
+
+</div>
+</div>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">convert</span><span class="p">(</span><span class="n">OrderedPair</span><span class="p">,</span><span class="w"> </span><span class="mf">20.</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>OrderedPair(20.0, 20.0)</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div></div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Promotion defines what type the result of two different inputs' data types should have. Together with conversion we can add a single number to both parts of the pair:</p>
+
+</div>
+</div>
+</div>
 </div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -15035,7 +15129,7 @@ Stacktrace:
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>We can use curly braces and the <code>where</code> keyword to define generic types. These are basically templates. The <code>&lt;:</code> symbol restricts the possible inputs to the generic type <code>T</code></p>
+<p>We can use curly braces and the <code>where</code> keyword to define generic types. You can think of these as basically C++ templates. The <code>&lt;:</code> symbol restricts the possible inputs to the generic type <code>T</code></p>
 
 </div>
 </div>
@@ -15142,473 +15236,6 @@ Stacktrace:
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
 <pre>OrderedPair2{Int64}(1, 2)</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div></div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Julia-Magic:-Autodifferentiation-in-4-lines">Julia Magic: Autodifferentiation in 4 lines<a class="anchor-link" href="#Julia-Magic:-Autodifferentiation-in-4-lines">&#182;</a></h2>
-</div>
-</div>
-</div>
-</div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Take as an example the babylonian algorithm to calculate $\sqrt{x}$</p>
-<blockquote>
-<p>Repeat $ t \leftarrow  \frac{t+\frac{x}{t}}{2} $ until $t$ converges to $\sqrt{x}$.</p>
-</blockquote>
-<p>For illustration we will use 10 iterations</p>
-
-</div>
-</div>
-</div>
-</div></div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">babylonian</span><span class="p">(</span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="n">N</span><span class="o">::</span><span class="kt">Integer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span>
-<span class="w">    </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="w"></span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="o">:</span><span class="n">N</span><span class="w"></span>
-<span class="w">        </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">t</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="o">/</span><span class="n">t</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="w"> </span>
-<span class="w">    </span><span class="k">end</span><span class="w">    </span>
-<span class="w">    </span><span class="n">t</span><span class="w"></span>
-<span class="k">end</span><span class="w"></span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>babylonian (generic function with 1 method)</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Check: <code>sqrt(100) == 10</code></p>
-
-</div>
-</div>
-</div>
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">babylonian</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"></span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>10.0</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">babylonian</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="w"> </span><span class="o">√</span><span class="n">x</span><span class="w">  </span><span class="c"># Type \sqrt+&lt;tab&gt; to get the symbol</span><span class="w"></span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>(1.414213562373095, 1.4142135623730951)</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div></div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Let's look at the convergence behaviour</p>
-
-</div>
-</div>
-</div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">range</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span><span class="w"></span>
-<span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">babylonian</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="mi">5</span><span class="p">];</span><span class="w"></span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">Plots</span><span class="w"></span>
-
-<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">label</span><span class="o">=</span><span class="s">"N=1"</span><span class="p">)</span><span class="w"></span>
-<span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">2</span><span class="o">:</span><span class="mi">5</span><span class="w"></span>
-<span class="w">    </span><span class="n">plot!</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">label</span><span class="o">=</span><span class="s">"N=</span><span class="si">$</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="s">"</span><span class="p">)</span><span class="w"></span>
-<span class="k">end</span><span class="w"></span>
-<span class="n">plot!</span><span class="p">()</span><span class="w"></span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[16]:</div>
-
-
-
-<div class="jp-RenderedSVG jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="image/svg+xml">
-b'<svg width="600" height="400">\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</svg>\n'
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div></div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="...-and-now-the-derivative-almost-by-magic">... and now the derivative almost by magic<a class="anchor-link" href="#...-and-now-the-derivative-almost-by-magic">&#182;</a></h3>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Define a dual type -- a methematical object that's a function-derivative pair</p>
-
-</div>
-</div>
-</div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[44]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">struct</span> <span class="kt">D</span><span class="w"> </span><span class="o">&lt;:</span><span class="w"> </span><span class="kt">Number</span><span class="w"></span>
-<span class="w">    </span><span class="n">f</span><span class="o">::</span><span class="kt">Tuple</span><span class="p">{</span><span class="kt">Float64</span><span class="p">,</span><span class="kt">Float64</span><span class="p">}</span><span class="w"></span>
-<span class="k">end</span><span class="w"></span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div></div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>The first element follows the normal rules of arithmetic. But the second element implements:</p>
-<ul>
-<li>Sum Rule: $(x+y)' = x' + y'$</li>
-<li>Quotient Rule: $(\frac{x}{y})' = \frac{yx'-xy'}{y^2}$</li>
-</ul>
-
-</div>
-</div>
-</div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[45]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="n">Base</span><span class="o">:</span><span class="w"> </span><span class="o">+</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">/</span><span class="p">,</span><span class="w"> </span><span class="n">convert</span><span class="p">,</span><span class="w"> </span><span class="n">promote_rule</span><span class="w"></span>
-<span class="o">+</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="kt">D</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">::</span><span class="kt">D</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">D</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">f</span><span class="w"> </span><span class="o">.+</span><span class="w"> </span><span class="n">y</span><span class="o">.</span><span class="n">f</span><span class="p">)</span><span class="w"></span>
-<span class="o">-</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="kt">D</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">::</span><span class="kt">D</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">D</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">f</span><span class="w"> </span><span class="o">.-</span><span class="w"> </span><span class="n">y</span><span class="o">.</span><span class="n">f</span><span class="p">)</span><span class="w"></span>
-<span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="kt">D</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">::</span><span class="kt">D</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">D</span><span class="p">((</span><span class="n">x</span><span class="o">.</span><span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">y</span><span class="o">.</span><span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">f</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">y</span><span class="o">.</span><span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="o">.</span><span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">y</span><span class="o">.</span><span class="n">f</span><span class="p">[</span><span class="mi">2</span><span class="p">])))</span><span class="w"></span>
-<span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="kt">D</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">::</span><span class="kt">D</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">D</span><span class="p">((</span><span class="n">x</span><span class="o">.</span><span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">y</span><span class="o">.</span><span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="o">.</span><span class="n">f</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">x</span><span class="o">.</span><span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">y</span><span class="o">.</span><span class="n">f</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="o">/</span><span class="n">y</span><span class="o">.</span><span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">^</span><span class="mi">2</span><span class="p">))</span><span class="w"></span>
-<span class="n">convert</span><span class="p">(</span><span class="o">::</span><span class="kt">Type</span><span class="p">{</span><span class="kt">D</span><span class="p">},</span><span class="w"> </span><span class="n">x</span><span class="o">::</span><span class="kt">Real</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">D</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">zero</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span><span class="w"></span>
-<span class="n">promote_rule</span><span class="p">(</span><span class="o">::</span><span class="kt">Type</span><span class="p">{</span><span class="kt">D</span><span class="p">},</span><span class="w"> </span><span class="o">::</span><span class="kt">Type</span><span class="p">{</span><span class="o">&lt;:</span><span class="kt">Number</span><span class="p">})</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">D</span><span class="w"></span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[45]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>promote_rule (generic function with 153 methods)</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div></div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Let's compute the derivative of $\sqrt{x}$ at $x=25$</p>
-
-</div>
-</div>
-</div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[48]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">25</span><span class="w"></span>
-<span class="n">x̂</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">D</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[48]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>D((25.0, 1.0))</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[49]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="p">(</span><span class="o">√</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="mf">.5</span><span class="o">/√</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[49]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>(5.0, 0.1)</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[50]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">babylonian</span><span class="p">(</span><span class="n">x̂</span><span class="p">)</span><span class="w"></span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[50]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>D((5.0, 0.1))</pre>
 </div>
 
 </div>

@@ -7,7 +7,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 
-<title>MPIArrays slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Program_Structure slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 <!-- General and theme style sheets -->
 <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.0.2/dist/reveal.css">
@@ -14659,13 +14659,148 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="MPIArrays">MPIArrays<a class="anchor-link" href="#MPIArrays">&#182;</a></h1><p>(<a href="../index.html#/0/7">Back to Overview</a>)</p>
-<p><strong>Warning:</strong> This is experimental -- NERSC is looking for applications to kick the wheels. And for motivated engineers to continue development (last commit in Jul/2019): https://github.com/barche/MPIArrays.jl</p>
+<h1 id="The-Structure-of-a-Julia-Program">The Structure of a Julia Program<a class="anchor-link" href="#The-Structure-of-a-Julia-Program">&#182;</a></h1><p>(<a href="../index.html#/0/2">Back to Overview</a>)</p>
 
 </div>
 </div>
 </div>
-</div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>A Julia program is broken up into:</p>
+<ol>
+<li>Modules</li>
+<li>Functions</li>
+<li>Statements</li>
+</ol>
+<p>which organize code that can act on different data types.</p>
+<p>Let's look at each of these in turn.</p>
+
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Modules">Modules<a class="anchor-link" href="#Modules">&#182;</a></h2>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Modules encapsulate namespaces, and are similar to Python modules: https://docs.julialang.org/en/v1/manual/modules/</p>
+
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Created using the <code>module</code> keyword. They are frequently used to encapsulate source files into their own name-space:</p>
+<div class="highlight"><pre><span></span><span class="k">module</span><span class="w"> </span><span class="n">MyModule</span><span class="w"></span>
+
+<span class="n">include</span><span class="p">(</span><span class="s">&quot;my_function.jl&quot;</span><span class="p">)</span><span class="w"></span>
+
+<span class="k">export</span><span class="w"> </span><span class="n">my_func</span><span class="w"></span>
+
+<span class="k">end</span><span class="w"></span>
+</pre></div>
+<p>With the external source file <code>my_function.jl</code>:</p>
+<div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">my_helper</span><span class="p">(</span><span class="o">...</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="o">...</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
+
+<span class="k">function</span><span class="w"> </span><span class="n">my_func</span><span class="p">(</span><span class="o">...</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="o">...</span><span class="w"></span>
+<span class="w">    </span><span class="n">my_helper</span><span class="p">(</span><span class="o">...</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="o">...</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
+</pre></div>
+<p>This hides <code>my_helper</code> from all functions outside of <code>MyModule</code>.</p>
+
+</div>
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Note that unlike Python, modules do not necessarily need to be in seperate files or folders. Later we will see how code in one file can add to a preexisting module.</p>
+
+</div>
+</div>
+</div>
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Here is an example: Let's define two modules with the <code>hello</code> function:</p>
+
+</div>
+</div>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="k">module</span><span class="w"> </span><span class="n">ModuleA</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span><span class="n">hello</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">"Hi from A"</span><span class="p">)</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
+
+<span class="k">module</span><span class="w"> </span><span class="n">ModuleB</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span><span class="n">hello</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">"Hi from B"</span><span class="p">)</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
+<span class="k">end</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div></div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>These can be called by using the <code>&lt;Module Name&gt;.&lt;Function Name&gt;</code> syntax:</p>
+
+</div>
+</div>
+</div>
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -14673,14 +14808,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="nd">@mpi_do</span><span class="w"> </span><span class="n">manager</span><span class="w"> </span><span class="k">begin</span><span class="w"></span>
-<span class="w">    </span><span class="n">include</span><span class="p">(</span><span class="n">joinpath</span><span class="p">(</span><span class="s">"MPIArrays.jl"</span><span class="p">,</span><span class="w"> </span><span class="s">"src"</span><span class="p">,</span><span class="w"> </span><span class="s">"MPIArrays.jl"</span><span class="p">))</span><span class="w"></span>
-<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="o">.</span><span class="n">MPIArrays</span><span class="p">,</span><span class="w"> </span><span class="n">MPI</span><span class="w"></span>
-<span class="w">    </span>
-<span class="w">    </span><span class="n">comm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MPI</span><span class="o">.</span><span class="n">COMM_WORLD</span><span class="w"></span>
-<span class="w">    </span><span class="n">rank</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MPI</span><span class="o">.</span><span class="n">Comm_rank</span><span class="p">(</span><span class="n">comm</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="c"># size of the matrix</span><span class="w"></span>
-<span class="k">end</span><span class="w"></span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">ModuleA</span><span class="o">.</span><span class="n">hello</span><span class="p">()</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -14688,7 +14816,135 @@ div.jp-OutputPrompt {
 </div>
 </div>
 
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Hi from A
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">ModuleB</span><span class="o">.</span><span class="n">hello</span><span class="p">()</span><span class="w"></span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Hi from B
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div></div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Flow-Control">Flow Control<a class="anchor-link" href="#Flow-Control">&#182;</a></h2>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Flow control in Julia is very similar to popular programming languages C++ or Python -- we'll briefly look at them here. For more details, refer to the documentation here: https://docs.julialang.org/en/v1/manual/control-flow/#man-tasks</p>
+
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>The main difference to other programming languages is that nested statements are begin with the statement keyword and end using the <code>end</code> keyword.</p>
+
+</div>
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Note that the <code>do</code> expression is different from other languages (more about this in the <code>Functions</code> section later.</p>
+
+</div>
+</div>
+</div>
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Compound-Expressions">Compound Expressions<a class="anchor-link" href="#Compound-Expressions">&#182;</a></h3>
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Compound expressions (like a Python indentation block, or a C/C++ curly brace) are enclosed in <code>begin</code> and <code>end</code> statements.</p>
+
+</div>
+</div>
+</div>
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -14696,11 +14952,13 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="nd">@mpi_do</span><span class="w"> </span><span class="n">manager</span><span class="w"> </span><span class="k">begin</span><span class="w"></span>
-<span class="w">    </span><span class="c"># Create an uninitialized matrix and vector</span><span class="w"></span>
-<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">MPIArray</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">N</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">MPIArray</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"></span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">begin</span><span class="w"></span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">    </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="w"></span>
 <span class="k">end</span><span class="w"></span>
+
+<span class="nd">@show</span><span class="w"> </span><span class="n">z</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -14708,7 +14966,40 @@ div.jp-OutputPrompt {
 </div>
 </div>
 
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>z = 3
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Note that <code>begin</code> and <code>end</code> blocks are not their own scope (so not quite like a C curly brace):</p>
+
+</div>
+</div>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -14716,12 +15007,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="nd">@mpi_do</span><span class="w"> </span><span class="n">manager</span><span class="w"> </span><span class="k">begin</span><span class="w"></span>
-<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">Random</span><span class="w"></span>
-<span class="w">    </span><span class="c"># Set random values by applying the `rand!` function to each local element in x and A</span><span class="w"></span>
-<span class="w">    </span><span class="n">forlocalpart!</span><span class="p">(</span><span class="n">rand!</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="n">forlocalpart!</span><span class="p">(</span><span class="n">rand!</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">)</span><span class="w"></span>
-<span class="k">end</span><span class="w"></span>
+<div class=" highlight hl-julia"><pre><span></span><span class="nd">@show</span><span class="w"> </span><span class="n">y</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -14729,7 +15015,63 @@ div.jp-OutputPrompt {
 </div>
 </div>
 
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>y = 2
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>2</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Conditional-Evaluation">Conditional Evaluation<a class="anchor-link" href="#Conditional-Evaluation">&#182;</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Conditional evaluation is done using and <code>if ... elseif ... else ... end</code> block:</p>
+
+</div>
+</div>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -14737,10 +15079,14 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="nd">@mpi_do</span><span class="w"> </span><span class="n">manager</span><span class="w"> </span><span class="k">begin</span><span class="w"></span>
-<span class="w">    </span><span class="c"># Make sure every process finished initializing the coefficients</span><span class="w"></span>
-<span class="w">    </span><span class="n">sync</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="o">*</span><span class="n">x</span><span class="w"></span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">y</span><span class="w"></span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">"x is less than y"</span><span class="p">)</span><span class="w"></span>
+<span class="k">elseif</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">y</span><span class="w"></span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">"x is greater than y"</span><span class="p">)</span><span class="w"></span>
+<span class="k">else</span><span class="w"></span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">"x is equal to y"</span><span class="p">)</span><span class="w"></span>
 <span class="k">end</span><span class="w"></span>
 </pre></div>
 
@@ -14749,6 +15095,39 @@ div.jp-OutputPrompt {
 </div>
 </div>
 
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>x is less than y
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Another popular conditional block is the terniary operator <code>a ? b : c</code>:</p>
+
+</div>
+</div>
+</div>
 </div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -14757,9 +15136,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="nd">@mpi_do</span><span class="w"> </span><span class="n">manager</span><span class="w"> </span><span class="k">begin</span><span class="w"></span>
-<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">"</span><span class="si">$</span><span class="p">(</span><span class="n">rank</span><span class="p">)</span><span class="s">: b=</span><span class="si">$</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="s">"</span><span class="p">)</span><span class="w"></span>
-<span class="k">end</span><span class="w"></span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">println</span><span class="p">(</span><span class="s">"x is less than y"</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">println</span><span class="p">(</span><span class="s">"x is greater than, or equal to, y"</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -14779,8 +15156,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>      From worker 2:	0: b=[6.58448560732781, 5.397064398912319, 7.2643154419828, 6.659227285202218, 6.601799096937221, 6.087971504440199, 7.288367302111861, 5.965723191984332, 7.788123928904926, 6.906726045686252, 6.784108836906283, 8.248567581785284, 6.141569708627604, 6.066565417913599, 6.764081298937339, 7.171678033141173, 6.050349130440142, 6.551964852832224, 7.46361638548569, 8.23477485992181, 6.303863742596247, 7.572072339570294, 6.266950888366667, 7.009225600102562, 7.790626303820637, 5.4969217868349585, 6.63325855467022, 6.176998715842372, 7.191513001223977, 5.771460933503084]
-      From worker 3:	1: b=[6.58448560732781, 5.397064398912319, 7.2643154419828, 6.659227285202218, 6.601799096937221, 6.087971504440199, 7.288367302111861, 5.965723191984332, 7.788123928904926, 6.906726045686252, 6.784108836906283, 8.248567581785284, 6.141569708627604, 6.066565417913599, 6.764081298937339, 7.171678033141173, 6.050349130440142, 6.551964852832224, 7.46361638548569, 8.23477485992181, 6.303863742596247, 7.572072339570294, 6.266950888366667, 7.009225600102562, 7.790626303820637, 5.4969217868349585, 6.63325855467022, 6.176998715842372, 7.191513001223977, 5.771460933503084]
+<pre>x is less than y
 </pre>
 </div>
 </div>
@@ -14789,7 +15165,30 @@ div.jp-OutputPrompt {
 
 </div>
 
-</div></div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Short-Circuit-Evaluation">Short Circuit Evaluation<a class="anchor-link" href="#Short-Circuit-Evaluation">&#182;</a></h3>
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>The <code>&amp;&amp;</code> and <code>||</code> (logical and / or) evaluate only as much as is necessary to resolve the truth value of the expression. So they won't necessarily evaluate <em>both</em> sides, depending on the state of the first statement.</p>
+
+</div>
+</div>
+</div>
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -14797,9 +15196,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="nd">@mpi_do</span><span class="w"> </span><span class="n">manager</span><span class="w"> </span><span class="k">begin</span><span class="w"></span>
-<span class="w">    </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">MPIArray</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="mi">4</span><span class="p">)</span><span class="w"></span>
-<span class="k">end</span><span class="w"></span>
+<div class=" highlight hl-julia"><pre><span></span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">println</span><span class="p">(</span><span class="s">"hi there"</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -14807,7 +15204,90 @@ div.jp-OutputPrompt {
 </div>
 </div>
 
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>hi there
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">println</span><span class="p">(</span><span class="s">"hi there"</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>false</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Loops">Loops<a class="anchor-link" href="#Loops">&#182;</a></h3>
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Use <code>for ... end</code> and <code>while ... end</code> as loops. <code>do ... end</code> is <strong>not</strong> a loop expression</p>
+
+</div>
+</div>
+</div>
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -14815,10 +15295,8 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="nd">@mpi_do</span><span class="w"> </span><span class="n">manager</span><span class="w"> </span><span class="k">begin</span><span class="w"></span>
-<span class="w">    </span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rank</span><span class="o">*</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="w">    </span><span class="n">yblock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">[</span><span class="n">index</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"></span>
-<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">"</span><span class="si">$</span><span class="p">(</span><span class="n">rank</span><span class="p">)</span><span class="s">: </span><span class="si">$</span><span class="p">(</span><span class="n">yblock</span><span class="p">)</span><span class="s"> / </span><span class="si">$</span><span class="p">([</span><span class="n">i</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">])</span><span class="s">"</span><span class="p">)</span><span class="w"></span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="mi">10</span><span class="w"></span>
+<span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="s">","</span><span class="p">)</span><span class="w"></span>
 <span class="k">end</span><span class="w"></span>
 </pre></div>
 
@@ -14839,9 +15317,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>      From worker 3:	1: Main.MPIArrays.Block{Float64, 1}([5.0e-324, 2.3815620396e-314, 0.0, 0.0], (3:4,), CartesianIndex{1}[CartesianIndex(2,)]) / [3, 4]
-      From worker 2:	0: Main.MPIArrays.Block{Float64, 1}([5.0e-324, 2.3815620396e-314, 0.0, 0.0], (1:2,), CartesianIndex{1}[CartesianIndex(1,)]) / [1, 2]
-</pre>
+<pre>1,2,3,4,5,6,7,8,9,10,</pre>
 </div>
 </div>
 
@@ -14849,24 +15325,18 @@ div.jp-OutputPrompt {
 
 </div>
 
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="nd">@mpi_do</span><span class="w"> </span><span class="n">manager</span><span class="w"> </span><span class="k">begin</span><span class="w"></span>
-<span class="w">    </span><span class="c"># get "view" into block</span><span class="w"></span>
-<span class="w">    </span><span class="n">ymat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getblock</span><span class="p">(</span><span class="n">yblock</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="c"># write into view</span><span class="w"></span>
-<span class="w">    </span><span class="n">ymat</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">.=</span><span class="w"> </span><span class="n">rank</span><span class="w"></span>
-<span class="w">    </span><span class="c"># syncronize changes back to block</span><span class="w"></span>
-<span class="w">    </span><span class="n">putblock!</span><span class="p">(</span><span class="n">ymat</span><span class="p">,</span><span class="w"> </span><span class="n">yblock</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="c"># ensure that all ranks have completed the `putblock!` operation</span><span class="w"></span>
-<span class="w">    </span><span class="n">MPI</span><span class="o">.</span><span class="n">Barrier</span><span class="p">(</span><span class="n">comm</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">"</span><span class="si">$</span><span class="p">(</span><span class="n">rank</span><span class="p">)</span><span class="s">: </span><span class="si">$</span><span class="p">(</span><span class="n">yblock</span><span class="p">)</span><span class="s">"</span><span class="p">)</span><span class="w"></span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="k">while</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="w"></span>
+<span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="s">","</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">i</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
 <span class="k">end</span><span class="w"></span>
 </pre></div>
 
@@ -14887,9 +15357,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>      From worker 3:	1: Main.MPIArrays.Block{Float64, 1}([0.0, 0.0, 1.0, 1.0], (3:4,), CartesianIndex{1}[CartesianIndex(2,)])
-      From worker 2:	0: Main.MPIArrays.Block{Float64, 1}([0.0, 0.0, 1.0, 1.0], (1:2,), CartesianIndex{1}[CartesianIndex(1,)])
-</pre>
+<pre>0,1,2,3,4,5,6,7,8,9,</pre>
 </div>
 </div>
 
@@ -14897,16 +15365,45 @@ div.jp-OutputPrompt {
 
 </div>
 
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Catching-errors">Catching errors<a class="anchor-link" href="#Catching-errors">&#182;</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>The <code>try ... catch &lt;variable holder error&gt; ... finally ... end</code> block allows you to safely catch errors. The <code>finally</code> clause is useful to run code regardless of how the code being &quot;try'ed&quot; exists.</p>
+
+</div>
+</div>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="nd">@mpi_do</span><span class="w"> </span><span class="n">manager</span><span class="w"> </span><span class="k">begin</span><span class="w"></span>
-<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">"</span><span class="si">$</span><span class="p">(</span><span class="n">rank</span><span class="p">)</span><span class="s">: </span><span class="si">$</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="s">"</span><span class="p">)</span><span class="w"></span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">try</span><span class="w"></span>
+<span class="w">    </span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="k">catch</span><span class="w"> </span><span class="n">e</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="k">isa</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="kt">DomainError</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">"You (usually) can't take the square root of a negative number"</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="k">finally</span><span class="w"></span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">"This always executes"</span><span class="p">)</span><span class="w"></span>
 <span class="k">end</span><span class="w"></span>
 </pre></div>
 
@@ -14927,8 +15424,8 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>      From worker 2:	0: [0.0, 0.0, 1.0, 1.0]
-      From worker 3:	1: [0.0, 0.0, 1.0, 1.0]
+<pre>You (usually) can&#39;t take the square root of a negative number
+This always executes
 </pre>
 </div>
 </div>
@@ -14937,7 +15434,397 @@ div.jp-OutputPrompt {
 
 </div>
 
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Asynchronous-programming">Asynchronous programming<a class="anchor-link" href="#Asynchronous-programming">&#182;</a></h3>
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>This is beyond the scope of this tutorial -- but it's still really useful stuff, so check this out: https://docs.julialang.org/en/v1/manual/asynchronous-programming/#man-asynchronous</p>
+
+</div>
+</div>
+</div>
+</div></div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Functions">Functions<a class="anchor-link" href="#Functions">&#182;</a></h2>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>The <code>function</code> keyword is used to declare a (multi-line) function. <strong>The last statement is automatically returned</strong>. Intermediate returns can be triggered using the <code>return</code> keyword</p>
+
+</div>
+</div>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">fib_1</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">fib_1</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">fib_1</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[1]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>fib_1 (generic function with 1 method)</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">fib_1</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>2178309</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Functions can also be defined using a single line of code:</p>
+
+</div>
+</div>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="n">x</span><span class="w"></span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>f (generic function with 1 method)</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>6</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Let's try something more advanced: anonymous functions, and functions as inputs. This function take <code>fn</code> as an input and returns <code>fn(x)</code>:</p>
+
+</div>
+</div>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">apply_fn</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">fn</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[16]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>apply_fn (generic function with 1 method)</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div></div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>We can give it a function as an input:</p>
+
+</div>
+</div>
+</div>
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
+<span class="n">apply_fn</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[20]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>13</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>We can also give it an <em>anonymous</em> function (like a C++ or Python lambda): using the <code>-&gt;</code> syntax:</p>
+
+</div>
+</div>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">apply_fn</span><span class="p">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[21]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>13</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>The <code>do &lt;var&gt; ... end</code> syntax is how your create a multi-statement anonymous function:</p>
+
+</div>
+</div>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -14945,9 +15832,8 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[29]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="nd">@mpi_do</span><span class="w"> </span><span class="n">manager</span><span class="w"> </span><span class="k">begin</span><span class="w"></span>
-<span class="w">    </span><span class="n">gb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GlobalBlock</span><span class="p">(</span><span class="n">ymat</span><span class="p">,</span><span class="w"> </span><span class="n">yblock</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">"</span><span class="si">$</span><span class="p">(</span><span class="n">rank</span><span class="p">)</span><span class="s">: gb[</span><span class="si">$</span><span class="p">(</span><span class="n">index</span><span class="p">)</span><span class="s">] = </span><span class="si">$</span><span class="p">(</span><span class="n">gb</span><span class="p">[</span><span class="n">index</span><span class="p">])</span><span class="s">"</span><span class="p">)</span><span class="w"></span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">fn</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="n">x</span><span class="w"></span>
+<span class="w">    </span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="w"></span>
 <span class="k">end</span><span class="w"></span>
 </pre></div>
 
@@ -14962,39 +15848,35 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[29]:</div>
 
 
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>      From worker 2:	0: gb[1] = 0.0
-      From worker 3:	1: gb[3] = 1.0
-</pre>
-</div>
-</div>
 
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>13</pre>
 </div>
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span>
-</pre></div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 
-     </div>
 </div>
 </div>
 </div>
-
-</div></section></section>
+</div></div></section></section>
 </div>
 </div>
 </body>

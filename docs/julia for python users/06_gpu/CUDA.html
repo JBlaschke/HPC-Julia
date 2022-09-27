@@ -7,7 +7,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 
-<title>index slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>CUDA slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 <!-- General and theme style sheets -->
 <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.0.2/dist/reveal.css">
@@ -14652,192 +14652,868 @@ div.jp-OutputPrompt {
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 
 <div class="reveal">
-<div class="slides"><section><section>
+<div class="slides"><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">BenchmarkTools</span><span class="w"></span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">CUDA</span><span class="w"></span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Julia-for-Python-Users">Julia for Python Users<a class="anchor-link" href="#Julia-for-Python-Users">&#182;</a></h1><p>Are you a Python user? Do you think it's the Bee's Knees?</p>
+<p>More info: <a href="https://juliagpu.org/">https://juliagpu.org/</a></p>
 
 </div>
 </div>
 </div>
-</div><div class="fragment">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">A_d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CuArray</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span><span class="w"></span>
+<span class="n">A_d</span><span class="w"> </span><span class="o">.+=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>4-element CuArray{Int64, 1, CUDA.Mem.DeviceBuffer}:
+ 2
+ 3
+ 4
+ 5</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">Array</span><span class="p">(</span><span class="n">A_d</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>4-element Vector{Int64}:
+ 2
+ 3
+ 4
+ 5</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="o">^</span><span class="mi">13</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="o">^</span><span class="mi">13</span><span class="p">)</span><span class="w"></span>
+<span class="nd">@benchmark</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">A</span><span class="w"></span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>BenchmarkTools.Trial: 2 samples with 1 evaluation.
+ Range <span class="ansi-black-intense-fg">(</span><span class="ansi-cyan-intense-fg ansi-bold">min</span> … <span class="ansi-magenta-fg">max</span><span class="ansi-black-intense-fg">):  </span><span class="ansi-cyan-intense-fg ansi-bold">3.699 s</span> … <span class="ansi-magenta-fg">   3.700 s</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>min … max<span class="ansi-black-intense-fg">): </span>0.03% … 0.02%
+ Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-blue-intense-fg ansi-bold">median</span><span class="ansi-black-intense-fg">):     </span><span class="ansi-blue-intense-fg ansi-bold">3.699 s               </span><span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>median<span class="ansi-black-intense-fg">):    </span>0.03%
+ Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-green-intense-fg ansi-bold">mean</span> ± <span class="ansi-green-fg">σ</span><span class="ansi-black-intense-fg">):   </span><span class="ansi-green-intense-fg ansi-bold">3.699 s</span> ± <span class="ansi-green-fg">513.821 μs</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>mean ± σ<span class="ansi-black-intense-fg">):  </span>0.03% ± 0.01%
+
+  <span class="ansi-blue-fg">█</span>                            <span class="ansi-green-fg"> </span>                           █  
+  <span class="ansi-blue-fg">█</span>▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁<span class="ansi-green-fg">▁</span>▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█ ▁
+  3.7 s<span class="ansi-black-intense-fg">          Histogram: frequency by time</span>          3.7 s <span class="ansi-bold">&lt;</span>
+
+ Memory estimate<span class="ansi-black-intense-fg">: </span><span class="ansi-yellow-fg">512.00 MiB</span>, allocs estimate<span class="ansi-black-intense-fg">: </span><span class="ansi-yellow-fg">2</span>.</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">A_d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CUDA</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="o">^</span><span class="mi">13</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="o">^</span><span class="mi">13</span><span class="p">)</span><span class="w"></span>
+<span class="nd">@benchmark</span><span class="w"> </span><span class="n">A_d</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">A_d</span><span class="w"></span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>BenchmarkTools.Trial: 154 samples with 1 evaluation.
+ Range <span class="ansi-black-intense-fg">(</span><span class="ansi-cyan-intense-fg ansi-bold">min</span> … <span class="ansi-magenta-fg">max</span><span class="ansi-black-intense-fg">):  </span><span class="ansi-cyan-intense-fg ansi-bold">12.514 μs</span> … <span class="ansi-magenta-fg">   9.384 s</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>min … max<span class="ansi-black-intense-fg">): </span>0.00% … 0.02%
+ Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-blue-intense-fg ansi-bold">median</span><span class="ansi-black-intense-fg">):     </span><span class="ansi-blue-intense-fg ansi-bold">13.802 μs               </span><span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>median<span class="ansi-black-intense-fg">):    </span>0.00%
+ Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-green-intense-fg ansi-bold">mean</span> ± <span class="ansi-green-fg">σ</span><span class="ansi-black-intense-fg">):   </span><span class="ansi-green-intense-fg ansi-bold">60.949 ms</span> ± <span class="ansi-green-fg">756.173 ms</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>mean ± σ<span class="ansi-black-intense-fg">):  </span>0.02% ± 0.00%
+
+        ▇▆<span class="ansi-blue-fg">█</span>▅                                                    
+  ▃▃▄▃▆███<span class="ansi-blue-fg">█</span>█▇▇▄▄▄▁▁▄▃▁▁▃▃▄▁▁▁▁▁▃▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▁▁▁▁▁▁▁▁▁▁▁▃ ▃
+  12.5 μs<span class="ansi-black-intense-fg">         Histogram: frequency by time</span>         21.7 μs <span class="ansi-bold">&lt;</span>
+
+ Memory estimate<span class="ansi-black-intense-fg">: </span><span class="ansi-yellow-fg">640 bytes</span>, allocs estimate<span class="ansi-black-intense-fg">: </span><span class="ansi-yellow-fg">32</span>.</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Well you should give
-Julia a try and be blown away by its features and speed.</p>
+<h2 id="Vendor-Libraries">Vendor Libraries<a class="anchor-link" href="#Vendor-Libraries">&#182;</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Let's create a 100x100 Float32 random array and an uninitialized array</p>
 
 </div>
 </div>
 </div>
-</div></div><div class="fragment">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CUDA</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="w"></span>
+<span class="n">B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">CuArray</span><span class="p">{</span><span class="kt">Float32</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">}(</span><span class="nb">undef</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>100×100 CuArray{Float32, 2, CUDA.Mem.DeviceBuffer}:
+ 2082.15  2092.16  2091.42  2105.15  …  2039.76  2041.78  2046.69  2059.75
+ 2079.88  2105.41  2077.09  2095.26     2054.86  2053.49  2041.09  2022.81
+ 2095.56  2098.23  2093.99  2092.93     2055.27  2052.2   2063.72  2041.81
+ 2083.29  2071.93  2092.69  2097.58     2035.97  2051.69  2057.53  2046.19
+ 2086.36  2081.25  2115.68  2094.6      2067.96  2047.13  2040.15  2059.8
+ 2120.73  2098.81  2069.96  2090.98  …  2055.71  2050.52  2065.02  2067.54
+ 2123.32  2094.66  2115.04  2075.11     2061.45  2054.36  2040.53  2064.73
+ 2094.55  2088.88  2081.22  2101.37     2050.09  2033.46  2026.06  2038.7
+ 2073.11  2102.52  2074.06  2103.65     2028.82  2052.18  2042.16  2041.73
+ 2076.01  2116.2   2096.57  2057.15     2046.49  2040.4   2037.01  2069.85
+ 2094.41  2101.49  2097.47  2086.52  …  2030.35  2037.54  2046.77  2050.44
+ 2095.69  2122.9   2087.56  2087.5      2047.51  2022.11  2057.35  2056.67
+ 2081.02  2108.23  2083.8   2084.7      2062.69  2034.9   2044.1   2070.04
+    ⋮                                ⋱                             
+ 2079.52  2109.95  2091.14  2080.68     2032.02  2054.69  2036.2   2040.29
+ 2092.96  2120.33  2101.27  2085.17     2058.03  2053.94  2044.85  2029.11
+ 2103.06  2097.95  2106.35  2069.27  …  2057.43  2058.4   2042.47  2017.44
+ 2079.06  2082.43  2074.25  2079.19     2051.89  2035.77  2047.74  2036.39
+ 2079.81  2087.6   2115.04  2072.7      2032.08  2039.93  2050.72  2046.42
+ 2059.71  2084.6   2099.49  2099.53     2036.13  2054.69  2042.06  2052.63
+ 2106.59  2089.19  2093.84  2068.37     2043.36  2072.42  2049.15  2069.34
+ 2088.89  2090.79  2085.84  2085.13  …  2039.46  2035.72  2067.84  2053.37
+ 2095.06  2083.16  2100.21  2070.28     2043.95  2046.82  2059.56  2038.39
+ 2091.59  2090.94  2086.23  2098.35     2052.77  2068.35  2044.89  2037.73
+ 2103.5   2086.0   2080.49  2086.72     2063.52  2046.87  2040.2   2031.73
+ 2105.91  2095.45  2075.35  2085.48     2044.77  2080.15  2062.98  2034.4</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>This presentation gives a gentle introduction to Julia. We assume you've got a basic understanding of Python (but not required).</p>
+<p>This is how we use cuBLAS for matrix multiplication</p>
 
 </div>
 </div>
 </div>
-</div></div></section><section>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">LinearAlgebra</span><span class="w"></span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">mul!</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>100×100 CuArray{Float32, 2, CUDA.Mem.DeviceBuffer}:
+ 26.0541  25.2375  29.5854  30.0792  …  26.8392  25.6859  27.2518  24.3397
+ 26.9935  23.5858  28.8808  29.3612     25.9259  24.9045  26.9732  23.1663
+ 23.8318  23.2544  27.0436  27.7514     25.895   21.8974  24.5736  21.4964
+ 23.5895  23.2833  26.9411  27.9016     25.5831  21.5216  24.8104  21.5734
+ 22.3585  19.5145  25.3224  23.5364     22.7726  20.6988  20.5169  21.429
+ 26.9681  23.978   29.1811  30.7305  …  26.0771  24.9808  26.5454  22.6564
+ 27.1567  23.9535  28.9172  31.3191     25.549   24.3823  24.8977  23.4401
+ 25.8993  21.1598  27.3024  29.1862     25.0842  22.0787  24.354   22.3105
+ 24.067   20.0603  26.9049  25.6144     24.9385  20.9405  24.0146  21.1177
+ 26.75    24.1966  27.9697  30.6019     27.5482  27.0981  27.4829  25.1113
+ 25.9405  23.8561  27.7157  27.9048  …  24.561   22.7346  23.671   22.6953
+ 22.3711  21.3122  24.6065  25.8006     21.9968  20.3528  23.8327  18.8735
+ 24.127   24.0281  28.7556  29.8256     25.0667  23.2287  27.309   22.7914
+  ⋮                                  ⋱                             
+ 26.0763  22.9744  26.7275  28.1183     25.6966  22.5868  24.46    21.539
+ 27.2424  25.6275  29.7721  29.4302     27.3675  25.1813  25.4957  23.3684
+ 26.4729  22.27    27.3358  28.5067  …  26.078   23.9046  25.1857  21.8295
+ 28.4721  24.7323  29.5149  30.6894     27.898   26.0704  27.2867  24.5573
+ 23.7048  22.5066  26.0786  27.2572     22.6013  21.8899  23.4392  19.3053
+ 26.1792  23.5768  29.231   29.1364     27.4271  22.9365  27.1357  21.8295
+ 25.33    22.4369  27.6977  27.9236     26.8156  22.0475  24.218   21.5864
+ 23.6859  22.5521  25.2596  28.3039  …  23.8837  22.6471  24.7953  22.7188
+ 25.8494  24.4573  29.0917  28.9525     27.044   23.9894  26.2206  23.015
+ 23.1796  22.0326  25.6665  26.4034     23.9209  21.6591  23.1553  22.0196
+ 25.1667  23.0538  26.1574  27.0468     25.2525  21.5628  25.876   21.2762
+ 28.4753  25.9483  28.9663  32.3276     29.313   23.6804  29.054   25.0353</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Outline">Outline<a class="anchor-link" href="#Outline">&#182;</a></h2>
-</div>
-</div>
-</div>
-</div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>This presentation gives a gentle introduction to Julia ith enough hands-on experience in Julia to start applying it to their own projects, or use Julia as a teaching tool in the classroom.</p>
+<p>And how we use cuSOLVER for QR factorization</p>
 
 </div>
 </div>
 </div>
-</div></div><div class="fragment">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">qr</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>CUDA.CUSOLVER.CuQR{Float32, CuArray{Float32, 2, CUDA.Mem.DeviceBuffer}} with factors Q and R:
+Float32[-0.086872816 -0.09331815 … 0.08632689 -0.05913295; -0.14449167 -0.04636904 … 0.13759896 0.061833113; … ; -0.13884494 -0.11526276 … -0.11043782 -0.23715988; -0.027167495 -0.014698244 … -0.104247 0.10333059]
+Float32[-6.08979 -4.1022744 … -4.163331 -3.9207644; 0.0 3.7753832 … 1.5390723 1.475018; … ; 0.0 0.0 … -0.33997408 -0.31492567; 0.0 0.0 … 0.0 -0.104866]</pre>
+</div>
+
+</div>
+<div class="jp-OutputArea-child">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>┌ Warning: Performing scalar indexing on task Task (runnable) @0x0000153246ec6f80.
+│ Invocation of CuQRPackedQ getindex resulted in scalar indexing of a GPU array.
+│ This is typically caused by calling an iterating implementation of a method.
+│ Such implementations *do not* execute on the GPU, but very slowly on the CPU,
+│ and therefore are only permitted from the REPL for prototyping purposes.
+│ If you did intend to index this array, annotate the caller with @allowscalar.
+└ @ GPUArraysCore /global/common/software/nersc/pm-2022q3/sw/julia-2022-09-24/packages/gnu/1.7.2/julia/packages/GPUArraysCore/lojQM/src/GPUArraysCore.jl:90
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<ol>
-<li>Gentle introduction to the Julia language</li>
-<li>Array Data</li>
-<li>C API</li>
-<li>Working in Parrallel</li>
-</ol>
+<p>Note that the REPL is not always the right place to do HPC work :(</p>
 
 </div>
 </div>
 </div>
-</div></div></section><section>
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="A-Gentle-Introduction-to-Julia">A Gentle Introduction to Julia<a class="anchor-link" href="#A-Gentle-Introduction-to-Julia">&#182;</a></h2><ol>
-<li>Getting Started: <a href="00_intro/Getting_Started.html">Slides</a> <a href="00_intro/Getting_Started.ipynb">Notebook</a></li>
-<li>The structure of a Julia Program (modules, control flow, and functions):  <a href="00_intro/Program_Structure.html">Slides</a> <a href="00_intro/Program_Structure.ipynb">Notebook</a></li>
-<li>Methods, and Introspection: <a href="00_intro/Methods_Introspection.html">Slides</a> <a href="00_intro/Methods_Introspection.ipynb">Notebook</a></li>
-<li>Structured Data Types (Classes): <a href="00_intro/Data_Types.html">Slides</a> <a href="00_intro/Data_Types.ipynb">Notebook</a></li>
-</ol>
-<p>Explore on <a href="https://github.com/JBlaschke/HPC-Julia/tree/main/docs/julia%20for%20python%20users/00_intro">GitHub</a></p>
+<p>As you can see, <code>CuArray</code> implements all the standard linear operations -- this allows us to solve the equation <code>A*X == B</code> using &quot;natural&quot; Julia notation:</p>
 
 </div>
 </div>
 </div>
-</div></section><section>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">\</span><span class="w"> </span><span class="n">B</span><span class="w"></span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>100×100 CuArray{Float32, 2, CUDA.Mem.DeviceBuffer}:
+ 0.529052   0.00406169  0.91863    …  0.525636   0.769776   0.784503
+ 0.879929   0.417679    0.744389      0.67582    0.248157   0.02853
+ 0.828115   0.397523    0.639837      0.806668   0.129253   0.737683
+ 0.0365297  0.0635211   0.629269      0.809794   0.539744   0.282567
+ 0.833553   0.227285    0.553608      0.694572   0.601802   0.223628
+ 0.423745   0.857526    0.387121   …  0.720532   0.425674   0.718662
+ 0.584385   0.9915      0.8247        0.876032   0.533464   0.176703
+ 0.0529149  0.164399    0.287799      0.0557293  0.548003   0.468465
+ 0.991612   0.472535    0.336021      0.300175   0.449142   0.804357
+ 0.932997   0.286497    0.512484      0.759955   0.939985   0.432341
+ 0.120742   0.467765    0.812259   …  0.766405   0.0367783  0.103072
+ 0.269098   0.684918    0.855942      0.155957   0.707839   0.492118
+ 0.0709307  0.189344    0.371036      0.064961   0.608424   0.41663
+ ⋮                                 ⋱                        
+ 0.879304   0.987886    0.229584      0.423083   0.861781   0.134945
+ 0.754965   0.600017    0.498787      0.0758788  0.0886346  0.432623
+ 0.170082   0.59475     0.428682   …  0.420205   0.833453   0.51658
+ 0.64004    0.816912    0.782219      0.266337   0.380474   0.36327
+ 0.499439   0.717217    0.0625232     0.564627   0.501527   0.648257
+ 0.662541   0.367817    0.966041      0.0789957  0.327314   0.827625
+ 0.9314     0.326224    0.10941       0.308467   0.23607    0.982758
+ 0.143566   0.804189    0.654912   …  0.0646843  0.911657   0.344508
+ 0.322931   0.588407    0.176134      0.954792   0.354039   0.212988
+ 0.308703   0.221739    0.588612      0.921901   0.300948   0.0555411
+ 0.845507   0.134429    0.318678      0.823211   0.311328   0.465278
+ 0.165459   0.0559445   0.621579      0.153315   0.143658   0.0995081</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Array-Data">Array Data<a class="anchor-link" href="#Array-Data">&#182;</a></h2><ol>
-<li>Working With Arrays: <a href="01_arrays/Array-Based_Data_Types.html">Slides</a> <a href="01_arrays/Array-Based_Data_Types.ipynb">Notebook</a></li>
-</ol>
-<p>Explore on <a href="https://github.com/JBlaschke/HPC-Julia/tree/main/docs/julia%20for%20python%20users/01_arrays">GitHub</a></p>
+<p>And this is how you would use <code>cuFFT</code> to solve for the FFT</p>
 
 </div>
 </div>
 </div>
-</div></section><section>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">CUDA</span><span class="o">.</span><span class="n">CUFFT</span><span class="w"></span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">fft</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[16]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>100×100 CuArray{ComplexF32, 2, CUDA.Mem.DeviceBuffer}:
+  4996.56+0.0im        4.46587-32.3087im  …   4.46586+32.3087im
+ -20.9568+0.517911im   5.85378-33.298im       8.05122+20.0575im
+ -2.38137+18.2609im   -15.4028+15.9944im      27.5542+28.7656im
+  17.2377-0.114767im  -16.3761+0.62662im      1.79021+19.8728im
+ -8.86416+10.7737im    36.1061+44.3623im     -8.89453+23.4954im
+  14.4473+17.173im     13.6746+3.83518im  …  -2.07378-14.7015im
+ -2.75777-39.7336im    5.54285-23.1793im      17.6668-16.4101im
+  6.87605-0.647937im   42.6327+9.88688im       5.2318+11.3489im
+  3.76207+5.34016im   -7.09813+4.564im        10.5995-28.0299im
+   -7.505+6.11845im   0.366056-21.036im      -18.8902-45.8033im
+  30.8541+10.1076im   -4.26083+22.0396im  …  -27.7394+15.4419im
+  20.4324+24.0654im     -23.65-36.5723im      17.2436+16.5718im
+ -5.07428-24.5589im   -18.8063+9.97476im     -16.3899+12.5753im
+         ⋮                                ⋱  
+ -5.07428+24.5589im   -16.3899-12.5753im     -18.8063-9.97476im
+  20.4324-24.0654im    17.2436-16.5718im       -23.65+36.5723im
+  30.8541-10.1076im   -27.7394-15.4419im  …  -4.26083-22.0396im
+ -7.50499-6.11845im   -18.8902+45.8033im     0.366064+21.036im
+  3.76207-5.34015im    10.5995+28.0299im     -7.09813-4.56399im
+  6.87604+0.647937im    5.2318-11.3489im      42.6327-9.88688im
+ -2.75777+39.7336im    17.6668+16.4101im      5.54286+23.1793im
+  14.4473-17.173im    -2.07379+14.7015im  …   13.6746-3.83519im
+ -8.86417-10.7737im   -8.89453-23.4954im      36.1061-44.3623im
+  17.2377+0.114766im   1.79021-19.8727im     -16.3762-0.62662im
+ -2.38136-18.2609im    27.5542-28.7656im     -15.4028-15.9944im
+ -20.9568-0.517912im   8.05121-20.0575im      5.85377+33.298im</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="C-API">C API<a class="anchor-link" href="#C-API">&#182;</a></h2><ol>
-<li>Calling Functions via the C-API: <a href="02_capi/Calling_C.html">Slides</a> <a href="02_capi/Calling_C.ipynb">Notebook</a></li>
-</ol>
-<p>Explore on <a href="https://github.com/JBlaschke/HPC-Julia/tree/main/docs/julia%20for%20python%20users/02_capi">GitHub</a></p>
+<p>Note that <code>broadcast</code>, <code>map</code>, <code>reduce</code>, <code>accumulate</code> work equally elegantly</p>
 
 </div>
 </div>
 </div>
-</div></section><section>
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Working-In-Parallel">Working In Parallel<a class="anchor-link" href="#Working-In-Parallel">&#182;</a></h2><ol>
-<li>Distributed Computing: <a href="03_parallel/Parallel_Distributed.html">Slides</a> <a href="03_parallel/Parallel_Distributed.ipynb">Notebook</a></li>
-<li>Multi-Threaded Computing: <a href="03_parallel/Parallel_Threaded.html">Slides</a> <a href="03_parallel/Parallel_Threaded.ipynb">Notebook</a></li>
-</ol>
-<p>Explore on <a href="https://github.com/JBlaschke/HPC-Julia/tree/main/docs/julia%20for%20python%20users/03_parallel">GitHub</a></p>
+<h2 id="Writing-your-own-kernels">Writing your own kernels<a class="anchor-link" href="#Writing-your-own-kernels">&#182;</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>We define the Julia method normally</p>
 
 </div>
 </div>
 </div>
-</div></section><section>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">vadd!</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="n">length</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="nd">@inbounds</span><span class="w"> </span><span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[17]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>vadd! (generic function with 1 method)</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="What-About-Numba-?">What About Numba ?<a class="anchor-link" href="#What-About-Numba-?">&#182;</a></h2><ol>
-<li>A Numba Example: <a href="04_numba/Python.html">Slides</a> <a href="04_numba/Python.ipynb">Notebook</a></li>
-<li>The same sgain, but in Julia: <a href="04_numba/Julia.html">Slides</a> <a href="04_numba/Julia.ipynb">Notebook</a></li>
-</ol>
-<p>Explore on <a href="https://github.com/JBlaschke/HPC-Julia/tree/main/docs/julia%20for%20python%20users/04_numba">GitHub</a></p>
+<p>If we call it with CPU data ... it is executed on CPU:</p>
 
 </div>
 </div>
 </div>
-</div></section><section>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">zeros</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="o">.+</span><span class="w"> </span><span class="mf">5.0</span><span class="w"></span>
+<span class="n">B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ones</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"></span>
+<span class="n">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">similar</span><span class="p">(</span><span class="n">B</span><span class="p">)</span><span class="w"></span>
+<span class="n">vadd!</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Working-with-MPI">Working with MPI<a class="anchor-link" href="#Working-with-MPI">&#182;</a></h2><ol>
-<li>MPI.jl Basics: <a href="05_mpi/SharedArrays.html">Slides</a> <a href="05_mpi/SharedArrays.ipynb">Notebook</a></li>
-<li>Using Distributed Arrays: <a href="05_mpi/DistributedArrays.html">Slides</a> <a href="05_mpi/DistributedArrays.ipynb">Notebook</a></li>
-<li>One-sided MPI Communication: <a href="05_mpi/OneSided.html">Slides</a> <a href="05_mpi/OneSided.ipynb">Notebook</a></li>
-<li>MPIArrays.jl Basics: <a href="05_mpi/MPIArrays.html">Slides</a> <a href="05_mpi/MPIArrays.ipynb">Notebook</a></li>
-</ol>
-<p>Explore on <a href="https://github.com/JBlaschke/HPC-Julia/tree/main/docs/julia%20for%20python%20users/05_mpi">GitHub</a></p>
+<p>And if we call if with GPU data, and we include the <code>@cuda</code> macro, then it's executed on GPU</p>
 
 </div>
 </div>
 </div>
-</div></section><section>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">A_d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CuArray</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="w"></span>
+<span class="n">B_d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CuArray</span><span class="p">(</span><span class="n">B</span><span class="p">)</span><span class="w"></span>
+<span class="n">C_d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">similar</span><span class="p">(</span><span class="n">B_d</span><span class="p">)</span><span class="w"></span>
+
+<span class="nd">@cuda</span><span class="w"> </span><span class="n">vadd!</span><span class="p">(</span><span class="n">C_d</span><span class="p">,</span><span class="w"> </span><span class="n">A_d</span><span class="p">,</span><span class="w"> </span><span class="n">B_d</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[20]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>CUDA.HostKernel{typeof(vadd!), Tuple{CuDeviceVector{Float64, 1}, CuDeviceVector{Float64, 1}, CuDeviceVector{Float64, 1}}}(vadd!, CuFunction(Ptr{Nothing} @0x000000003dd6ae70, CuModule(Ptr{Nothing} @0x000000003f8fa7b0, CuContext(0x000000000203ce50, instance fbd34bc72a495c40))), CUDA.KernelState(Ptr{Nothing} @0x00001531fb200000))</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Working-with-GPUS">Working with GPUS<a class="anchor-link" href="#Working-with-GPUS">&#182;</a></h2><ol>
-<li>CUDA.jl Basics: <a href="06_gpu/CUDA.html">Slides</a> <a href="06_gpu/CUDA.ipynb">Notebook</a></li>
-</ol>
-<p>Explore on <a href="https://github.com/JBlaschke/HPC-Julia/tree/main/docs/julia%20for%20python%20users/06_cuda">GitHub</a></p>
+<p><code>@cuda</code> lets you specify the number of threads and blocks (e.g. <code>@cuda threads=256 blocks=numblocks vadd!(C_d, A_d, B_d)</code>). The CUDA package also wraps the nsight systems profiler using the <code>@profile</code> macro. This doesn't work in the REPL.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Also check out <a href="https://github.com/JuliaGPU/KernelAbstractions.jl">KernelAbstractions.jl</a>, which helps you write vendor-agnostic code.</p>
 
 </div>
 </div>

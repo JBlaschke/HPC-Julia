@@ -7,7 +7,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 
-<title>index slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>PyCall slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 <!-- General and theme style sheets -->
 <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.0.2/dist/reveal.css">
@@ -14659,8 +14659,160 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Julia-for-Python-Users">Julia for Python Users<a class="anchor-link" href="#Julia-for-Python-Users">&#182;</a></h1><p>Are you a Python user? Do you think it's the Bee's Knees?</p>
+<h1 id="Integrating-with-external-Python-libraries">Integrating with external Python libraries<a class="anchor-link" href="#Integrating-with-external-Python-libraries">&#182;</a></h1><p>(<a href="../index.html#/0/5">Back to Overview</a>)</p>
 
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>The <code>PyCall.jl</code> package lets you call external python libraries</p>
+
+</div>
+</div>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">PyCall</span><span class="w"></span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div></div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Importing-Modules">Importing Modules<a class="anchor-link" href="#Importing-Modules">&#182;</a></h2>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>You use the <code>pyimport</code> function to import a python module</p>
+
+</div>
+</div>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">math</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pyimport</span><span class="p">(</span><span class="s">"math"</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>PyObject &lt;module &#39;math&#39; from &#39;/Users/blaschke/.julia/conda/3/lib/python3.8/lib-dynload/math.cpython-38-darwin.so&#39;&gt;</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Imported modules now look like Julia modules</p>
+
+</div>
+</div>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="nb">pi</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>0.7071067811865475</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div></div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Managing-Dependencies">Managing Dependencies<a class="anchor-link" href="#Managing-Dependencies">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -14671,12 +14823,50 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Well you should give
-Julia a try and be blown away by its features and speed.</p>
+<p>You can manage the python executable, and therefore the python search path using the <code>PYTHON</code> environment variable. Right now, I don't have anything set, so it defaults to Julia's own conda environment:</p>
 
 </div>
 </div>
 </div>
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">PyCall</span><span class="o">.</span><span class="n">libpython</span><span class="w"></span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>&#34;/Users/blaschke/.julia/conda/3/lib/libpython3.8.dylib&#34;</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </div></div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -14684,27 +14874,111 @@ Julia a try and be blown away by its features and speed.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>This presentation gives a gentle introduction to Julia. We assume you've got a basic understanding of Python (but not required).</p>
+<p>Let's add <code>scipy</code> to this conda install (from Julia):</p>
 
 </div>
 </div>
 </div>
-</div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>The contents of this presentation is based on my 6-ish years of experience using Julia for scientific data processing (and for fun!). For deeper reading (including more HPC aspects) I, recommend:</p>
-<ol>
-<li><a href="https://github.com/carstenbauer/JuliaHLRS22">carstenbauer/JuliaHLRS22</a></li>
-<li><a href="https://github.com/ENCCS/Julia-for-HPC">ENCCS/Julia-for-HPC</a></li>
-</ol>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">Conda</span><span class="w"></span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">Conda</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">"scipy"</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>┌ Info: Running `conda install -y scipy` in root environment
+└ @ Conda /Users/blaschke/.julia/packages/Conda/x2UxR/src/Conda.jl:127
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Collecting package metadata (current_repodata.json): ...working... done
+Solving environment: ...working... done
+
+## Package Plan ##
+
+  environment location: /Users/blaschke/.julia/conda/3
+
+  added / updated specs:
+    - scipy
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    libcxx-14.0.6              |       hccf4f1f_0         1.3 MB  conda-forge
+    scipy-1.8.1                |   py38hb261484_2        21.9 MB  conda-forge
+    ------------------------------------------------------------
+                                           Total:        23.3 MB
+
+The following NEW packages will be INSTALLED:
+
+  scipy              conda-forge/osx-64::scipy-1.8.1-py38hb261484_2
+
+The following packages will be UPDATED:
+
+  libcxx                         pkgs/main::libcxx-10.0.0-1 --&gt; conda-forge::libcxx-14.0.6-hccf4f1f_0
+
+
+
+Downloading and Extracting Packages
+libcxx-14.0.6        | 1.3 MB    | #################################### | 100% 
+scipy-1.8.1          | 21.9 MB   | #################################### | 100% 
+Preparing transaction: ...working... done
+Verifying transaction: ...working... done
+Executing transaction: ...working... done
+Retrieving notices: ...working... done
+</pre>
+</div>
+</div>
 
 </div>
+
 </div>
-</div>
+
 </div></div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -14712,154 +14986,52 @@ Julia a try and be blown away by its features and speed.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Outline">Outline<a class="anchor-link" href="#Outline">&#182;</a></h2>
-</div>
-</div>
-</div>
-</div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>This presentation gives a gentle introduction to Julia ith enough hands-on experience in Julia to start applying it to their own projects, or use Julia as a teaching tool in the classroom.</p>
+<p>Now we can use scipy from Julia:</p>
 
 </div>
 </div>
 </div>
-</div></div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<ol>
-<li>Gentle introduction to the Julia language</li>
-<li>Working wiht array-based data</li>
-<li>Calling external codes (using the C-API, and <code>PyCall</code>)</li>
-<li>Working in Parrallel</li>
-</ol>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">so</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pyimport</span><span class="p">(</span><span class="s">"scipy.optimize"</span><span class="p">)</span><span class="w"></span>
+<span class="n">so</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>0.7390851332151607</pre>
+</div>
 
 </div>
-</div>
-</div>
-</div></div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="A-Gentle-Introduction-to-Julia">A Gentle Introduction to Julia<a class="anchor-link" href="#A-Gentle-Introduction-to-Julia">&#182;</a></h2><ol>
-<li>Getting Started: <a href="00_intro/Getting_Started.html">Slides</a> <a href="00_intro/Getting_Started.ipynb">Notebook</a></li>
-<li>The structure of a Julia Program (modules, control flow, and functions):  <a href="00_intro/Program_Structure.html">Slides</a> <a href="00_intro/Program_Structure.ipynb">Notebook</a></li>
-<li>Methods, and Introspection: <a href="00_intro/Methods_Introspection.html">Slides</a> <a href="00_intro/Methods_Introspection.ipynb">Notebook</a></li>
-<li>Structured Data Types (Classes): <a href="00_intro/Data_Types.html">Slides</a> <a href="00_intro/Data_Types.ipynb">Notebook</a></li>
-</ol>
-<p>Explore on <a href="https://github.com/JBlaschke/HPC-Julia/tree/main/docs/julia%20for%20python%20users/00_intro">GitHub</a></p>
 
 </div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Array-Data">Array Data<a class="anchor-link" href="#Array-Data">&#182;</a></h2><ol>
-<li>Working With Arrays: <a href="01_arrays/Array-Based_Data_Types.html">Slides</a> <a href="01_arrays/Array-Based_Data_Types.ipynb">Notebook</a></li>
-</ol>
-<p>Explore on <a href="https://github.com/JBlaschke/HPC-Julia/tree/main/docs/julia%20for%20python%20users/01_arrays">GitHub</a></p>
 
 </div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Calling-External-Codes-(C-API-+-PyCall.jl)">Calling External Codes (C API + <code>PyCall.jl</code>)<a class="anchor-link" href="#Calling-External-Codes-(C-API-+-PyCall.jl)">&#182;</a></h2><ol>
-<li>Calling Compiled Functions via the C-API: <a href="02_capi/Calling_C.html">Slides</a> <a href="02_capi/Calling_C.ipynb">Notebook</a></li>
-<li>Calling Python Code via <code>PyCall.jl</code> <a href="02_capi/PyCall.html">Slides</a> <a href="02_capi/PyCall.ipynb">Notebook</a></li>
-</ol>
-<p>Explore on <a href="https://github.com/JBlaschke/HPC-Julia/tree/main/docs/julia%20for%20python%20users/02_capi">GitHub</a></p>
 
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Working-In-Parallel">Working In Parallel<a class="anchor-link" href="#Working-In-Parallel">&#182;</a></h2><ol>
-<li>Distributed Computing: <a href="03_parallel/Parallel_Distributed.html">Slides</a> <a href="03_parallel/Parallel_Distributed.ipynb">Notebook</a></li>
-<li>Multi-Threaded Computing: <a href="03_parallel/Parallel_Threaded.html">Slides</a> <a href="03_parallel/Parallel_Threaded.ipynb">Notebook</a></li>
-</ol>
-<p>Explore on <a href="https://github.com/JBlaschke/HPC-Julia/tree/main/docs/julia%20for%20python%20users/03_parallel">GitHub</a></p>
-
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="What-About-Numba-?">What About Numba ?<a class="anchor-link" href="#What-About-Numba-?">&#182;</a></h2><ol>
-<li>A Numba Example: <a href="04_numba/Python.html">Slides</a> <a href="04_numba/Python.ipynb">Notebook</a></li>
-<li>The same again, but in Julia: <a href="04_numba/Julia.html">Slides</a> <a href="04_numba/Julia.ipynb">Notebook</a></li>
-</ol>
-<p>Explore on <a href="https://github.com/JBlaschke/HPC-Julia/tree/main/docs/julia%20for%20python%20users/04_numba">GitHub</a></p>
-
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Working-with-MPI">Working with MPI<a class="anchor-link" href="#Working-with-MPI">&#182;</a></h2><ol>
-<li>MPI.jl Basics: <a href="05_mpi/SharedArrays.html">Slides</a> <a href="05_mpi/SharedArrays.ipynb">Notebook</a></li>
-<li>Using Distributed Arrays: <a href="05_mpi/DistributedArrays.html">Slides</a> <a href="05_mpi/DistributedArrays.ipynb">Notebook</a></li>
-<li>One-sided MPI Communication: <a href="05_mpi/OneSided.html">Slides</a> <a href="05_mpi/OneSided.ipynb">Notebook</a></li>
-<li>MPIArrays.jl Basics: <a href="05_mpi/MPIArrays.html">Slides</a> <a href="05_mpi/MPIArrays.ipynb">Notebook</a></li>
-</ol>
-<p>Explore on <a href="https://github.com/JBlaschke/HPC-Julia/tree/main/docs/julia%20for%20python%20users/05_mpi">GitHub</a></p>
-
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Working-with-GPUS">Working with GPUS<a class="anchor-link" href="#Working-with-GPUS">&#182;</a></h2><ol>
-<li>CUDA.jl Basics: <a href="06_gpu/CUDA.html">Slides</a> <a href="06_gpu/CUDA.ipynb">Notebook</a></li>
-</ol>
-<p>Explore on <a href="https://github.com/JBlaschke/HPC-Julia/tree/main/docs/julia%20for%20python%20users/06_cuda">GitHub</a></p>
-
-</div>
-</div>
-</div>
-</div></section></section>
+</div></div></section></section>
 </div>
 </div>
 </body>

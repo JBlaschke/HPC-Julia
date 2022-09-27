@@ -14659,7 +14659,7 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Integrating-with-external-C-libraries">Integrating with external C libraries<a class="anchor-link" href="#Integrating-with-external-C-libraries">&#182;</a></h1><p>(<a href="../index.html#/0/4">Back to Overview</a>)</p>
+<h1 id="Integrating-with-external-C-libraries">Integrating with external C libraries<a class="anchor-link" href="#Integrating-with-external-C-libraries">&#182;</a></h1><p>(<a href="../index.html#/0/5">Back to Overview</a>)</p>
 
 </div>
 </div>
@@ -14769,7 +14769,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>8394834</pre>
+<pre>12204446</pre>
 </div>
 
 </div>
@@ -14859,7 +14859,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>8955673</pre>
+<pre>12896611</pre>
 </div>
 
 </div>
@@ -14908,10 +14908,10 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre><span class="ansi-black-intense-fg">;  @ In[3]:1 within `f&#39;</span>
-<span class="ansi-magenta-intense-fg">define</span> <span class="ansi-cyan-fg">i32</span> <span class="ansi-yellow-intense-fg">@julia_f_1303</span><span class="ansi-yellow-fg">(</span><span class="ansi-yellow-fg">)</span> <span class="ansi-yellow-fg">{</span>
+<pre><span class="ansi-black-intense-fg">;  @ In[3]:1 within `f`</span>
+<span class="ansi-magenta-intense-fg">define</span> <span class="ansi-cyan-fg">i32</span> <span class="ansi-yellow-intense-fg">@julia_f_1439</span><span class="ansi-yellow-fg">(</span><span class="ansi-yellow-fg">)</span> #0 <span class="ansi-yellow-fg">{</span>
 <span class="ansi-red-intense-fg">top:</span>
-  %0 = <span class="ansi-cyan-intense-fg ansi-bold">call</span> <span class="ansi-cyan-fg">i32</span> <span class="ansi-magenta-intense-fg">inttoptr</span> <span class="ansi-yellow-fg">(</span><span class="ansi-cyan-fg">i64</span> <span class="ansi-yellow-fg">140735086244606</span> <span class="ansi-magenta-intense-fg">to</span> <span class="ansi-cyan-fg">i32</span> <span class="ansi-yellow-fg">(</span><span class="ansi-yellow-fg">)</span>*<span class="ansi-yellow-fg">)</span><span class="ansi-yellow-fg">(</span><span class="ansi-yellow-fg">)</span>
+  %0 = <span class="ansi-cyan-intense-fg ansi-bold">call</span> <span class="ansi-cyan-fg">i32</span> <span class="ansi-magenta-intense-fg">inttoptr</span> <span class="ansi-yellow-fg">(</span><span class="ansi-cyan-fg">i64</span> <span class="ansi-yellow-fg">140703431076467</span> <span class="ansi-magenta-intense-fg">to</span> <span class="ansi-cyan-fg">i32</span> <span class="ansi-yellow-fg">(</span><span class="ansi-yellow-fg">)</span>*<span class="ansi-yellow-fg">)</span><span class="ansi-yellow-fg">(</span><span class="ansi-yellow-fg">)</span>
   <span class="ansi-cyan-intense-fg ansi-bold">ret</span> <span class="ansi-cyan-fg">i32</span> %0
 <span class="ansi-yellow-fg">}</span>
 </pre>
@@ -14951,14 +14951,23 @@ div.jp-OutputPrompt {
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>	.section	__TEXT,__text,regular,pure_instructions
-<span class="ansi-black-intense-fg">; ┌ @ In[3]:1 within `f&#39;</span>
-	<span class="ansi-cyan-intense-fg ansi-bold">pushq</span>	%rax
-	<span class="ansi-cyan-intense-fg ansi-bold">movabsq</span>	<span class="ansi-yellow-intense-fg">$clock</span>, %rax
+	.build_version macos, <span class="ansi-yellow-fg">12</span>, <span class="ansi-yellow-fg">0</span>
+	.globl	_julia_f_1481                   ## -- Begin function julia_f_1481
+	.p2align	<span class="ansi-yellow-fg">4</span>, <span class="ansi-yellow-fg">0x90</span>
+<span class="ansi-red-intense-fg">_julia_f_1481:</span>                          ## @julia_f_1481
+<span class="ansi-black-intense-fg">; ┌ @ In[3]:1 within `f`</span>
+	.cfi_startproc
+## %bb.0:                               ## %top
+	<span class="ansi-cyan-intense-fg ansi-bold">subq</span>	<span class="ansi-yellow-fg">$8</span>, %rsp
+	.cfi_def_cfa_offset <span class="ansi-yellow-fg">16</span>
+	<span class="ansi-cyan-intense-fg ansi-bold">movabsq</span>	<span class="ansi-yellow-fg">$140703431076467</span>, %rax          ## imm = <span class="ansi-yellow-fg">0x7FF812072A73</span>
 	<span class="ansi-cyan-intense-fg ansi-bold">callq</span>	*%rax
 	<span class="ansi-cyan-intense-fg ansi-bold">popq</span>	%rcx
 	<span class="ansi-cyan-intense-fg ansi-bold">retq</span>
-	<span class="ansi-cyan-intense-fg ansi-bold">nop</span>
+	.cfi_endproc
 <span class="ansi-black-intense-fg">; └</span>
+                                        ## -- End function
+.subsections_via_symbols
 </pre>
 </div>
 </div>
@@ -15032,7 +15041,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>Cstring(0x00007ffeeb28fdef)</pre>
+<pre>Cstring(0x00007ff7bafc14b9)</pre>
 </div>
 
 </div>
@@ -15188,15 +15197,15 @@ ArgumentError: cannot convert NULL to string
 
 Stacktrace:
  [1] unsafe_string
-   @ ./strings/string.jl:70 [inlined]
+   @ ./strings/string.jl:72 [inlined]
  [2] unsafe_string(s::Cstring)
    @ Base ./c.jl:193
  [3] top-level scope
    @ In[10]:1
  [4] eval
-   @ ./boot.jl:360 [inlined]
+   @ ./boot.jl:368 [inlined]
  [5] include_string(mapexpr::typeof(REPL.softscope), mod::Module, code::String, filename::String)
-   @ Base ./loading.jl:1094</pre>
+   @ Base ./loading.jl:1428</pre>
 </div>
 </div>
 
@@ -15334,15 +15343,15 @@ getenv: undefined variable: asdf
 
 Stacktrace:
  [1] error(::String, ::String)
-   @ Base ./error.jl:42
+   @ Base ./error.jl:44
  [2] getenv(var::String)
    @ Main ./In[11]:5
  [3] top-level scope
    @ In[13]:1
  [4] eval
-   @ ./boot.jl:360 [inlined]
+   @ ./boot.jl:368 [inlined]
  [5] include_string(mapexpr::typeof(REPL.softscope), mod::Module, code::String, filename::String)
-   @ Base ./loading.jl:1094</pre>
+   @ Base ./loading.jl:1428</pre>
 </div>
 </div>
 
@@ -15471,32 +15480,32 @@ where $n$ is the length of <code>a</code>.</p>
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
 <pre>10000000-element Vector{Float64}:
- 0.5146202043567554
- 0.4188498543734298
- 0.2514356288183148
- 0.615088594327609
- 0.9324111343027943
- 0.0976825370651695
- 0.6507932775080234
- 0.5041236912477083
- 0.24708076805423995
- 0.8063729087090068
- 0.19518241469165698
- 0.9926502986917982
- 0.7048502069247693
+ 0.8613616678836064
+ 0.6788806822948108
+ 0.47735441120249267
+ 0.9872453487938009
+ 0.0939569660165096
+ 0.9975542610320133
+ 0.9359560690972771
+ 0.13179595010979905
+ 0.3870351677953733
+ 0.30137106295064764
+ 0.0827855699267499
+ 0.05531853697162825
+ 0.9348339001953763
  ⋮
- 0.41771440962341977
- 0.8204565876368546
- 0.4965548846317436
- 0.3194496620148515
- 0.3960489691993532
- 0.28526887943263257
- 0.6507907716570098
- 0.16507839812434955
- 0.898753076799454
- 0.38522660988078483
- 0.10313868669173765
- 0.0866088021197422</pre>
+ 0.7703630608529817
+ 0.785851212129005
+ 0.9956362623582224
+ 0.4591075308839966
+ 0.8398996934654701
+ 0.9995945836053647
+ 0.12824102300712326
+ 0.9404965731289516
+ 0.6715917272434537
+ 0.0025913133378624442
+ 0.5697798774608598
+ 0.9956946163870105</pre>
 </div>
 
 </div>
@@ -15535,7 +15544,7 @@ where $n$ is the length of <code>a</code>.</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>5.000294896130968e6</pre>
+<pre>4.998520918420762e6</pre>
 </div>
 
 </div>
@@ -15676,20 +15685,21 @@ where $n$ is the length of <code>a</code>.</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre><span class="ansi-black-intense-fg">;  @ In[18]:23 within `c_sum&#39;</span>
-<span class="ansi-magenta-intense-fg">define</span> <span class="ansi-cyan-fg">double</span> <span class="ansi-yellow-intense-fg">@julia_c_sum_1938</span><span class="ansi-yellow-fg">(</span><span class="ansi-yellow-fg">{</span><span class="ansi-yellow-fg">}</span>* <span class="ansi-magenta-intense-fg">nonnull</span> <span class="ansi-magenta-intense-fg">align</span> <span class="ansi-yellow-fg">16</span> <span class="ansi-magenta-intense-fg">dereferenceable</span><span class="ansi-yellow-fg">(</span><span class="ansi-yellow-fg">40</span><span class="ansi-yellow-fg">)</span> %0<span class="ansi-yellow-fg">)</span> <span class="ansi-yellow-fg">{</span>
+<pre><span class="ansi-black-intense-fg">;  @ In[18]:23 within `c_sum`</span>
+<span class="ansi-magenta-intense-fg">define</span> <span class="ansi-cyan-fg">double</span> <span class="ansi-yellow-intense-fg">@julia_c_sum_2217</span><span class="ansi-yellow-fg">(</span><span class="ansi-yellow-fg">{</span><span class="ansi-yellow-fg">}</span>* <span class="ansi-magenta-intense-fg">nonnull</span> <span class="ansi-magenta-intense-fg">align</span> <span class="ansi-yellow-fg">16</span> <span class="ansi-magenta-intense-fg">dereferenceable</span><span class="ansi-yellow-fg">(</span><span class="ansi-yellow-fg">40</span><span class="ansi-yellow-fg">)</span> %0<span class="ansi-yellow-fg">)</span> #0 <span class="ansi-yellow-fg">{</span>
 <span class="ansi-red-intense-fg">top:</span>
-<span class="ansi-black-intense-fg">; ┌ @ array.jl:197 within `length&#39;</span>
+<span class="ansi-black-intense-fg">; ┌ @ array.jl:215 within `length`</span>
    %1 = <span class="ansi-cyan-intense-fg ansi-bold">bitcast</span> <span class="ansi-yellow-fg">{</span><span class="ansi-yellow-fg">}</span>* %0 <span class="ansi-magenta-intense-fg">to</span> <span class="ansi-yellow-fg">{</span> <span class="ansi-cyan-fg">i8</span>*, <span class="ansi-cyan-fg">i64</span>, <span class="ansi-cyan-fg">i16</span>, <span class="ansi-cyan-fg">i16</span>, <span class="ansi-cyan-fg">i32</span> <span class="ansi-yellow-fg">}</span>*
    %2 = <span class="ansi-cyan-intense-fg ansi-bold">getelementptr</span> <span class="ansi-magenta-intense-fg">inbounds</span> <span class="ansi-yellow-fg">{</span> <span class="ansi-cyan-fg">i8</span>*, <span class="ansi-cyan-fg">i64</span>, <span class="ansi-cyan-fg">i16</span>, <span class="ansi-cyan-fg">i16</span>, <span class="ansi-cyan-fg">i32</span> <span class="ansi-yellow-fg">}</span>, <span class="ansi-yellow-fg">{</span> <span class="ansi-cyan-fg">i8</span>*, <span class="ansi-cyan-fg">i64</span>, <span class="ansi-cyan-fg">i16</span>, <span class="ansi-cyan-fg">i16</span>, <span class="ansi-cyan-fg">i32</span> <span class="ansi-yellow-fg">}</span>* %1, <span class="ansi-cyan-fg">i64</span> <span class="ansi-yellow-fg">0</span>, <span class="ansi-cyan-fg">i32</span> <span class="ansi-yellow-fg">1</span>
    %3 = <span class="ansi-cyan-intense-fg ansi-bold">load</span> <span class="ansi-cyan-fg">i64</span>, <span class="ansi-cyan-fg">i64</span>* %2, <span class="ansi-magenta-intense-fg">align</span> <span class="ansi-yellow-fg">8</span>
 <span class="ansi-black-intense-fg">; └</span>
-<span class="ansi-black-intense-fg">; ┌ @ pointer.jl:65 within `unsafe_convert&#39;</span>
-   %4 = <span class="ansi-cyan-intense-fg ansi-bold">bitcast</span> <span class="ansi-yellow-fg">{</span><span class="ansi-yellow-fg">}</span>* %0 <span class="ansi-magenta-intense-fg">to</span> <span class="ansi-cyan-fg">i64</span>*
-   %5 = <span class="ansi-cyan-intense-fg ansi-bold">load</span> <span class="ansi-cyan-fg">i64</span>, <span class="ansi-cyan-fg">i64</span>* %4, <span class="ansi-magenta-intense-fg">align</span> <span class="ansi-yellow-fg">8</span>
+<span class="ansi-black-intense-fg">; ┌ @ pointer.jl:65 within `unsafe_convert`</span>
+   %4 = <span class="ansi-cyan-intense-fg ansi-bold">bitcast</span> <span class="ansi-yellow-fg">{</span><span class="ansi-yellow-fg">}</span>* %0 <span class="ansi-magenta-intense-fg">to</span> <span class="ansi-cyan-fg">i8</span>**
+   %5 = <span class="ansi-cyan-intense-fg ansi-bold">load</span> <span class="ansi-cyan-fg">i8</span>*, <span class="ansi-cyan-fg">i8</span>** %4, <span class="ansi-magenta-intense-fg">align</span> <span class="ansi-yellow-fg">8</span>
+   %6 = <span class="ansi-cyan-intense-fg ansi-bold">ptrtoint</span> <span class="ansi-cyan-fg">i8</span>* %5 <span class="ansi-magenta-intense-fg">to</span> <span class="ansi-cyan-fg">i64</span>
 <span class="ansi-black-intense-fg">; └</span>
-  %6 = <span class="ansi-cyan-intense-fg ansi-bold">call</span> <span class="ansi-cyan-fg">double</span> <span class="ansi-magenta-intense-fg">inttoptr</span> <span class="ansi-yellow-fg">(</span><span class="ansi-cyan-fg">i64</span> <span class="ansi-yellow-fg">5386059536</span> <span class="ansi-magenta-intense-fg">to</span> <span class="ansi-cyan-fg">double</span> <span class="ansi-yellow-fg">(</span><span class="ansi-cyan-fg">i64</span>, <span class="ansi-cyan-fg">i64</span><span class="ansi-yellow-fg">)</span>*<span class="ansi-yellow-fg">)</span><span class="ansi-yellow-fg">(</span><span class="ansi-cyan-fg">i64</span> %3, <span class="ansi-cyan-fg">i64</span> %5<span class="ansi-yellow-fg">)</span>
-  <span class="ansi-cyan-intense-fg ansi-bold">ret</span> <span class="ansi-cyan-fg">double</span> %6
+  %7 = <span class="ansi-cyan-intense-fg ansi-bold">call</span> <span class="ansi-cyan-fg">double</span> <span class="ansi-magenta-intense-fg">inttoptr</span> <span class="ansi-yellow-fg">(</span><span class="ansi-cyan-fg">i64</span> <span class="ansi-yellow-fg">4382146336</span> <span class="ansi-magenta-intense-fg">to</span> <span class="ansi-cyan-fg">double</span> <span class="ansi-yellow-fg">(</span><span class="ansi-cyan-fg">i64</span>, <span class="ansi-cyan-fg">i64</span><span class="ansi-yellow-fg">)</span>*<span class="ansi-yellow-fg">)</span><span class="ansi-yellow-fg">(</span><span class="ansi-cyan-fg">i64</span> %3, <span class="ansi-cyan-fg">i64</span> %6<span class="ansi-yellow-fg">)</span>
+  <span class="ansi-cyan-intense-fg ansi-bold">ret</span> <span class="ansi-cyan-fg">double</span> %7
 <span class="ansi-yellow-fg">}</span>
 </pre>
 </div>
@@ -15728,20 +15738,29 @@ where $n$ is the length of <code>a</code>.</p>
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>	.section	__TEXT,__text,regular,pure_instructions
-<span class="ansi-black-intense-fg">; ┌ @ In[18]:23 within `c_sum&#39;</span>
-	<span class="ansi-cyan-intense-fg ansi-bold">pushq</span>	%rax
-<span class="ansi-black-intense-fg">; │┌ @ pointer.jl:65 within `unsafe_convert&#39;</span>
+	.build_version macos, <span class="ansi-yellow-fg">12</span>, <span class="ansi-yellow-fg">0</span>
+	.globl	_julia_c_sum_2220               ## -- Begin function julia_c_sum_2220
+	.p2align	<span class="ansi-yellow-fg">4</span>, <span class="ansi-yellow-fg">0x90</span>
+<span class="ansi-red-intense-fg">_julia_c_sum_2220:</span>                      ## @julia_c_sum_2220
+<span class="ansi-black-intense-fg">; ┌ @ In[18]:23 within `c_sum`</span>
+	.cfi_startproc
+## %bb.0:                               ## %top
+	<span class="ansi-cyan-intense-fg ansi-bold">subq</span>	<span class="ansi-yellow-fg">$8</span>, %rsp
+	.cfi_def_cfa_offset <span class="ansi-yellow-fg">16</span>
+<span class="ansi-black-intense-fg">; │┌ @ pointer.jl:65 within `unsafe_convert`</span>
 	<span class="ansi-cyan-intense-fg ansi-bold">movq</span>	<span class="ansi-yellow-fg">(</span>%rdi<span class="ansi-yellow-fg">)</span>, %rsi
 <span class="ansi-black-intense-fg">; │└</span>
-<span class="ansi-black-intense-fg">; │┌ @ array.jl:197 within `length&#39;</span>
+<span class="ansi-black-intense-fg">; │┌ @ array.jl:215 within `length`</span>
 	<span class="ansi-cyan-intense-fg ansi-bold">movq</span>	<span class="ansi-yellow-fg">8</span><span class="ansi-yellow-fg">(</span>%rdi<span class="ansi-yellow-fg">)</span>, %rdi
-	<span class="ansi-cyan-intense-fg ansi-bold">movabsq</span>	<span class="ansi-yellow-intense-fg">$c_sum</span>, %rax
+	<span class="ansi-cyan-intense-fg ansi-bold">movabsq</span>	<span class="ansi-yellow-fg">$4382146336</span>, %rax               ## imm = <span class="ansi-yellow-fg">0x105323F20</span>
 <span class="ansi-black-intense-fg">; │└</span>
 	<span class="ansi-cyan-intense-fg ansi-bold">callq</span>	*%rax
 	<span class="ansi-cyan-intense-fg ansi-bold">popq</span>	%rax
 	<span class="ansi-cyan-intense-fg ansi-bold">retq</span>
-	<span class="ansi-cyan-intense-fg ansi-bold">nopw</span>	%cs:<span class="ansi-yellow-fg">(</span>%rax,%rax<span class="ansi-yellow-fg">)</span>
+	.cfi_endproc
 <span class="ansi-black-intense-fg">; └</span>
+                                        ## -- End function
+.subsections_via_symbols
 </pre>
 </div>
 </div>
@@ -15854,17 +15873,16 @@ where $n$ is the length of <code>a</code>.</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>BenchmarkTools.Trial: 
-  memory estimate:  16 bytes
-  allocs estimate:  1
-  --------------
-  minimum time:     10.514 ms (0.00% GC)
-  median time:      13.939 ms (0.00% GC)
-  mean time:        13.560 ms (0.00% GC)
-  maximum time:     15.862 ms (0.00% GC)
-  --------------
-  samples:          369
-  evals/sample:     1</pre>
+<pre>BenchmarkTools.Trial: 312 samples with 1 evaluation.
+ Range <span class="ansi-black-intense-fg">(</span><span class="ansi-cyan-intense-fg ansi-bold">min</span> … <span class="ansi-magenta-fg">max</span><span class="ansi-black-intense-fg">):  </span><span class="ansi-cyan-intense-fg ansi-bold">15.628 ms</span> … <span class="ansi-magenta-fg"> 19.708 ms</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>min … max<span class="ansi-black-intense-fg">): </span>0.00% … 0.00%
+ Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-blue-intense-fg ansi-bold">median</span><span class="ansi-black-intense-fg">):     </span><span class="ansi-blue-intense-fg ansi-bold">15.808 ms               </span><span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>median<span class="ansi-black-intense-fg">):    </span>0.00%
+ Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-green-intense-fg ansi-bold">mean</span> ± <span class="ansi-green-fg">σ</span><span class="ansi-black-intense-fg">):   </span><span class="ansi-green-intense-fg ansi-bold">16.053 ms</span> ± <span class="ansi-green-fg">649.531 μs</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>mean ± σ<span class="ansi-black-intense-fg">):  </span>0.00% ± 0.00%
+
+  ▃▇█<span class="ansi-blue-fg">▆</span>▅▄▃ <span class="ansi-green-fg">▂</span>                                                     
+  ███<span class="ansi-blue-fg">█</span>███▇<span class="ansi-green-fg">█</span>▇▆█▁▇▄▆▆▄▄▆█▆▄▄▆▁▇▄▁▄▁▆▄▄▄▄▁▄▁▁▁▄▄▄▁▄▄▄▁▁▄▄▁▁▄▁▁▄▄▄ ▇
+  15.6 ms<span class="ansi-black-intense-fg">       </span><span class="ansi-black-intense-fg">Histogram: </span><span class="ansi-black-intense-fg ansi-bold">log(</span><span class="ansi-black-intense-fg">frequency</span><span class="ansi-black-intense-fg ansi-bold">)</span><span class="ansi-black-intense-fg"> by time</span>      18.7 ms <span class="ansi-bold">&lt;</span>
+
+ Memory estimate<span class="ansi-black-intense-fg">: </span><span class="ansi-yellow-fg">48 bytes</span>, allocs estimate<span class="ansi-black-intense-fg">: </span><span class="ansi-yellow-fg">1</span>.</pre>
 </div>
 
 </div>
@@ -15903,17 +15921,16 @@ where $n$ is the length of <code>a</code>.</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>BenchmarkTools.Trial: 
-  memory estimate:  16 bytes
-  allocs estimate:  1
-  --------------
-  minimum time:     3.990 ms (0.00% GC)
-  median time:      4.351 ms (0.00% GC)
-  mean time:        4.454 ms (0.00% GC)
-  maximum time:     6.493 ms (0.00% GC)
-  --------------
-  samples:          1119
-  evals/sample:     1</pre>
+<pre>BenchmarkTools.Trial: 974 samples with 1 evaluation.
+ Range <span class="ansi-black-intense-fg">(</span><span class="ansi-cyan-intense-fg ansi-bold">min</span> … <span class="ansi-magenta-fg">max</span><span class="ansi-black-intense-fg">):  </span><span class="ansi-cyan-intense-fg ansi-bold">4.411 ms</span> … <span class="ansi-magenta-fg"> 10.278 ms</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>min … max<span class="ansi-black-intense-fg">): </span>0.00% … 0.00%
+ Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-blue-intense-fg ansi-bold">median</span><span class="ansi-black-intense-fg">):     </span><span class="ansi-blue-intense-fg ansi-bold">4.885 ms               </span><span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>median<span class="ansi-black-intense-fg">):    </span>0.00%
+ Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-green-intense-fg ansi-bold">mean</span> ± <span class="ansi-green-fg">σ</span><span class="ansi-black-intense-fg">):   </span><span class="ansi-green-intense-fg ansi-bold">5.122 ms</span> ± <span class="ansi-green-fg">748.226 μs</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>mean ± σ<span class="ansi-black-intense-fg">):  </span>0.00% ± 0.00%
+
+   ▅█▅▆▂▅▂<span class="ansi-blue-fg">▄</span>▁▁ <span class="ansi-green-fg"> </span>                                                
+  ▆███████<span class="ansi-blue-fg">█</span>██▇<span class="ansi-green-fg">█</span>▅▆▆▅▄▄▄▅▃▄▄▃▃▃▃▃▃▃▃▂▃▃▂▂▃▃▂▁▂▃▃▂▂▂▂▂▂▂▂▂▂▁▂▂▁▂ ▄
+  4.41 ms<span class="ansi-black-intense-fg">         Histogram: frequency by time</span>        7.81 ms <span class="ansi-bold">&lt;</span>
+
+ Memory estimate<span class="ansi-black-intense-fg">: </span><span class="ansi-yellow-fg">16 bytes</span>, allocs estimate<span class="ansi-black-intense-fg">: </span><span class="ansi-yellow-fg">1</span>.</pre>
 </div>
 
 </div>
@@ -16109,7 +16126,7 @@ where $n$ is the length of <code>a</code> and $f$ is a function defined in Julia
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>Ptr{Nothing} @0x00000001125c1660</pre>
+<pre>Ptr{Nothing} @0x000000010793d360</pre>
 </div>
 
 </div>
@@ -16332,17 +16349,16 @@ where $n$ is the length of <code>a</code> and $f$ is a function defined in Julia
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>BenchmarkTools.Trial: 
-  memory estimate:  0 bytes
-  allocs estimate:  0
-  --------------
-  minimum time:     51.294 ms (0.00% GC)
-  median time:      53.392 ms (0.00% GC)
-  mean time:        53.747 ms (0.00% GC)
-  maximum time:     57.621 ms (0.00% GC)
-  --------------
-  samples:          93
-  evals/sample:     1</pre>
+<pre>BenchmarkTools.Trial: 64 samples with 1 evaluation.
+ Range <span class="ansi-black-intense-fg">(</span><span class="ansi-cyan-intense-fg ansi-bold">min</span> … <span class="ansi-magenta-fg">max</span><span class="ansi-black-intense-fg">):  </span><span class="ansi-cyan-intense-fg ansi-bold">72.559 ms</span> … <span class="ansi-magenta-fg">107.022 ms</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>min … max<span class="ansi-black-intense-fg">): </span>0.00% … 0.00%
+ Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-blue-intense-fg ansi-bold">median</span><span class="ansi-black-intense-fg">):     </span><span class="ansi-blue-intense-fg ansi-bold">77.179 ms               </span><span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>median<span class="ansi-black-intense-fg">):    </span>0.00%
+ Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-green-intense-fg ansi-bold">mean</span> ± <span class="ansi-green-fg">σ</span><span class="ansi-black-intense-fg">):   </span><span class="ansi-green-intense-fg ansi-bold">78.712 ms</span> ± <span class="ansi-green-fg">  6.748 ms</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>mean ± σ<span class="ansi-black-intense-fg">):  </span>0.00% ± 0.00%
+
+   █ █   ▃<span class="ansi-blue-fg">▃</span> ▁<span class="ansi-green-fg">▃</span>▃                                                 
+  ▇█▆█▄▆▆█<span class="ansi-blue-fg">█</span>▄█<span class="ansi-green-fg">█</span>█▁▁▄▆▁▄▆▁▁▁▁▄▁▄▁▁▄▁▁▄▁▁▁▁▁▁▄▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄ ▁
+  72.6 ms<span class="ansi-black-intense-fg">         Histogram: frequency by time</span>          106 ms <span class="ansi-bold">&lt;</span>
+
+ Memory estimate<span class="ansi-black-intense-fg">: </span><span class="ansi-yellow-fg">0 bytes</span>, allocs estimate<span class="ansi-black-intense-fg">: </span><span class="ansi-yellow-fg">0</span>.</pre>
 </div>
 
 </div>
@@ -16381,17 +16397,16 @@ where $n$ is the length of <code>a</code> and $f$ is a function defined in Julia
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>BenchmarkTools.Trial: 
-  memory estimate:  76.29 MiB
-  allocs estimate:  2
-  --------------
-  minimum time:     23.098 ms (0.00% GC)
-  median time:      31.925 ms (11.32% GC)
-  mean time:        32.054 ms (19.15% GC)
-  maximum time:     43.767 ms (31.11% GC)
-  --------------
-  samples:          156
-  evals/sample:     1</pre>
+<pre>BenchmarkTools.Trial: 117 samples with 1 evaluation.
+ Range <span class="ansi-black-intense-fg">(</span><span class="ansi-cyan-intense-fg ansi-bold">min</span> … <span class="ansi-magenta-fg">max</span><span class="ansi-black-intense-fg">):  </span><span class="ansi-cyan-intense-fg ansi-bold">34.171 ms</span> … <span class="ansi-magenta-fg">56.576 ms</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>min … max<span class="ansi-black-intense-fg">): </span> 0.00% … 26.07%
+ Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-blue-intense-fg ansi-bold">median</span><span class="ansi-black-intense-fg">):     </span><span class="ansi-blue-intense-fg ansi-bold">42.539 ms              </span><span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>median<span class="ansi-black-intense-fg">):    </span> 0.48%
+ Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-green-intense-fg ansi-bold">mean</span> ± <span class="ansi-green-fg">σ</span><span class="ansi-black-intense-fg">):   </span><span class="ansi-green-intense-fg ansi-bold">42.940 ms</span> ± <span class="ansi-green-fg"> 6.606 ms</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>mean ± σ<span class="ansi-black-intense-fg">):  </span>13.98% ± 12.45%
+
+  ▂▆ ▂▆▄█▂ ▂             <span class="ansi-blue-fg"> </span> <span class="ansi-green-fg"> </span>       ▂ ▂▂▄   ▂                   
+  ████████▆██▄▄▆▁▁▁▄▄▄▁▁▄<span class="ansi-blue-fg">█</span>▁<span class="ansi-green-fg">▁</span>▁▁▁▄▄▆▆█▄███▆▆▆█▄█▆▁█▆▆▆▆▁▆▄▁▆▁▁▄ ▄
+  34.2 ms<span class="ansi-black-intense-fg">         Histogram: frequency by time</span>        55.3 ms <span class="ansi-bold">&lt;</span>
+
+ Memory estimate<span class="ansi-black-intense-fg">: </span><span class="ansi-yellow-fg">76.29 MiB</span>, allocs estimate<span class="ansi-black-intense-fg">: </span><span class="ansi-yellow-fg">2</span>.</pre>
 </div>
 
 </div>
@@ -16510,17 +16525,16 @@ where $n$ is the length of <code>a</code> and $f$ is a function defined in Julia
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>BenchmarkTools.Trial: 
-  memory estimate:  0 bytes
-  allocs estimate:  0
-  --------------
-  minimum time:     52.654 ms (0.00% GC)
-  median time:      56.129 ms (0.00% GC)
-  mean time:        56.320 ms (0.00% GC)
-  maximum time:     61.990 ms (0.00% GC)
-  --------------
-  samples:          89
-  evals/sample:     1</pre>
+<pre>BenchmarkTools.Trial: 67 samples with 1 evaluation.
+ Range <span class="ansi-black-intense-fg">(</span><span class="ansi-cyan-intense-fg ansi-bold">min</span> … <span class="ansi-magenta-fg">max</span><span class="ansi-black-intense-fg">):  </span><span class="ansi-cyan-intense-fg ansi-bold">72.338 ms</span> … <span class="ansi-magenta-fg">104.730 ms</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>min … max<span class="ansi-black-intense-fg">): </span>0.00% … 0.00%
+ Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-blue-intense-fg ansi-bold">median</span><span class="ansi-black-intense-fg">):     </span><span class="ansi-blue-intense-fg ansi-bold">73.986 ms               </span><span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>median<span class="ansi-black-intense-fg">):    </span>0.00%
+ Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-green-intense-fg ansi-bold">mean</span> ± <span class="ansi-green-fg">σ</span><span class="ansi-black-intense-fg">):   </span><span class="ansi-green-intense-fg ansi-bold">75.805 ms</span> ± <span class="ansi-green-fg">  5.319 ms</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>mean ± σ<span class="ansi-black-intense-fg">):  </span>0.00% ± 0.00%
+
+  █▁  <span class="ansi-blue-fg"> </span>    <span class="ansi-green-fg"> </span>                                                    
+  ██▆▅<span class="ansi-blue-fg">▇</span>▅▇▄▅<span class="ansi-green-fg">▇</span>▄▁▁▁▃▁▁▃▁▃▄▁▃▃▃▁▄▁▁▁▁▁▁▁▁▁▁▁▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃ ▁
+  72.3 ms<span class="ansi-black-intense-fg">         Histogram: frequency by time</span>           95 ms <span class="ansi-bold">&lt;</span>
+
+ Memory estimate<span class="ansi-black-intense-fg">: </span><span class="ansi-yellow-fg">0 bytes</span>, allocs estimate<span class="ansi-black-intense-fg">: </span><span class="ansi-yellow-fg">0</span>.</pre>
 </div>
 
 </div>
@@ -16534,7 +16548,7 @@ where $n$ is the length of <code>a</code> and $f$ is a function defined in Julia
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[44]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[43]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="nd">@benchmark</span><span class="p">(</span><span class="n">cc_sqrt_sum</span><span class="p">(</span><span class="o">$</span><span class="n">a</span><span class="p">))</span><span class="w"></span>
@@ -16553,23 +16567,22 @@ where $n$ is the length of <code>a</code> and $f$ is a function defined in Julia
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[44]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[43]:</div>
 
 
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>BenchmarkTools.Trial: 
-  memory estimate:  0 bytes
-  allocs estimate:  0
-  --------------
-  minimum time:     15.340 ms (0.00% GC)
-  median time:      16.551 ms (0.00% GC)
-  mean time:        16.678 ms (0.00% GC)
-  maximum time:     23.612 ms (0.00% GC)
-  --------------
-  samples:          300
-  evals/sample:     1</pre>
+<pre>BenchmarkTools.Trial: 202 samples with 1 evaluation.
+ Range <span class="ansi-black-intense-fg">(</span><span class="ansi-cyan-intense-fg ansi-bold">min</span> … <span class="ansi-magenta-fg">max</span><span class="ansi-black-intense-fg">):  </span><span class="ansi-cyan-intense-fg ansi-bold">24.082 ms</span> … <span class="ansi-magenta-fg"> 28.802 ms</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>min … max<span class="ansi-black-intense-fg">): </span>0.00% … 0.00%
+ Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-blue-intense-fg ansi-bold">median</span><span class="ansi-black-intense-fg">):     </span><span class="ansi-blue-intense-fg ansi-bold">24.452 ms               </span><span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>median<span class="ansi-black-intense-fg">):    </span>0.00%
+ Time  <span class="ansi-black-intense-fg">(</span><span class="ansi-green-intense-fg ansi-bold">mean</span> ± <span class="ansi-green-fg">σ</span><span class="ansi-black-intense-fg">):   </span><span class="ansi-green-intense-fg ansi-bold">24.770 ms</span> ± <span class="ansi-green-fg">833.654 μs</span>  <span class="ansi-black-intense-fg">┊</span> GC <span class="ansi-black-intense-fg">(</span>mean ± σ<span class="ansi-black-intense-fg">):  </span>0.00% ± 0.00%
+
+  ▃▄▄█▄<span class="ansi-blue-fg">▂</span>   <span class="ansi-green-fg"> </span>                                                    
+  █████<span class="ansi-blue-fg">█</span>▇▇▄<span class="ansi-green-fg">▅</span>▃▄▄▃▅▃▃▁▃▅▄▃▁▃▄▃▃▃▃▄▁▃▃▃▁▁▁▁▁▃▁▁▁▁▁▁▁▃▁▁▁▁▃▁▁▁▁▁▁▃ ▃
+  24.1 ms<span class="ansi-black-intense-fg">         Histogram: frequency by time</span>         28.6 ms <span class="ansi-bold">&lt;</span>
+
+ Memory estimate<span class="ansi-black-intense-fg">: </span><span class="ansi-yellow-fg">0 bytes</span>, allocs estimate<span class="ansi-black-intense-fg">: </span><span class="ansi-yellow-fg">0</span>.</pre>
 </div>
 
 </div>
@@ -16590,22 +16603,6 @@ where $n$ is the length of <code>a</code> and $f$ is a function defined in Julia
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div></section></section>
 </div>
 </div>
@@ -16638,7 +16635,7 @@ require(
             transition: "slide",
             slideNumber: "",
             plugins: [RevealNotes],
-            width: '100%',
+            idth: '100%',
             height: '100%'
         });
 

@@ -1,6 +1,6 @@
 NBCONVERT := jupyter nbconvert --to slides --stdout
 
-all: Parallel.html
+all: Parallel_Distributed.html Parallel_Threaded.html
 
 %.html: %.ipynb
 	$(NBCONVERT) $^ > $@

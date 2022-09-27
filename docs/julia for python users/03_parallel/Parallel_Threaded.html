@@ -7,7 +7,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 
-<title>Parallel slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Parallel_Threaded slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 <!-- General and theme style sheets -->
 <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.0.2/dist/reveal.css">
@@ -14659,32 +14659,8 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="A-(very)-Brief-Look-at-Parallelization">A (very) Brief Look at Parallelization<a class="anchor-link" href="#A-(very)-Brief-Look-at-Parallelization">&#182;</a></h1><p>(<a href="../index.html#/0/5">Back to Overview</a>)</p>
+<h1 id="A-(very)-Brief-Look-at-Multi-Threaded-Computing">A (very) Brief Look at Multi-Threaded Computing<a class="anchor-link" href="#A-(very)-Brief-Look-at-Multi-Threaded-Computing">&#182;</a></h1><p>(<a href="../index.html#/0/5">Back to Overview</a>)</p>
 
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Here we will look at how parallel computing can be achieved from within Julia. The nice thing about Julia is that parallel computing is baked into the standard library. This is only a very brief overview (and I will elaborate more on this in the future), mainly targeted at running MD simulations.</p>
-<p>For more details on fine-grained control like <code>@spawn</code>, take a look at: https://docs.julialang.org/en/stable/manual/parallel-computing/</p>
-
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Conotroling-the-number-of-workers">Conotroling the number of workers<a class="anchor-link" href="#Conotroling-the-number-of-workers">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -14695,7 +14671,30 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>You can control the number of worker processes from the command line by running <code>julia -p n</code> where $n$ is the number of workers. Alternatively, we can use the <code>addprocs</code> command:</p>
+<p>Here we will look at how (distributed) parallel computing can be achieved from within Julia. The nice thing about Julia is that parallel computing is baked into the standard library. This is only a very brief overview -- but should be enough to get everyone started.</p>
+
+</div>
+</div>
+</div>
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Controling-the-number-of-threads">Controling the number of threads<a class="anchor-link" href="#Controling-the-number-of-threads">&#182;</a></h3>
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Let's check the number of threads</p>
 
 </div>
 </div>
@@ -14708,7 +14707,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">workers</span><span class="p">()</span><span class="w"></span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">Threads</span><span class="o">.</span><span class="n">nthreads</span><span class="p">()</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -14730,8 +14729,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>1-element Vector{Int64}:
- 1</pre>
+<pre>4</pre>
 </div>
 
 </div>
@@ -14740,7 +14738,42 @@ div.jp-OutputPrompt {
 
 </div>
 
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Note that we can't change the number of threads of a running <code>julia</code> process. It is controlled either from the command line by running <code>julia -t n</code>, where $n$ is the number of workers; or by the <code>JULIA_NUM_THREADS</code> envionment variable.</p>
+
+</div>
+</div>
+</div>
+</div></div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Multi-Threaded-for-loops">Multi-Threaded <code>for</code> loops<a class="anchor-link" href="#Multi-Threaded-for-loops">&#182;</a></h2>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>The <code>@threads</code> macro spreads a for loop over the available threads</p>
+
+</div>
+</div>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -14748,7 +14781,11 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">addprocs</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"></span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">zeros</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"></span>
+<span class="n">Threads</span><span class="o">.</span><span class="nd">@threads</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="mi">10</span><span class="w"></span>
+<span class="w">    </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Threads</span><span class="o">.</span><span class="n">threadid</span><span class="p">()</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
+<span class="n">println</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -14762,44 +14799,46 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputArea-child">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>8-element Vector{Int64}:
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9</pre>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>[1.0, 1.0, 1.0, 2.0, 2.0, 2.0, 3.0, 3.0, 4.0, 4.0]
+</pre>
+</div>
 </div>
 
 </div>
 
 </div>
 
-</div>
-
-</div>
+</div></div><div class="fragment">
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>which spawned 8 worker threads:</p>
+<p><strong>Warning:</strong> this placement can be random!</p>
 
 </div>
 </div>
 </div>
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Let's test the performance of multi-threaded code</p>
+
+</div>
+</div>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -14807,7 +14846,13 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">workers</span><span class="p">()</span><span class="w"></span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">sqrt_array</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">similar</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">eachindex</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="nd">@inbounds</span><span class="w"> </span><span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sqrt</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="n">B</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -14829,15 +14874,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>8-element Vector{Int64}:
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9</pre>
+<pre>sqrt_array (generic function with 1 method)</pre>
 </div>
 
 </div>
@@ -14846,34 +14883,7 @@ div.jp-OutputPrompt {
 
 </div>
 
-</div></div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Prarallel-for-loops-and-@parallel-reduction">Prarallel <code>for</code> loops and <code>@parallel</code> reduction<a class="anchor-link" href="#Prarallel-for-loops-and-@parallel-reduction">&#182;</a></h2>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>The easiest way to perform an operation in parallel is to use the <code>@parallel</code> macro. More details can be found here: https://docs.julialang.org/en/stable/manual/parallel-computing/#Parallel-Map-and-Loops-1</p>
-<p>In the example below, we throw a &quot;coin&quot; 200000000 times, and count how many heads there are by casting the output of the <code>rand</code> command. So</p>
-<div class="highlight"><pre><span></span><span class="kt">Int</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="kt">Bool</span><span class="p">))</span><span class="w"></span>
-</pre></div>
-<p>would give $0$ with  probability of $0.5$, and $1$ the rest of time. Since want to do this in parallel using the <code>@parallel</code> macro together with a <code>for</code> loop. Note that <code>@parallel for i = 1:200000000</code> would run through the loop in parallel, but would not send the result back to the controler. That's where the <code>(+)</code> function comes in. It applies the <code>+(.,.)</code> function to the result of each loop iteration and &quot;reduces&quot; the result of all these parallel runs into a single variable (<code>nheads</code>)</p>
-
-</div>
-</div>
-</div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -14881,19 +14891,12 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">n_heads</span><span class="p">()</span><span class="w"></span>
-<span class="w">    </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="mi">200000000</span><span class="w"></span>
-<span class="w">        </span><span class="n">n</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="kt">Int</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="kt">Bool</span><span class="p">))</span><span class="w"></span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">threaded_sqrt_array</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">similar</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">Threads</span><span class="o">.</span><span class="nd">@threads</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">eachindex</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="nd">@inbounds</span><span class="w"> </span><span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sqrt</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
-<span class="w">    </span><span class="n">n</span><span class="w"></span>
-<span class="k">end</span><span class="w"></span>
-
-<span class="k">function</span><span class="w"> </span><span class="n">n_heads_parallel</span><span class="p">()</span><span class="w"></span>
-<span class="w">    </span><span class="n">nheads</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nd">@distributed</span><span class="w"> </span><span class="p">(</span><span class="o">+</span><span class="p">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="mi">200000000</span><span class="w"></span>
-<span class="w">        </span><span class="kt">Int</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="kt">Bool</span><span class="p">))</span><span class="w"></span>
-<span class="w">    </span><span class="k">end</span><span class="w"></span>
-<span class="w">    </span><span class="n">nheads</span><span class="w"></span>
+<span class="w">    </span><span class="n">B</span><span class="w"></span>
 <span class="k">end</span><span class="w"></span>
 </pre></div>
 
@@ -14916,7 +14919,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>n_heads_parallel (generic function with 1 method)</pre>
+<pre>threaded_sqrt_array (generic function with 1 method)</pre>
 </div>
 
 </div>
@@ -14925,7 +14928,7 @@ div.jp-OutputPrompt {
 
 </div>
 
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -14933,7 +14936,8 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="nd">@benchmark</span><span class="p">(</span><span class="n">n_heads</span><span class="p">())</span><span class="w"></span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="w"> </span><span class="mi">1000</span><span class="p">)</span><span class="w"></span>
+<span class="nd">@btime</span><span class="w"> </span><span class="n">sqrt_array</span><span class="p">(</span><span class="n">A</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -14947,42 +14951,30 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputArea-child">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>BenchmarkTools.Trial: 
-  memory estimate:  0 bytes
-  allocs estimate:  0
-  --------------
-  minimum time:     529.141 ms (0.00% GC)
-  median time:      544.115 ms (0.00% GC)
-  mean time:        547.785 ms (0.00% GC)
-  maximum time:     579.280 ms (0.00% GC)
-  --------------
-  samples:          10
-  evals/sample:     1</pre>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>  1.506 ms (2 allocations: 7.63 MiB)
+</pre>
+</div>
 </div>
 
 </div>
 
 </div>
 
-</div>
-
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="nd">@benchmark</span><span class="p">(</span><span class="n">n_heads_parallel</span><span class="p">())</span><span class="w"></span>
+<div class=" highlight hl-julia"><pre><span></span><span class="nd">@btime</span><span class="w"> </span><span class="n">threaded_sqrt_array</span><span class="p">(</span><span class="n">A</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -14996,56 +14988,58 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputArea-child">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>BenchmarkTools.Trial: 
-  memory estimate:  27.59 KiB
-  allocs estimate:  682
-  --------------
-  minimum time:     160.312 ms (0.00% GC)
-  median time:      181.090 ms (0.00% GC)
-  mean time:        185.900 ms (0.00% GC)
-  maximum time:     263.847 ms (0.00% GC)
-  --------------
-  samples:          27
-  evals/sample:     1</pre>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>  515.931 μs (27 allocations: 7.63 MiB)
+</pre>
+</div>
 </div>
 
 </div>
 
 </div>
 
-</div>
-
-</div></section><section>
+</div></div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Let's do something more reminiscent of MD simulations: let's fill an array (<code>a</code>) some sort of computed index. It might be very tempting to do this:</p>
+<h2 id="Reductions-and-multi-threaded-code">Reductions and multi-threaded code<a class="anchor-link" href="#Reductions-and-multi-threaded-code">&#182;</a></h2>
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Multi-threaded code can encounter race conditions. Let's look at this code which calculates the map-reduced sum square root:</p>
 
 </div>
 </div>
 </div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">zeros</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"></span>
-<span class="nd">@distributed</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="mi">10</span><span class="w"></span>
-<span class="w">    </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="o">^</span><span class="mi">2</span><span class="w"></span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">sqrt_sum</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">zero</span><span class="p">(</span><span class="n">eltype</span><span class="p">(</span><span class="n">A</span><span class="p">))</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">eachindex</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="nd">@inbounds</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">sqrt</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">s</span><span class="w"></span>
 <span class="k">end</span><span class="w"></span>
 </pre></div>
 
@@ -15062,74 +15056,13 @@ div.jp-OutputPrompt {
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
 
 
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>Task (runnable) @0x0000000107f65210</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div></div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Which seems to not have done anything?!</p>
-
-</div>
-</div>
-</div>
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">a</span><span class="w"></span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[20]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>10-element Array{Float64,1}:
- 0.0
- 0.0
- 0.0
- 0.0
- 0.0
- 0.0
- 0.0
- 0.0
- 0.0
- 0.0</pre>
+<pre>sqrt_sum (generic function with 1 method)</pre>
 </div>
 
 </div>
@@ -15145,73 +15078,26 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>This might seem odd, since the for loop definitely did <em>work</em>. But if you look at the output from the <code>@parallel for</code> loop you might notice all of these <code>Future</code> data types. These are future calls (from the perspective of thread 1, i.e. the control thread): they might or might not have happened. And they <em>definitely</em> will take place in the &quot;future&quot; from the time you hit &lt;shift+enter&gt;. So basically, the work in the loop was done (in the future), and you just haven't &quot;collected&quot; the data onto the control thread's copy of the array <code>a</code>.</p>
-<p>Let's test our hypothesis by spawing a remote call (a <code>Future</code>) on a different thread to retrieve the global <code>a</code> stored there, and returning a remote reference <code>Bref</code>. We can then fetch the output back to the control thread using the <code>fetch(Bref)</code> command.</p>
-<p>https://docs.julialang.org/en/stable/manual/parallel-computing/#Data-Movement-1</p>
+<p>The naive versioun would be:</p>
 
 </div>
 </div>
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">Bref</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nd">@spawnat</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">a</span><span class="w"></span>
-<span class="n">fetch</span><span class="p">(</span><span class="n">Bref</span><span class="p">)</span><span class="w"></span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[21]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>10-element Array{Float64,1}:
- 1.0
- 4.0
- 0.0
- 0.0
- 0.0
- 0.0
- 0.0
- 0.0
- 0.0
- 0.0</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
 </div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">Bref</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nd">@spawnat</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="n">a</span><span class="w"></span>
-<span class="n">fetch</span><span class="p">(</span><span class="n">Bref</span><span class="p">)</span><span class="w"></span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">threaded_sqrt_sum</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">zero</span><span class="p">(</span><span class="n">eltype</span><span class="p">(</span><span class="n">A</span><span class="p">))</span><span class="w"></span>
+<span class="w">    </span><span class="n">Threads</span><span class="o">.</span><span class="nd">@threads</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">eachindex</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="nd">@inbounds</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">sqrt</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">s</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15227,23 +15113,13 @@ div.jp-OutputPrompt {
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[22]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
 
 
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>10-element Array{Float64,1}:
-  0.0
-  0.0
-  9.0
- 16.0
-  0.0
-  0.0
-  0.0
-  0.0
-  0.0
-  0.0</pre>
+<pre>threaded_sqrt_sum (generic function with 1 method)</pre>
 </div>
 
 </div>
@@ -15259,35 +15135,125 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Aha! So we're doing work... it's just that we need to synchronize the data in the array <code>a</code>...</p>
+<p>since multiple threads write to s <em>at the same time</em>, we encounter a race condition.</p>
 
 </div>
 </div>
 </div>
-</div></div></section></section><section><section>
+</div></div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Use-SharedArray-for-Data-Movement">Use <code>SharedArray</code> for Data Movement<a class="anchor-link" href="#Use-SharedArray-for-Data-Movement">&#182;</a></h3>
+<p>We can see this by comparing the results:</p>
+
 </div>
 </div>
 </div>
-</div></section><section>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[33]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">sqrt_sum</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[33]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>666276.2521367806</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[34]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">threaded_sqrt_sum</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[34]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>166545.27314915543</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div></div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Not to be confused with <a href="https://github.com/JuliaParallel/DistributedArrays.jl">Distributed Arrays</a> (<code>DArray</code>), <code>SharedArray</code>s make all their data available accross all threads. Let's have a look:</p>
+<h3 id="Atomic-Opertaions">Atomic Opertaions<a class="anchor-link" href="#Atomic-Opertaions">&#182;</a></h3>
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>A work-around is to use atomic operations:</p>
 
 </div>
 </div>
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -15295,10 +15261,12 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">SharedArray</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="mi">10</span><span class="p">)</span><span class="w"></span>
-<span class="nd">@distributed</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="mi">10</span><span class="w"></span>
-<span class="w">    </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="o">^</span><span class="mi">2</span><span class="w"></span>
-<span class="w">    </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="c"># implicit  comms!</span><span class="w"></span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">threaded_sqrt_sum_atomic</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Threads</span><span class="o">.</span><span class="kt">Atomic</span><span class="p">{</span><span class="kt">eltype</span><span class="p">(</span><span class="kt">A</span><span class="p">)}(</span><span class="n">zero</span><span class="p">(</span><span class="n">eltype</span><span class="p">(</span><span class="n">A</span><span class="p">)))</span><span class="w"></span>
+<span class="w">    </span><span class="n">Threads</span><span class="o">.</span><span class="nd">@threads</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">eachindex</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="nd">@inbounds</span><span class="w"> </span><span class="n">Threads</span><span class="o">.</span><span class="n">atomic_add!</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">sqrt</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">s</span><span class="p">[]</span><span class="w"></span>
 <span class="k">end</span><span class="w"></span>
 </pre></div>
 
@@ -15321,7 +15289,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>Task (runnable) @0x0000000106cf4250</pre>
+<pre>threaded_sqrt_sum_atomic (generic function with 1 method)</pre>
 </div>
 
 </div>
@@ -15330,15 +15298,62 @@ div.jp-OutputPrompt {
 
 </div>
 
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>But this effectively serializes the code (only one atomic will run at a time). Instead we can change the algorithm a bit:</p>
+
+</div>
+</div>
+</div>
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Independent-Work">Independent Work<a class="anchor-link" href="#Independent-Work">&#182;</a></h3>
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Let's break up the sum into independent work</p>
+
+</div>
+</div>
+</div>
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">a</span><span class="w"></span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">threaded_sqrt_sum_independent</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="c"># Independent work part</span><span class="w"></span>
+<span class="w">    </span><span class="n">partial</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">zeros</span><span class="p">(</span><span class="n">eltype</span><span class="p">(</span><span class="n">A</span><span class="p">),</span><span class="w"> </span><span class="n">Threads</span><span class="o">.</span><span class="n">nthreads</span><span class="p">())</span><span class="w"></span>
+<span class="w">    </span><span class="n">Threads</span><span class="o">.</span><span class="nd">@threads</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">eachindex</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="nd">@inbounds</span><span class="w"> </span><span class="n">partial</span><span class="p">[</span><span class="n">Threads</span><span class="o">.</span><span class="n">threadid</span><span class="p">()]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">sqrt</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="c"># Single-threaded part</span><span class="w"></span>
+<span class="w">    </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">zero</span><span class="p">(</span><span class="n">eltype</span><span class="p">(</span><span class="n">A</span><span class="p">))</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">eachindex</span><span class="p">(</span><span class="n">partial</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">s</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">partial</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">s</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15354,23 +15369,13 @@ div.jp-OutputPrompt {
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[24]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[28]:</div>
 
 
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>10-element SharedArray{Float64,1}:
-   1.0
-   4.0
-   9.0
-  16.0
-  25.0
-  36.0
-  49.0
-  64.0
-  81.0
- 100.0</pre>
+<pre>threaded_sqrt_sum_independent (generic function with 1 method)</pre>
 </div>
 
 </div>
@@ -15386,60 +15391,20 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>... magic! There is a price to pay for this kind of convenience, but we'll see that later. So if you want a more fine-grained control over the communications and memory foot print, Distributed Arrays might be a better (if not more tedious) choice.</p>
-<p>https://github.com/JuliaParallel/DistributedArrays.jl#distributed-arrays</p>
+<p>And let's see how they compare:</p>
 
 </div>
 </div>
 </div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="The-@everywhere-Macro">The <code>@everywhere</code> Macro<a class="anchor-link" href="#The-@everywhere-Macro">&#182;</a></h2>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Before we continue with <code>SharedArray</code>, let's make a brief tangent to the oh-so-useful <code>@everywhere</code> macro. As the name suggests, it runs a command... well... everywhere:</p>
-
-</div>
-</div>
-</div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="nd">@everywhere</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myid</span><span class="p">()</span><span class="w"></span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="nd">@everywhere</span><span class="w"> </span><span class="n">println</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="w"></span>
+<div class=" highlight hl-julia"><pre><span></span><span class="nd">@btime</span><span class="w"> </span><span class="n">sqrt_sum</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15459,35 +15424,125 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>1
-      From worker 8:	8
-      From worker 2:	2
-      From worker 4:	4
-      From worker 5:	5
-      From worker 3:	3
-      From worker 7:	7
-      From worker 9:	9
-      From worker 6:	6
+<pre>  1.465 ms (1 allocation: 16 bytes)
 </pre>
 </div>
 </div>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>666276.2521367806</pre>
+</div>
+
+</div>
 
 </div>
 
 </div>
 
-</div></div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>... which is very useful for making functions/modules available to all the workers</p>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="nd">@btime</span><span class="w"> </span><span class="n">threaded_sqrt_sum_atomic</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>  42.910 ms (27 allocations: 2.05 KiB)
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[24]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>666276.2521367898</pre>
+</div>
 
 </div>
+
+</div>
+
+</div>
+
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[29]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="nd">@btime</span><span class="w"> </span><span class="n">threaded_sqrt_sum_independent</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+
+     </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>  677.865 μs (27 allocations: 2.12 KiB)
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[29]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>666276.2521367706</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </div></div></section></section>
 </div>
 </div>
@@ -15519,7 +15574,9 @@ require(
             history: true,
             transition: "slide",
             slideNumber: "",
-            plugins: [RevealNotes]
+            plugins: [RevealNotes],
+            width: '100%',
+            height: '100%'
         });
 
         var update = function(event){

@@ -1,0 +1,6 @@
+{
+    "username": "user",
+    "password": "pw",
+    "host": "mds22-loadbalancer.ntrain.production.svc.spin.nersc.org",
+    "name": "coffee"
+}

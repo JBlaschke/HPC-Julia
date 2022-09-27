@@ -14876,7 +14876,7 @@ div.jp-OutputPrompt {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">Dates</span><span class="w"></span>
@@ -14966,7 +14966,7 @@ div.jp-OutputPrompt {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">describe</span><span class="p">(</span><span class="n">all_emeter_data</span><span class="p">)</span><span class="w"></span>
@@ -14985,7 +14985,7 @@ div.jp-OutputPrompt {
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
 
 
 
@@ -15004,48 +15004,10 @@ div.jp-OutputPrompt {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">all_emeter_data</span><span class="p">[</span><span class="k">end</span><span class="p">,</span><span class="o">:</span><span class="p">]</span><span class="w"></span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<p>DataFrameRow (7 columns)</p><div class="data-frame"><table class="data-frame"><thead><tr><th></th><th>idx</th><th>t</th><th>ma</th><th>mv</th><th>mw</th><th>wh</th><th>timestamp</th></tr><tr><th></th><th title="Int32">Int32</th><th title="Union{Missing, Float64}">Float64?</th><th title="Union{Missing, Int32}">Int32?</th><th title="Union{Missing, Int32}">Int32?</th><th title="Union{Missing, Int32}">Int32?</th><th title="Union{Missing, Int32}">Int32?</th><th title="ZonedDateTime">ZonedDat…</th></tr></thead><tbody><tr><th>4950350</th><td>4958709</td><td>1.64955e9</td><td>59</td><td>120037</td><td>7106</td><td>25200</td><td>2022-04-09T17:29:25.218-07:00</td></tr></tbody></table></div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nd">@view</span><span class="w"> </span><span class="n">all_emeter_data</span><span class="p">[</span><span class="k">end</span><span class="o">-</span><span class="kt">Int</span><span class="p">(</span><span class="mf">2e5</span><span class="p">)</span><span class="o">:</span><span class="k">end</span><span class="p">,</span><span class="w"> </span><span class="o">:</span><span class="p">]</span><span class="w"></span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">all_emeter_data</span><span class="p">[</span><span class="k">end</span><span class="p">,</span><span class="o">:</span><span class="p">]</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15066,7 +15028,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<div class="data-frame"><p>200,001 rows × 7 columns</p><table class="data-frame"><thead><tr><th></th><th>idx</th><th>t</th><th>ma</th><th>mv</th><th>mw</th><th>wh</th><th>timestamp</th></tr><tr><th></th><th title="Int32">Int32</th><th title="Union{Missing, Float64}">Float64?</th><th title="Union{Missing, Int32}">Int32?</th><th title="Union{Missing, Int32}">Int32?</th><th title="Union{Missing, Int32}">Int32?</th><th title="Union{Missing, Int32}">Int32?</th><th title="ZonedDateTime">ZonedDat…</th></tr></thead><tbody><tr><th>1</th><td>4758709</td><td>1.64929e9</td><td>60</td><td>121604</td><td>7243</td><td>21087</td><td>2022-04-06T17:06:07.072-07:00</td></tr><tr><th>2</th><td>4758710</td><td>1.64929e9</td><td>60</td><td>121604</td><td>7293</td><td>21087</td><td>2022-04-06T17:06:08.072-07:00</td></tr><tr><th>3</th><td>4758711</td><td>1.64929e9</td><td>60</td><td>121604</td><td>7293</td><td>21087</td><td>2022-04-06T17:06:09.074-07:00</td></tr><tr><th>4</th><td>4758712</td><td>1.64929e9</td><td>60</td><td>121604</td><td>7293</td><td>21087</td><td>2022-04-06T17:06:10.075-07:00</td></tr><tr><th>5</th><td>4758713</td><td>1.64929e9</td><td>60</td><td>121559</td><td>7293</td><td>21087</td><td>2022-04-06T17:06:11.077-07:00</td></tr><tr><th>6</th><td>4758714</td><td>1.64929e9</td><td>60</td><td>121559</td><td>7293</td><td>21087</td><td>2022-04-06T17:06:12.078-07:00</td></tr><tr><th>7</th><td>4758715</td><td>1.64929e9</td><td>60</td><td>121559</td><td>7315</td><td>21087</td><td>2022-04-06T17:06:13.079-07:00</td></tr><tr><th>8</th><td>4758716</td><td>1.64929e9</td><td>60</td><td>121559</td><td>7315</td><td>21087</td><td>2022-04-06T17:06:14.081-07:00</td></tr><tr><th>9</th><td>4758717</td><td>1.64929e9</td><td>60</td><td>121559</td><td>7315</td><td>21087</td><td>2022-04-06T17:06:15.082-07:00</td></tr><tr><th>10</th><td>4758718</td><td>1.64929e9</td><td>60</td><td>121560</td><td>7301</td><td>21087</td><td>2022-04-06T17:06:16.083-07:00</td></tr><tr><th>11</th><td>4758719</td><td>1.64929e9</td><td>60</td><td>121484</td><td>7248</td><td>21087</td><td>2022-04-06T17:06:22.745-07:00</td></tr><tr><th>12</th><td>4758720</td><td>1.64929e9</td><td>60</td><td>121484</td><td>7248</td><td>21087</td><td>2022-04-06T17:06:26.675-07:00</td></tr><tr><th>13</th><td>4758721</td><td>1.64929e9</td><td>60</td><td>121484</td><td>7300</td><td>21087</td><td>2022-04-06T17:06:28.463-07:00</td></tr><tr><th>14</th><td>4758722</td><td>1.64929e9</td><td>60</td><td>121484</td><td>7300</td><td>21087</td><td>2022-04-06T17:06:29.464-07:00</td></tr><tr><th>15</th><td>4758723</td><td>1.64929e9</td><td>60</td><td>121484</td><td>7300</td><td>21087</td><td>2022-04-06T17:06:30.465-07:00</td></tr><tr><th>16</th><td>4758724</td><td>1.64929e9</td><td>60</td><td>121484</td><td>7300</td><td>21087</td><td>2022-04-06T17:06:31.466-07:00</td></tr><tr><th>17</th><td>4758725</td><td>1.64929e9</td><td>60</td><td>121484</td><td>7297</td><td>21087</td><td>2022-04-06T17:06:32.467-07:00</td></tr><tr><th>18</th><td>4758726</td><td>1.64929e9</td><td>60</td><td>121514</td><td>7284</td><td>21087</td><td>2022-04-06T17:06:33.468-07:00</td></tr><tr><th>19</th><td>4758727</td><td>1.64929e9</td><td>60</td><td>121281</td><td>7292</td><td>21087</td><td>2022-04-06T17:06:40.013-07:00</td></tr><tr><th>20</th><td>4758728</td><td>1.64929e9</td><td>60</td><td>121067</td><td>7219</td><td>21087</td><td>2022-04-06T17:07:00.210-07:00</td></tr><tr><th>21</th><td>4758729</td><td>1.64929e9</td><td>60</td><td>121067</td><td>7219</td><td>21087</td><td>2022-04-06T17:07:01.211-07:00</td></tr><tr><th>22</th><td>4758730</td><td>1.64929e9</td><td>60</td><td>121241</td><td>7238</td><td>21087</td><td>2022-04-06T17:07:02.212-07:00</td></tr><tr><th>23</th><td>4758731</td><td>1.64929e9</td><td>60</td><td>121241</td><td>7238</td><td>21087</td><td>2022-04-06T17:07:07.864-07:00</td></tr><tr><th>24</th><td>4758732</td><td>1.64929e9</td><td>60</td><td>121241</td><td>7238</td><td>21087</td><td>2022-04-06T17:07:08.865-07:00</td></tr><tr><th>25</th><td>4758733</td><td>1.64929e9</td><td>60</td><td>121241</td><td>7238</td><td>21087</td><td>2022-04-06T17:07:09.867-07:00</td></tr><tr><th>26</th><td>4758734</td><td>1.64929e9</td><td>60</td><td>121525</td><td>7238</td><td>21087</td><td>2022-04-06T17:07:10.868-07:00</td></tr><tr><th>27</th><td>4758735</td><td>1.64929e9</td><td>60</td><td>121525</td><td>7238</td><td>21087</td><td>2022-04-06T17:07:11.869-07:00</td></tr><tr><th>28</th><td>4758736</td><td>1.64929e9</td><td>60</td><td>121525</td><td>7306</td><td>21087</td><td>2022-04-06T17:07:12.871-07:00</td></tr><tr><th>29</th><td>4758737</td><td>1.64929e9</td><td>60</td><td>121525</td><td>7306</td><td>21087</td><td>2022-04-06T17:07:13.872-07:00</td></tr><tr><th>30</th><td>4758738</td><td>1.64929e9</td><td>60</td><td>121525</td><td>7306</td><td>21087</td><td>2022-04-06T17:07:14.873-07:00</td></tr><tr><th>&vellip;</th><td>&vellip;</td><td>&vellip;</td><td>&vellip;</td><td>&vellip;</td><td>&vellip;</td><td>&vellip;</td><td>&vellip;</td></tr></tbody></table></div>
+<p>DataFrameRow (7 columns)</p><div class="data-frame"><table class="data-frame"><thead><tr><th></th><th>idx</th><th>t</th><th>ma</th><th>mv</th><th>mw</th><th>wh</th><th>timestamp</th></tr><tr><th></th><th title="Int32">Int32</th><th title="Union{Missing, Float64}">Float64?</th><th title="Union{Missing, Int32}">Int32?</th><th title="Union{Missing, Int32}">Int32?</th><th title="Union{Missing, Int32}">Int32?</th><th title="Union{Missing, Int32}">Int32?</th><th title="ZonedDateTime">ZonedDat…</th></tr></thead><tbody><tr><th>4950350</th><td>4958709</td><td>1.64955e9</td><td>59</td><td>120037</td><td>7106</td><td>25200</td><td>2022-04-09T17:29:25.218-07:00</td></tr></tbody></table></div>
 </div>
 
 </div>
@@ -15083,8 +15045,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">Plots</span><span class="w"></span>
-<span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="w"> </span><span class="ss">:mv</span><span class="p">])</span><span class="w"></span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nd">@view</span><span class="w"> </span><span class="n">all_emeter_data</span><span class="p">[</span><span class="k">end</span><span class="o">-</span><span class="kt">Int</span><span class="p">(</span><span class="mf">2e5</span><span class="p">)</span><span class="o">:</span><span class="k">end</span><span class="p">,</span><span class="w"> </span><span class="o">:</span><span class="p">]</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15104,6 +15065,45 @@ div.jp-OutputPrompt {
 
 
 
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div class="data-frame"><p>200,001 rows × 7 columns</p><table class="data-frame"><thead><tr><th></th><th>idx</th><th>t</th><th>ma</th><th>mv</th><th>mw</th><th>wh</th><th>timestamp</th></tr><tr><th></th><th title="Int32">Int32</th><th title="Union{Missing, Float64}">Float64?</th><th title="Union{Missing, Int32}">Int32?</th><th title="Union{Missing, Int32}">Int32?</th><th title="Union{Missing, Int32}">Int32?</th><th title="Union{Missing, Int32}">Int32?</th><th title="ZonedDateTime">ZonedDat…</th></tr></thead><tbody><tr><th>1</th><td>4758709</td><td>1.64929e9</td><td>60</td><td>121604</td><td>7243</td><td>21087</td><td>2022-04-06T17:06:07.072-07:00</td></tr><tr><th>2</th><td>4758710</td><td>1.64929e9</td><td>60</td><td>121604</td><td>7293</td><td>21087</td><td>2022-04-06T17:06:08.072-07:00</td></tr><tr><th>3</th><td>4758711</td><td>1.64929e9</td><td>60</td><td>121604</td><td>7293</td><td>21087</td><td>2022-04-06T17:06:09.074-07:00</td></tr><tr><th>4</th><td>4758712</td><td>1.64929e9</td><td>60</td><td>121604</td><td>7293</td><td>21087</td><td>2022-04-06T17:06:10.075-07:00</td></tr><tr><th>5</th><td>4758713</td><td>1.64929e9</td><td>60</td><td>121559</td><td>7293</td><td>21087</td><td>2022-04-06T17:06:11.077-07:00</td></tr><tr><th>6</th><td>4758714</td><td>1.64929e9</td><td>60</td><td>121559</td><td>7293</td><td>21087</td><td>2022-04-06T17:06:12.078-07:00</td></tr><tr><th>7</th><td>4758715</td><td>1.64929e9</td><td>60</td><td>121559</td><td>7315</td><td>21087</td><td>2022-04-06T17:06:13.079-07:00</td></tr><tr><th>8</th><td>4758716</td><td>1.64929e9</td><td>60</td><td>121559</td><td>7315</td><td>21087</td><td>2022-04-06T17:06:14.081-07:00</td></tr><tr><th>9</th><td>4758717</td><td>1.64929e9</td><td>60</td><td>121559</td><td>7315</td><td>21087</td><td>2022-04-06T17:06:15.082-07:00</td></tr><tr><th>10</th><td>4758718</td><td>1.64929e9</td><td>60</td><td>121560</td><td>7301</td><td>21087</td><td>2022-04-06T17:06:16.083-07:00</td></tr><tr><th>11</th><td>4758719</td><td>1.64929e9</td><td>60</td><td>121484</td><td>7248</td><td>21087</td><td>2022-04-06T17:06:22.745-07:00</td></tr><tr><th>12</th><td>4758720</td><td>1.64929e9</td><td>60</td><td>121484</td><td>7248</td><td>21087</td><td>2022-04-06T17:06:26.675-07:00</td></tr><tr><th>13</th><td>4758721</td><td>1.64929e9</td><td>60</td><td>121484</td><td>7300</td><td>21087</td><td>2022-04-06T17:06:28.463-07:00</td></tr><tr><th>14</th><td>4758722</td><td>1.64929e9</td><td>60</td><td>121484</td><td>7300</td><td>21087</td><td>2022-04-06T17:06:29.464-07:00</td></tr><tr><th>15</th><td>4758723</td><td>1.64929e9</td><td>60</td><td>121484</td><td>7300</td><td>21087</td><td>2022-04-06T17:06:30.465-07:00</td></tr><tr><th>16</th><td>4758724</td><td>1.64929e9</td><td>60</td><td>121484</td><td>7300</td><td>21087</td><td>2022-04-06T17:06:31.466-07:00</td></tr><tr><th>17</th><td>4758725</td><td>1.64929e9</td><td>60</td><td>121484</td><td>7297</td><td>21087</td><td>2022-04-06T17:06:32.467-07:00</td></tr><tr><th>18</th><td>4758726</td><td>1.64929e9</td><td>60</td><td>121514</td><td>7284</td><td>21087</td><td>2022-04-06T17:06:33.468-07:00</td></tr><tr><th>19</th><td>4758727</td><td>1.64929e9</td><td>60</td><td>121281</td><td>7292</td><td>21087</td><td>2022-04-06T17:06:40.013-07:00</td></tr><tr><th>20</th><td>4758728</td><td>1.64929e9</td><td>60</td><td>121067</td><td>7219</td><td>21087</td><td>2022-04-06T17:07:00.210-07:00</td></tr><tr><th>21</th><td>4758729</td><td>1.64929e9</td><td>60</td><td>121067</td><td>7219</td><td>21087</td><td>2022-04-06T17:07:01.211-07:00</td></tr><tr><th>22</th><td>4758730</td><td>1.64929e9</td><td>60</td><td>121241</td><td>7238</td><td>21087</td><td>2022-04-06T17:07:02.212-07:00</td></tr><tr><th>23</th><td>4758731</td><td>1.64929e9</td><td>60</td><td>121241</td><td>7238</td><td>21087</td><td>2022-04-06T17:07:07.864-07:00</td></tr><tr><th>24</th><td>4758732</td><td>1.64929e9</td><td>60</td><td>121241</td><td>7238</td><td>21087</td><td>2022-04-06T17:07:08.865-07:00</td></tr><tr><th>25</th><td>4758733</td><td>1.64929e9</td><td>60</td><td>121241</td><td>7238</td><td>21087</td><td>2022-04-06T17:07:09.867-07:00</td></tr><tr><th>26</th><td>4758734</td><td>1.64929e9</td><td>60</td><td>121525</td><td>7238</td><td>21087</td><td>2022-04-06T17:07:10.868-07:00</td></tr><tr><th>27</th><td>4758735</td><td>1.64929e9</td><td>60</td><td>121525</td><td>7238</td><td>21087</td><td>2022-04-06T17:07:11.869-07:00</td></tr><tr><th>28</th><td>4758736</td><td>1.64929e9</td><td>60</td><td>121525</td><td>7306</td><td>21087</td><td>2022-04-06T17:07:12.871-07:00</td></tr><tr><th>29</th><td>4758737</td><td>1.64929e9</td><td>60</td><td>121525</td><td>7306</td><td>21087</td><td>2022-04-06T17:07:13.872-07:00</td></tr><tr><th>30</th><td>4758738</td><td>1.64929e9</td><td>60</td><td>121525</td><td>7306</td><td>21087</td><td>2022-04-06T17:07:14.873-07:00</td></tr><tr><th>&vellip;</th><td>&vellip;</td><td>&vellip;</td><td>&vellip;</td><td>&vellip;</td><td>&vellip;</td><td>&vellip;</td><td>&vellip;</td></tr></tbody></table></div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">Plots</span><span class="w"></span>
+<span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="w"> </span><span class="ss">:mv</span><span class="p">])</span><span class="w"></span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
+
+
+
 <div class="jp-RenderedSVG jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="image/svg+xml">
 b'<svg width="600" height="400">\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</svg>\n'
 </div>
@@ -15119,7 +15119,7 @@ b'<svg width="600" height="400">\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n  \n
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">StatsBase</span><span class="p">,</span><span class="w"> </span><span class="n">LinearAlgebra</span><span class="w"></span>
@@ -15142,7 +15142,7 @@ b'<svg width="600" height="400">\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n  \n
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
 
 
 
@@ -15167,7 +15167,7 @@ isdensity: true</pre>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">collect</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">edges</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="w"></span>
@@ -15189,7 +15189,7 @@ isdensity: true</pre>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
 
 
 

@@ -14659,7 +14659,7 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="The-Structure-of-a-Julia-Program">The Structure of a Julia Program<a class="anchor-link" href="#The-Structure-of-a-Julia-Program">&#182;</a></h1><p>(<a href="../index.html#/0/3">Back to Overview</a>)</p>
+<h1 id="The-Structure-of-a-Julia-Program">The Structure of a Julia Program<a class="anchor-link" href="#The-Structure-of-a-Julia-Program">&#182;</a></h1><p>(<a href="../presentation_index.html#/0/2">Back to Overview</a>)</p>
 
 </div>
 </div>
@@ -14714,24 +14714,24 @@ div.jp-OutputPrompt {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Created using the <code>module</code> keyword. They are frequently used to encapsulate source files into their own name-space:</p>
-<div class="highlight"><pre><span></span><span class="k">module</span><span class="w"> </span><span class="n">MyModule</span>
+<div class="highlight"><pre><span></span><span class="k">module</span><span class="w"> </span><span class="n">MyModule</span><span class="w"></span>
 
-<span class="n">include</span><span class="p">(</span><span class="s">&quot;my_function.jl&quot;</span><span class="p">)</span>
+<span class="n">include</span><span class="p">(</span><span class="s">&quot;my_function.jl&quot;</span><span class="p">)</span><span class="w"></span>
 
-<span class="k">export</span><span class="w"> </span><span class="n">my_func</span>
+<span class="k">export</span><span class="w"> </span><span class="n">my_func</span><span class="w"></span>
 
-<span class="k">end</span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 <p>With the external source file <code>my_function.jl</code>:</p>
-<div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">my_helper</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="w">    </span><span class="o">...</span>
-<span class="k">end</span>
+<div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">my_helper</span><span class="p">(</span><span class="o">...</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="o">...</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 
-<span class="k">function</span><span class="w"> </span><span class="n">my_func</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="w">    </span><span class="o">...</span>
-<span class="w">    </span><span class="n">my_helper</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="w">    </span><span class="o">...</span>
-<span class="k">end</span>
+<span class="k">function</span><span class="w"> </span><span class="n">my_func</span><span class="p">(</span><span class="o">...</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="o">...</span><span class="w"></span>
+<span class="w">    </span><span class="n">my_helper</span><span class="p">(</span><span class="o">...</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="o">...</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 <p>This hides <code>my_helper</code> from all functions outside of <code>MyModule</code>.</p>
 
@@ -14770,17 +14770,17 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">module</span><span class="w"> </span><span class="n">ModuleA</span>
-<span class="k">function</span><span class="w"> </span><span class="n">hello</span><span class="p">()</span>
-<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Hi from A&quot;</span><span class="p">)</span>
-<span class="k">end</span>
-<span class="k">end</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">module</span><span class="w"> </span><span class="n">ModuleA</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span><span class="n">hello</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Hi from A&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 
-<span class="k">module</span><span class="w"> </span><span class="n">ModuleB</span>
-<span class="k">function</span><span class="w"> </span><span class="n">hello</span><span class="p">()</span>
-<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Hi from B&quot;</span><span class="p">)</span>
-<span class="k">end</span>
-<span class="k">end</span><span class="p">;</span>
+<span class="k">module</span><span class="w"> </span><span class="n">ModuleB</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span><span class="n">hello</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Hi from B&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
+<span class="k">end</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -14808,7 +14808,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">ModuleA</span><span class="o">.</span><span class="n">hello</span><span class="p">()</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">ModuleA</span><span class="o">.</span><span class="n">hello</span><span class="p">()</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -14845,7 +14845,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">ModuleB</span><span class="o">.</span><span class="n">hello</span><span class="p">()</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">ModuleB</span><span class="o">.</span><span class="n">hello</span><span class="p">()</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -14952,13 +14952,13 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">begin</span><span class="w"></span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
 <span class="w">    </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span>
-<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span>
-<span class="k">end</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 
-<span class="nd">@show</span><span class="w"> </span><span class="n">z</span><span class="p">;</span>
+<span class="nd">@show</span><span class="w"> </span><span class="n">z</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15007,7 +15007,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="nd">@show</span><span class="w"> </span><span class="n">y</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="nd">@show</span><span class="w"> </span><span class="n">y</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15079,15 +15079,15 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
-<span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
-<span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">y</span>
-<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;x is less than y&quot;</span><span class="p">)</span>
-<span class="k">elseif</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">y</span>
-<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;x is greater than y&quot;</span><span class="p">)</span>
-<span class="k">else</span>
-<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;x is equal to y&quot;</span><span class="p">)</span>
-<span class="k">end</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">y</span><span class="w"></span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;x is less than y&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="k">elseif</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">y</span><span class="w"></span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;x is greater than y&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="k">else</span><span class="w"></span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;x is equal to y&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15136,7 +15136,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;x is less than y&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;x is greater than, or equal to, y&quot;</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;x is less than y&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;x is greater than, or equal to, y&quot;</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15196,7 +15196,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;hi there&quot;</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;hi there&quot;</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15233,7 +15233,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;hi there&quot;</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;hi there&quot;</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15295,9 +15295,9 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="mi">10</span>
-<span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p">)</span>
-<span class="k">end</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="mi">10</span><span class="w"></span>
+<span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15333,11 +15333,11 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
-<span class="k">while</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span>
-<span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p">)</span>
-<span class="w">    </span><span class="n">i</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span>
-<span class="k">end</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="k">while</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="w"></span>
+<span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">i</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15396,15 +15396,15 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">try</span>
-<span class="w">    </span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="k">catch</span><span class="w"> </span><span class="n">e</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="k">isa</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="kt">DomainError</span><span class="p">)</span>
-<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;You (usually) can&#39;t take the square root of a negative number&quot;</span><span class="p">)</span>
-<span class="w">    </span><span class="k">end</span>
-<span class="k">finally</span>
-<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;This always executes&quot;</span><span class="p">)</span>
-<span class="k">end</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">try</span><span class="w"></span>
+<span class="w">    </span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="k">catch</span><span class="w"> </span><span class="n">e</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="k">isa</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="kt">DomainError</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;You (usually) can&#39;t take the square root of a negative number&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="k">finally</span><span class="w"></span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;This always executes&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15488,13 +15488,13 @@ This always executes
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">fib_1</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">2</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span>
-<span class="w">    </span><span class="k">end</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">fib_1</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
 
-<span class="w">    </span><span class="n">fib_1</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">fib_1</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
-<span class="k">end</span>
+<span class="w">    </span><span class="n">fib_1</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">fib_1</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15533,7 +15533,7 @@ This always executes
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">fib_1</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">fib_1</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15584,7 +15584,7 @@ This always executes
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="n">x</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="n">x</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15623,7 +15623,7 @@ This always executes
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15674,9 +15674,9 @@ This always executes
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">apply_fn</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
-<span class="w">    </span><span class="n">fn</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="k">end</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">apply_fn</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">fn</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15727,10 +15727,10 @@ This always executes
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="w">    </span><span class="n">x</span><span class="o">+</span><span class="mi">1</span>
-<span class="k">end</span>
-<span class="n">apply_fn</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
+<span class="n">apply_fn</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15781,7 +15781,7 @@ This always executes
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">apply_fn</span><span class="p">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">apply_fn</span><span class="p">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15832,9 +15832,9 @@ This always executes
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">apply_fn</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="n">x</span>
-<span class="w">    </span><span class="n">x</span><span class="o">+</span><span class="mi">1</span>
-<span class="k">end</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">apply_fn</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="n">x</span><span class="w"></span>
+<span class="w">    </span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 
      </div>
@@ -15873,6 +15873,182 @@ This always executes
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>The function signature of <code>apply_fn</code> is <code>apply_fn(fn, x)</code> (different <code>x</code> than in the <code>do ... end</code> block). <code>do</code> then replaces the first variable of <code>apply_fn</code> with the of the block (using the variable list after <code>do</code> to define anonymous function inputs).</p>
+
+</div>
+</div>
+</div>
+</div></div></section></section><section ><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Packaging">Packaging<a class="anchor-link" href="#Packaging">&#182;</a></h2>
+</div>
+</div>
+</div>
+</div></section><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>As you develop more sophisticated programs, it makes sense to organize the program into a Package.</p>
+
+</div>
+</div>
+</div>
+</div><div class="fragment" >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<ul>
+<li>Packages combine environments with your source code. This bundles your code with its (versioned) dependencies.</li>
+<li>Packages can be precompiled (during first import).</li>
+<li>Packages can be compiled into &quot;static&quot; Packages using: <a href="https://github.com/JuliaLang/PackageCompiler.jl">https://github.com/JuliaLang/PackageCompiler.jl</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+</div></div></section><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>To generate an empty package, run:</p>
+
+</div>
+</div>
+</div>
+</div><div class="fragment" ><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">Pkg</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="s">&quot;MyPkg&quot;</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre><span class="ansi-green-intense-fg ansi-bold">  Generating</span>  project MyPkg:
+    MyPkg/Project.toml
+    MyPkg/src/MyPkg.jl
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>Dict{String, Base.UUID} with 1 entry:
+  &#34;MyPkg&#34; =&gt; UUID(&#34;7a423785-7114-4cc9-b33d-0f2a2494f990&#34;)</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div></div></section><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Which generates the following directory structure:</p>
+
+</div>
+</div>
+</div>
+</div><div class="fragment" ><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span><span class="p">;</span><span class="n">tree</span><span class="w"></span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>.
+└── MyPkg
+    ├── Project.toml
+    └── src
+        └── MyPkg.jl
+
+2 directories, 2 files
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div></div><div class="fragment" >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Which contains one hello world module:</p>
+<div class="highlight"><pre><span></span><span class="k">module</span><span class="w"> </span><span class="n">MyPkg</span><span class="w"></span>
+
+<span class="n">greet</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello World!&quot;</span><span class="p">)</span><span class="w"></span>
+
+<span class="k">end</span><span class="w"> </span><span class="c"># module MyPkg</span><span class="w"></span>
+</pre></div>
 
 </div>
 </div>

@@ -1,5 +1,7 @@
 # Julia for HPC Users
 
+[Presentation Mode](https://jblaschke.github.io/HPC-Julia/presentation_index.html#)
+
 A collection of Julia Examples for NERSC's Cori and Perlmutter systems. Code
 examples [here](https://github.com/JBlaschke/HPC-Julia).
 
